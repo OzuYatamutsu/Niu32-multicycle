@@ -1,0 +1,16 @@
+<session jtag_chain="USB-Blaster [USB-0]" jtag_device="@1: EP2C(15|20) (0x020B30DD)" sof_file="Project2.sof">
+  <display_tree gui_logging_enabled="0"/>
+  <global_info>
+    <single attribute="active instance" value="0"/>
+    <multi attribute="frame size" size="2" value="800,600"/>
+    <single attribute="jtag widget visible" value="1"/>
+    <multi attribute="jtag widget size" size="2" value="334,189"/>
+    <single attribute="instance widget visible" value="1"/>
+    <single attribute="config widget visible" value="1"/>
+    <single attribute="hierarchy widget visible" value="1"/>
+    <single attribute="data log widget visible" value="1"/>
+    <single attribute="sof manager visible" value="1"/>
+  </global_info>
+  <mnemonics/>
+  <static_plugin_mnemonics/>
+</session>
