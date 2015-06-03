@@ -86,18 +86,28 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked(lock));
     wire reset = !lock;
     
+    // Init seven-segment display - grab values from memory
+    SevenSeg Hex0Out(.IN(ADDR_HEX[3:0]), OUT(HEX0));
+    SevenSeg Hex1Out(.IN(ADDR_HEX[7:4]), .OUT(HEX1));
+    SevenSeg Hex2Out(.IN(ADDR_HEX[11:8]), .OUT(HEX2));
+    SevenSeg Hex3Out(.IN(ADDR_HEX[15:12]), .OUT(HEX3));
+    
     // Create bus
     tri [(WORD_SIZE - 1):0] bus;
     
     // Create PC
     reg [(WORD_SIZE - 1):0] PC; // Program counter register.
     
+    // PC logic
     always @(posedge clk or posedge reset) begin
     if (reset)
+        // If we're given the reset signal, reset the PC to the start.
         PC <= PC_STARTLOC;
     else if (LdPC)
+        // If LdPC, grab the PC value from the bus.
         PC <= bus;
     else if (IncPC)
+        // Otherwise, increment the PC to the next instruction.
         PC <= PC + INSTR_SIZE;
     end
 endmodule
