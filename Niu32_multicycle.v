@@ -87,10 +87,10 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     wire reset = !lock;
     
     // Init seven-segment display - grab values from memory
-    SevenSeg Hex0Out(.IN(ADDR_HEX[3:0]), OUT(HEX0));
-    SevenSeg Hex1Out(.IN(ADDR_HEX[7:4]), .OUT(HEX1));
-    SevenSeg Hex2Out(.IN(ADDR_HEX[11:8]), .OUT(HEX2));
-    SevenSeg Hex3Out(.IN(ADDR_HEX[15:12]), .OUT(HEX3));
+    SevenSeg Hex0Out(.hexNumIn(ADDR_HEX[3:0]), .displayOut(HEX0));
+    SevenSeg Hex1Out(.hexNumIn(ADDR_HEX[7:4]), .displayOut(HEX1));
+    SevenSeg Hex2Out(.hexNumIn(ADDR_HEX[11:8]), .displayOut(HEX2));
+    SevenSeg Hex3Out(.hexNumIn(ADDR_HEX[15:12]), .displayOut(HEX3));
     
     // Create bus
     tri [(WORD_SIZE - 1):0] bus;

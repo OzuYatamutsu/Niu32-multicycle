@@ -114,7 +114,7 @@ GND                          : AA21      : gnd    :                   :         
 VCCIO6                       : AA22      : power  :                   : 3.3V    : 6         :                
 GND                          : AB1       : gnd    :                   :         :           :                
 VCCIO8                       : AB2       : power  :                   : 3.3V    : 8         :                
-RESERVED_INPUT               : AB3       :        :                   :         : 8         :                
+SWITCH[9]                    : AB3       : input  : 3.3-V LVTTL       :         : 8         : N              
 RESERVED_INPUT               : AB4       :        :                   :         : 8         :                
 RESERVED_INPUT               : AB5       :        :                   :         : 8         :                
 RESERVED_INPUT               : AB6       :        :                   :         : 8         :                
@@ -124,7 +124,7 @@ RESERVED_INPUT               : AB9       :        :                   :         
 RESERVED_INPUT               : AB10      :        :                   :         : 8         :                
 RESERVED_INPUT               : AB11      :        :                   :         : 8         :                
 RESERVED_INPUT               : AB12      :        :                   :         : 7         :                
-RESERVED_INPUT               : AB13      :        :                   :         : 7         :                
+SWITCH[5]                    : AB13      : input  : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT               : AB14      :        :                   :         : 7         :                
 RESERVED_INPUT               : AB15      :        :                   :         : 7         :                
 RESERVED_INPUT               : AB16      :        :                   :         : 7         :                
@@ -149,7 +149,7 @@ GND+                         : B12       :        :                   :         
 RESERVED_INPUT               : B13       :        :                   :         : 4         :                
 RESERVED_INPUT               : B14       :        :                   :         : 4         :                
 RESERVED_INPUT               : B15       :        :                   :         : 4         :                
-RESERVED_INPUT               : B16       :        :                   :         : 4         :                
+SWITCH[2]                    : B16       : input  : 3.3-V LVTTL       :         : 4         : N              
 RESERVED_INPUT               : B17       :        :                   :         : 4         :                
 RESERVED_INPUT               : B18       :        :                   :         : 4         :                
 RESERVED_INPUT               : B19       :        :                   :         : 4         :                
@@ -162,9 +162,9 @@ HEX2[2]                      : C2        : output : 3.3-V LVTTL       :         
 ~ASDO~ / RESERVED_INPUT_WITH_WEAK_PULLUP : C4        : input  : 3.3-V LVTTL       :         : 2         : N              
 GND                          : C5        : gnd    :                   :         :           :                
 VCCIO3                       : C6        : power  :                   : 3.3V    : 3         :                
-RESERVED_INPUT               : C7        :        :                   :         : 3         :                
+SWITCH[6]                    : C7        : input  : 3.3-V LVTTL       :         : 3         : N              
 GND                          : C8        : gnd    :                   :         :           :                
-RESERVED_INPUT               : C9        :        :                   :         : 3         :                
+SWITCH[7]                    : C9        : input  : 3.3-V LVTTL       :         : 3         : N              
 RESERVED_INPUT               : C10       :        :                   :         : 3         :                
 VCCIO3                       : C11       : power  :                   : 3.3V    : 3         :                
 VCCIO4                       : C12       : power  :                   : 3.3V    : 4         :                
@@ -172,7 +172,7 @@ RESERVED_INPUT               : C13       :        :                   :         
 RESERVED_INPUT               : C14       :        :                   :         : 4         :                
 GND                          : C15       : gnd    :                   :         :           :                
 RESERVED_INPUT               : C16       :        :                   :         : 4         :                
-RESERVED_INPUT               : C17       :        :                   :         : 4         :                
+SWITCH[8]                    : C17       : input  : 3.3-V LVTTL       :         : 4         : N              
 RESERVED_INPUT               : C18       :        :                   :         : 4         :                
 RESERVED_INPUT               : C19       :        :                   :         : 5         :                
 RESERVED_INPUT               : C20       :        :                   :         : 5         :                
@@ -250,7 +250,7 @@ HEX1[4]                      : G3        : output : 3.3-V LVTTL       :         
 GND                          : G4        : gnd    :                   :         :           :                
 HEX2[0]                      : G5        : output : 3.3-V LVTTL       :         : 2         : Y              
 HEX2[1]                      : G6        : output : 3.3-V LVTTL       :         : 2         : Y              
-RESERVED_INPUT               : G7        :        :                   :         : 3         :                
+SWITCH[0]                    : G7        : input  : 3.3-V LVTTL       :         : 3         : N              
 RESERVED_INPUT               : G8        :        :                   :         : 3         :                
 VCCIO3                       : G9        : power  :                   : 3.3V    : 3         :                
 GND                          : G10       : gnd    :                   :         :           :                
@@ -333,7 +333,7 @@ RESERVED_INPUT               : K20       :        :                   :         
 RESERVED_INPUT               : K21       :        :                   :         : 5         :                
 RESERVED_INPUT               : K22       :        :                   :         : 5         :                
 CLOCK_50                     : L1        : input  : 3.3-V LVTTL       :         : 2         : Y              
-SW[9]                        : L2        : input  : 3.3-V LVTTL       :         : 2         : Y              
+GND+                         : L2        :        :                   :         : 2         :                
 VCCIO2                       : L3        : power  :                   : 3.3V    : 2         :                
 nCONFIG                      : L4        :        :                   :         : 2         :                
 TDO                          : L5        : output :                   :         : 2         :                
@@ -352,13 +352,13 @@ NC                           : L17       :        :                   :         
 RESERVED_INPUT               : L18       :        :                   :         : 5         :                
 RESERVED_INPUT               : L19       :        :                   :         : 5         :                
 VCCIO5                       : L20       : power  :                   : 3.3V    : 5         :                
-SW[1]                        : L21       : input  : 3.3-V LVTTL       :         : 5         : Y              
-SW[0]                        : L22       : input  : 3.3-V LVTTL       :         : 5         : Y              
-SW[8]                        : M1        : input  : 3.3-V LVTTL       :         : 1         : Y              
-SW[7]                        : M2        : input  : 3.3-V LVTTL       :         : 1         : Y              
+GND+                         : L21       :        :                   :         : 5         :                
+GND+                         : L22       :        :                   :         : 5         :                
+GND+                         : M1        :        :                   :         : 1         :                
+GND+                         : M2        :        :                   :         : 1         :                
 VCCIO1                       : M3        : power  :                   : 3.3V    : 1         :                
 GND                          : M4        : gnd    :                   :         :           :                
-RESERVED_INPUT               : M5        :        :                   :         : 1         :                
+SWITCH[4]                    : M5        : input  : 3.3-V LVTTL       :         : 1         : N              
 RESERVED_INPUT               : M6        :        :                   :         : 1         :                
 NC                           : M7        :        :                   :         :           :                
 NC                           : M8        :        :                   :         :           :                
@@ -375,7 +375,7 @@ RESERVED_INPUT               : M18       :        :                   :         
 RESERVED_INPUT               : M19       :        :                   :         : 6         :                
 VCCIO6                       : M20       : power  :                   : 3.3V    : 6         :                
 GND+                         : M21       :        :                   :         : 6         :                
-SW[2]                        : M22       : input  : 3.3-V LVTTL       :         : 6         : Y              
+GND+                         : M22       :        :                   :         : 6         :                
 RESERVED_INPUT               : N1        :        :                   :         : 1         :                
 RESERVED_INPUT               : N2        :        :                   :         : 1         :                
 RESERVED_INPUT               : N3        :        :                   :         : 1         :                
@@ -429,7 +429,7 @@ RESERVED_INPUT               : R6        :        :                   :         
 RESERVED_INPUT               : R7        :        :                   :         : 1         :                
 RESERVED_INPUT               : R8        :        :                   :         : 1         :                
 RESERVED_INPUT               : R9        :        :                   :         : 8         :                
-RESERVED_INPUT               : R10       :        :                   :         : 8         :                
+SWITCH[1]                    : R10       : input  : 3.3-V LVTTL       :         : 8         : N              
 RESERVED_INPUT               : R11       :        :                   :         : 8         :                
 RESERVED_INPUT               : R12       :        :                   :         : 7         :                
 RESERVED_INPUT               : R13       :        :                   :         : 7         :                
@@ -474,8 +474,8 @@ VCCA_PLL1                    : U7        : power  :                   : 1.2V    
 RESERVED_INPUT               : U8        :        :                   :         : 8         :                
 RESERVED_INPUT               : U9        :        :                   :         : 8         :                
 RESERVED_INPUT               : U10       :        :                   :         : 8         :                
-SW[6]                        : U11       : input  : 3.3-V LVTTL       :         : 8         : Y              
-SW[5]                        : U12       : input  : 3.3-V LVTTL       :         : 8         : Y              
+GND+                         : U11       :        :                   :         : 8         :                
+GND+                         : U12       :        :                   :         : 8         :                
 RESERVED_INPUT               : U13       :        :                   :         : 7         :                
 RESERVED_INPUT               : U14       :        :                   :         : 7         :                
 RESERVED_INPUT               : U15       :        :                   :         : 7         :                
@@ -497,7 +497,7 @@ RESERVED_INPUT               : V8        :        :                   :         
 RESERVED_INPUT               : V9        :        :                   :         : 8         :                
 VCCIO8                       : V10       : power  :                   : 3.3V    : 8         :                
 RESERVED_INPUT               : V11       :        :                   :         : 8         :                
-SW[3]                        : V12       : input  : 3.3-V LVTTL       :         : 7         : Y              
+GND+                         : V12       :        :                   :         : 7         :                
 VCCIO7                       : V13       : power  :                   : 3.3V    : 7         :                
 RESERVED_INPUT               : V14       :        :                   :         : 7         :                
 RESERVED_INPUT               : V15       :        :                   :         : 7         :                
@@ -519,9 +519,9 @@ RESERVED_INPUT               : W8        :        :                   :         
 RESERVED_INPUT               : W9        :        :                   :         : 8         :                
 GND                          : W10       : gnd    :                   :         :           :                
 RESERVED_INPUT               : W11       :        :                   :         : 8         :                
-SW[4]                        : W12       : input  : 3.3-V LVTTL       :         : 7         : Y              
+GND+                         : W12       :        :                   :         : 7         :                
 GND                          : W13       : gnd    :                   :         :           :                
-RESERVED_INPUT               : W14       :        :                   :         : 7         :                
+SWITCH[3]                    : W14       : input  : 3.3-V LVTTL       :         : 7         : N              
 RESERVED_INPUT               : W15       :        :                   :         : 7         :                
 RESERVED_INPUT               : W16       :        :                   :         : 7         :                
 VCCIO7                       : W17       : power  :                   : 3.3V    : 7         :                
