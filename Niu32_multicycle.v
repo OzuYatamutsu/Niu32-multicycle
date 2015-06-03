@@ -39,6 +39,48 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg LdA, LdB, DrALU;
     reg [(OP_BITS - 1):0] ALUfunc;
     
+    /// Opcodes
+    // Primary
+    parameter OP1_ALUI = 5'b00000;
+    parameter OP1_ADDI = 5'b00001;
+    parameter OP1_MLTI = 5'b00010;
+    parameter OP1_DIVI = 5'b00011;
+    parameter OP1_ANDI = 5'b00101;
+    parameter OP1_ORI = 5'b00110;
+    parameter OP1_XORI = 5'b00111;
+    parameter OP1_SULI = 5'b01000;
+    parameter OP1_SSLI = 5'b01001;
+    parameter OP1_SURI = 5'b01010;
+    parameter OP1_SSRI = 5'b01011;
+    parameter OP1_LW = 5'b10000;
+    parameter OP1_LB = 5'b10001;
+    parameter OP1_SW = 5'b10011;
+    parameter OP1_SB = 5'b10100;
+    parameter OP1_LUI = 5'b10110;
+    parameter OP1_BEQ = 5'b11000;
+    parameter OP1_BNE = 5'b11001;
+    parameter OP1_BLT = 5'b11010;
+    parameter OP1_BLE = 5'b11011;
+    parameter OP1_JAL = 5'b11111;
+    
+    // Secondary
+    parameter OP2_SUB = 5'b00000;
+    parameter OP2_ADD = 5'b00001;
+    parameter OP2_MLT = 5'b00010;
+    parameter OP2_DIV = 5'b00011;
+    parameter OP2_NOT = 5'b00100;
+    parameter OP2_AND = 5'b00101;
+    parameter OP2_OR = 5'b00110;
+    parameter OP2_XOR = 5'b00111;
+    parameter OP2_SUL = 5'b01000;
+    parameter OP2_SSL = 5'b01001;
+    parameter OP2_SUR = 5'b01010;
+    parameter OP2_SSR = 5'b01011;
+    parameter OP2_EQ = 5'b10000;
+    parameter OP2_NEQ = 5'b10001;
+    parameter OP2_LT = 5'b10010;
+    parameter OP2_LEQ = 5'b10011;
+    
     // Init clock signal, lock signal
     wire clk, lock;
     Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked(lock));
