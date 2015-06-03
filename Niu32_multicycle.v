@@ -25,7 +25,37 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter INIT_MIF = ""; // IMPORTANT! Point this to assembled Niu32 MIF!
     parameter IMEM_WORDS = 2048; // Max number of words in instruction memory.
     parameter DMEM_WORDS = 2048; // Max number of words in data memory.
+    parameter PC_STARTLOC = 32'h0; // Starting value of PC.
     
     // Other
     parameter BUS_NOSIG = {WORD_SIZE{1'bZ}}; // Default block signal on bus
+    
+    // Control signals
+    reg LdPC, DrPC, IncPC;
+    reg WrMem, DrMem, LdMAR;
+    reg WeReg, DrReg;
+    reg LdIR;
+    reg DrOff;
+    reg LdA, LdB, DrALU;
+    reg [(OP_BITS - 1):0] ALUfunc;
+    
+    // Init clock signal, lock signal
+    wire clk, lock;
+    Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked(lock));
+    wire reset = !lock;
+    
+    // Create bus
+    tri [(WORD_SIZE - 1):0] bus;
+    
+    // Create PC
+    reg [(WORD_SIZE - 1):0] PC; // Program counter register.
+    
+    always @(posedge clk or posedge reset) begin
+    if (reset)
+        PC <= PC_STARTLOC;
+    else if (LdPC)
+        PC <= bus;
+    else if (IncPC)
+        PC <= PC + INSTR_SIZE;
+    end
 endmodule
