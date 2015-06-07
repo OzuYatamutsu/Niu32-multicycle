@@ -122,4 +122,40 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg [(WORD_SIZE - 1):0] IR; // Instruction register
     wire imemOutput = imem[PC[(MEM_ADDR_BITS - 1):MEM_WORD_OFFSET]];
     
+    // Data memory
+    (* ram_init_file = INIT_MIF *)
+    
+    reg [(WORD_SIZE - 1):0] dmem[(DMEM_WORDS - 1):0];
+    reg [(WORD_SIZE - 1):0] MAR, MDR;
+    reg [(WORD_SIZE - 1):0] HEXout, LEDRout, LEDGout, KEYout, SWITCHout;
+    wire [(WORD_SIZE - 1):0] dmemOutput = WrMem ? {DBITS{1'bX}} : MDR;
+    
+  // Hook up MAR to MDR and update each clock
+  always @(posedge clk) begin
+    if (reset) begin
+        MAR <= {WORD_SIZE{1'bX}};
+        MDR <= {WORD_SIZE{1'bX}};
+    end else begin 
+        if (LdMAR)
+            MAR <= bus;
+        if (LdIR)
+			IR <= iMemOut;
+		if (WrMem && !reset) begin
+            if (MAR == ADDR_HEX)
+				HEX <= bus;
+			else if (MAR == ADDR_LEDG)
+				LEDGout <= bus;
+			else if (MAR == ADDR_LEDR)
+				LEDRout <= bus;
+			else 
+				dmem[(MAR[MEM_ADDR_BITS-1:0] >> MEM_WORD_OFFSET)] <= thebus;
+		end if (MAR == ADDR_KEY)
+			MDR <= {28'b0, KEY};
+		else if (MAR == ADDR_SWITCH)
+			MDR <= {12'b0, SWITCH}; 
+		else
+			MDR <= dmem[(MAR[MEM_ADDR_BITS - 1:0] >> MEM_WORD_OFFSET)];	
+        end
+    end
+    
 endmodule
