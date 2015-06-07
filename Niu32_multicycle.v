@@ -25,8 +25,10 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter INIT_MIF = ""; // IMPORTANT! Point this to assembled Niu32 MIF!
     parameter IMEM_WORDS = 2048; // Max number of words in instruction memory.
     parameter DMEM_WORDS = 2048; // Max number of words in data memory.
+    parameter MEM_ADDR_BITS = 13; // Number of bits used for indexing into memory.
+    parameter MEM_WORD_OFFSET = 2; // Number of bits used for selecting individual memory words.
     parameter PC_STARTLOC = 32'h0; // Starting value of PC.
-    
+
     // Other
     parameter BUS_NOSIG = {WORD_SIZE{1'bZ}}; // Default block signal on bus
     
@@ -110,4 +112,14 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         // Otherwise, increment the PC to the next instruction.
         PC <= PC + INSTR_SIZE;
     end
+    
+    // Hook up PC to bus
+    assign bus = DrPC ? PC : BUS_NOSIG;
+    
+    // Instruction memory
+    (* ram_init_file = INIT_MIF *)
+    reg [(WORD_SIZE - 1):0] imem[(IMEM_WORDS - 1):0];
+    reg [(WORD_SIZE - 1):0] IR; // Instruction register
+    wire imemOutput = imem[PC[(MEM_ADDR_BITS - 1):MEM_WORD_OFFSET]];
+    
 endmodule
