@@ -39,7 +39,6 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg LdIR;
     reg DrOff;
     reg LdA, LdB, DrALU;
-    reg [(OP_BITS - 1):0] ALUfunc;
     
     /// Opcodes
     // Primary
@@ -148,14 +147,48 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             else if (MAR == ADDR_LEDR)
                 LEDRout <= bus;
             else 
-                dmem[(MAR[MEM_ADDR_BITS-1:0] >> MEM_WORD_OFFSET)] <= thebus;
+                dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)] <= thebus;
             end if (MAR == ADDR_KEY)
                 MDR <= {28'b0, KEY};
             else if (MAR == ADDR_SWITCH)
                 MDR <= {12'b0, SWITCH}; 
             else
-                MDR <= dmem[(MAR[MEM_ADDR_BITS - 1:0] >> MEM_WORD_OFFSET)]; 
+                MDR <= dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)]; 
         end
     end
+
+    // ALU
+    reg signed [(MEM_ADDR_BITS - 1):0] A, B, ALUout;
+    reg [(OP_BITS - 1):0] ALUfunc;
     
+    // Actual ALU logic
+    always @(posedge clk) begin
+        if (LdA)
+            A <= bus;
+        else if (LdB)
+            B <= bus;
+        
+        case (ALUfunc)
+            OP2_SUB: ALUout <= (A - B);
+            OP2_ADD: ALUout <= (A + B);
+            OP2_MLT: ALUout <= (A * B);
+            OP2_DIV: ALUout <= (A / B);
+            OP2_NOT: ALUout <= ~A;
+            OP2_AND: ALUout <= (A & B);
+            OP2_OR: ALUout <= (A | B);
+            OP2_XOR: ALUout <= (A ^ B);
+            OP2_SUL: ALUout <= (A << B);
+            OP2_SSL: ALUout <= (A <<< B);
+            OP2_SUR: ALUout <= (A >> B);
+            OP2_SSR: ALUout <= (A >>> B);
+            OP2_EQ: ALUout <= (A == B);
+            OP2_NEQ: ALUout <= (A != B);
+            OP2_LT: ALUout <= (A < B);
+            OP2_LEQ: ALUout <= (A <= B);
+            default: ALUout <= BUS_NOSIG;
+        endcase
+    end
+    
+    // Hook up ALU to bus
+    assign bus = DrALU ? ALUout : BUS_NOSIG;
 endmodule
