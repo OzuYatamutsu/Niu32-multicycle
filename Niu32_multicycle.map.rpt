@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Niu32_multicycle
-Tue Jun 02 22:22:48 2015
+Mon Jun 08 18:41:44 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -50,7 +50,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 02 22:22:48 2015           ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun 08 18:41:44 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Niu32_multicycle                                ;
 ; Top-level Entity Name              ; Niu32_multicycle                                ;
@@ -246,63 +246,65 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 +----------------------------------------------------------------------------------+
 ; Parameter Settings for User Entity Instance: Top-level Entity: |Niu32_multicycle ;
-+----------------+----------------------------------+------------------------------+
-; Parameter Name ; Value                            ; Type                         ;
-+----------------+----------------------------------+------------------------------+
-; WORD_SIZE      ; 32                               ; Signed Integer               ;
-; INSTR_SIZE     ; 4                                ; Signed Integer               ;
-; IMM_SIZE       ; 17                               ; Signed Integer               ;
-; NUM_REGS       ; 32                               ; Signed Integer               ;
-; REG_BITS       ; 5                                ; Signed Integer               ;
-; OP_BITS        ; 5                                ; Signed Integer               ;
-; ADDR_HEX       ; 11111111111111110000000000000000 ; Unsigned Binary              ;
-; ADDR_LEDR      ; 11111111111111110000000000100000 ; Unsigned Binary              ;
-; ADDR_LEDG      ; 11111111111111110000000001000000 ; Unsigned Binary              ;
-; ADDR_KEY       ; 11111111111111110000000100000000 ; Unsigned Binary              ;
-; ADDR_SWITCH    ; 11111111111111110000000100100000 ; Unsigned Binary              ;
-; INIT_MIF       ;                                  ; String                       ;
-; IMEM_WORDS     ; 2048                             ; Signed Integer               ;
-; DMEM_WORDS     ; 2048                             ; Signed Integer               ;
-; PC_STARTLOC    ; 00000000000000000000000000000000 ; Unsigned Binary              ;
-; BUS_NOSIG      ; ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ ; Unsigned Binary              ;
-; OP1_ALUI       ; 00000                            ; Unsigned Binary              ;
-; OP1_ADDI       ; 00001                            ; Unsigned Binary              ;
-; OP1_MLTI       ; 00010                            ; Unsigned Binary              ;
-; OP1_DIVI       ; 00011                            ; Unsigned Binary              ;
-; OP1_ANDI       ; 00101                            ; Unsigned Binary              ;
-; OP1_ORI        ; 00110                            ; Unsigned Binary              ;
-; OP1_XORI       ; 00111                            ; Unsigned Binary              ;
-; OP1_SULI       ; 01000                            ; Unsigned Binary              ;
-; OP1_SSLI       ; 01001                            ; Unsigned Binary              ;
-; OP1_SURI       ; 01010                            ; Unsigned Binary              ;
-; OP1_SSRI       ; 01011                            ; Unsigned Binary              ;
-; OP1_LW         ; 10000                            ; Unsigned Binary              ;
-; OP1_LB         ; 10001                            ; Unsigned Binary              ;
-; OP1_SW         ; 10011                            ; Unsigned Binary              ;
-; OP1_SB         ; 10100                            ; Unsigned Binary              ;
-; OP1_LUI        ; 10110                            ; Unsigned Binary              ;
-; OP1_BEQ        ; 11000                            ; Unsigned Binary              ;
-; OP1_BNE        ; 11001                            ; Unsigned Binary              ;
-; OP1_BLT        ; 11010                            ; Unsigned Binary              ;
-; OP1_BLE        ; 11011                            ; Unsigned Binary              ;
-; OP1_JAL        ; 11111                            ; Unsigned Binary              ;
-; OP2_SUB        ; 00000                            ; Unsigned Binary              ;
-; OP2_ADD        ; 00001                            ; Unsigned Binary              ;
-; OP2_MLT        ; 00010                            ; Unsigned Binary              ;
-; OP2_DIV        ; 00011                            ; Unsigned Binary              ;
-; OP2_NOT        ; 00100                            ; Unsigned Binary              ;
-; OP2_AND        ; 00101                            ; Unsigned Binary              ;
-; OP2_OR         ; 00110                            ; Unsigned Binary              ;
-; OP2_XOR        ; 00111                            ; Unsigned Binary              ;
-; OP2_SUL        ; 01000                            ; Unsigned Binary              ;
-; OP2_SSL        ; 01001                            ; Unsigned Binary              ;
-; OP2_SUR        ; 01010                            ; Unsigned Binary              ;
-; OP2_SSR        ; 01011                            ; Unsigned Binary              ;
-; OP2_EQ         ; 10000                            ; Unsigned Binary              ;
-; OP2_NEQ        ; 10001                            ; Unsigned Binary              ;
-; OP2_LT         ; 10010                            ; Unsigned Binary              ;
-; OP2_LEQ        ; 10011                            ; Unsigned Binary              ;
-+----------------+----------------------------------+------------------------------+
++-----------------+----------------------------------+-----------------------------+
+; Parameter Name  ; Value                            ; Type                        ;
++-----------------+----------------------------------+-----------------------------+
+; WORD_SIZE       ; 32                               ; Signed Integer              ;
+; INSTR_SIZE      ; 4                                ; Signed Integer              ;
+; IMM_SIZE        ; 17                               ; Signed Integer              ;
+; NUM_REGS        ; 32                               ; Signed Integer              ;
+; REG_BITS        ; 5                                ; Signed Integer              ;
+; OP_BITS         ; 5                                ; Signed Integer              ;
+; ADDR_HEX        ; 11111111111111110000000000000000 ; Unsigned Binary             ;
+; ADDR_LEDR       ; 11111111111111110000000000100000 ; Unsigned Binary             ;
+; ADDR_LEDG       ; 11111111111111110000000001000000 ; Unsigned Binary             ;
+; ADDR_KEY        ; 11111111111111110000000100000000 ; Unsigned Binary             ;
+; ADDR_SWITCH     ; 11111111111111110000000100100000 ; Unsigned Binary             ;
+; INIT_MIF        ;                                  ; String                      ;
+; IMEM_WORDS      ; 2048                             ; Signed Integer              ;
+; DMEM_WORDS      ; 2048                             ; Signed Integer              ;
+; MEM_ADDR_BITS   ; 13                               ; Signed Integer              ;
+; MEM_WORD_OFFSET ; 2                                ; Signed Integer              ;
+; PC_STARTLOC     ; 00000000000000000000000000000000 ; Unsigned Binary             ;
+; BUS_NOSIG       ; ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ ; Unsigned Binary             ;
+; OP1_ALUI        ; 00000                            ; Unsigned Binary             ;
+; OP1_ADDI        ; 00001                            ; Unsigned Binary             ;
+; OP1_MLTI        ; 00010                            ; Unsigned Binary             ;
+; OP1_DIVI        ; 00011                            ; Unsigned Binary             ;
+; OP1_ANDI        ; 00101                            ; Unsigned Binary             ;
+; OP1_ORI         ; 00110                            ; Unsigned Binary             ;
+; OP1_XORI        ; 00111                            ; Unsigned Binary             ;
+; OP1_SULI        ; 01000                            ; Unsigned Binary             ;
+; OP1_SSLI        ; 01001                            ; Unsigned Binary             ;
+; OP1_SURI        ; 01010                            ; Unsigned Binary             ;
+; OP1_SSRI        ; 01011                            ; Unsigned Binary             ;
+; OP1_LW          ; 10000                            ; Unsigned Binary             ;
+; OP1_LB          ; 10001                            ; Unsigned Binary             ;
+; OP1_SW          ; 10011                            ; Unsigned Binary             ;
+; OP1_SB          ; 10100                            ; Unsigned Binary             ;
+; OP1_LUI         ; 10110                            ; Unsigned Binary             ;
+; OP1_BEQ         ; 11000                            ; Unsigned Binary             ;
+; OP1_BNE         ; 11001                            ; Unsigned Binary             ;
+; OP1_BLT         ; 11010                            ; Unsigned Binary             ;
+; OP1_BLE         ; 11011                            ; Unsigned Binary             ;
+; OP1_JAL         ; 11111                            ; Unsigned Binary             ;
+; OP2_SUB         ; 00000                            ; Unsigned Binary             ;
+; OP2_ADD         ; 00001                            ; Unsigned Binary             ;
+; OP2_MLT         ; 00010                            ; Unsigned Binary             ;
+; OP2_DIV         ; 00011                            ; Unsigned Binary             ;
+; OP2_NOT         ; 00100                            ; Unsigned Binary             ;
+; OP2_AND         ; 00101                            ; Unsigned Binary             ;
+; OP2_OR          ; 00110                            ; Unsigned Binary             ;
+; OP2_XOR         ; 00111                            ; Unsigned Binary             ;
+; OP2_SUL         ; 01000                            ; Unsigned Binary             ;
+; OP2_SSL         ; 01001                            ; Unsigned Binary             ;
+; OP2_SUR         ; 01010                            ; Unsigned Binary             ;
+; OP2_SSR         ; 01011                            ; Unsigned Binary             ;
+; OP2_EQ          ; 10000                            ; Unsigned Binary             ;
+; OP2_NEQ         ; 10001                            ; Unsigned Binary             ;
+; OP2_LT          ; 10010                            ; Unsigned Binary             ;
+; OP2_LEQ         ; 10011                            ; Unsigned Binary             ;
++-----------------+----------------------------------+-----------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -748,7 +750,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -758,7 +760,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Jun 02 22:22:46 2015
+    Info: Processing started: Mon Jun 08 18:41:36 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file niu32_multicycle.v
@@ -768,9 +770,32 @@ Info (12021): Found 1 design units, including 1 entities, in source file pll.v
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.v
     Info (12023): Found entity 1: SevenSeg
 Info (12127): Elaborating entity "Niu32_multicycle" for the top level hierarchy
-Warning (10858): Verilog HDL warning at Niu32_multicycle.v(34): object LdPC used but never assigned
-Warning (10858): Verilog HDL warning at Niu32_multicycle.v(34): object IncPC used but never assigned
-Warning (10858): Verilog HDL warning at Niu32_multicycle.v(96): object bus used but never assigned
+Warning (10306): Invalid value "" for synthesis attribute "ram_init_file" at Niu32_multicycle.v(119)
+Warning (10306): Invalid value "" for synthesis attribute "ram_init_file" at Niu32_multicycle.v(125)
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(36): object LdPC used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(36): object DrPC used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(36): object IncPC used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(37): object WrMem used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(37): object LdMAR used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(39): object LdIR used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(41): object LdA used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(41): object LdB used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(41): object DrALU used but never assigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(120): object imem used but never assigned
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(121): object "IR" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(129): object "HEXout" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(129): object "LEDRout" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(129): object "LEDGout" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(130): object "dmemOutput" assigned a value but never read
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(162): object ALUfunc used but never assigned
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(122): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(167): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(169): truncated value with size 32 to match size of target (13)
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(180): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(181): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(182): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(183): converting signed shift amount to unsigned
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(188): truncated value with size 32 to match size of target (13)
 Warning (10034): Output port "LEDR" at Niu32_multicycle.v(5) has no driver
 Warning (10034): Output port "LEDG" at Niu32_multicycle.v(6) has no driver
 Info (12128): Elaborating entity "Pll" for hierarchy "Pll:pll"
@@ -904,10 +929,10 @@ Warning (21074): Design contains 15 input pin(s) that do not drive logic
 Info (21057): Implemented 61 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 46 output pins
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 71 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 94 warnings
     Info: Peak virtual memory: 471 megabytes
-    Info: Processing ended: Tue Jun 02 22:22:48 2015
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Processing ended: Mon Jun 08 18:41:44 2015
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:07
 
 
