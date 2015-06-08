@@ -127,7 +127,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg [(WORD_SIZE - 1):0] dmem[(DMEM_WORDS - 1):0];
     reg [(WORD_SIZE - 1):0] MAR, MDR;
     reg [(WORD_SIZE - 1):0] HEXout, LEDRout, LEDGout, KEYout, SWITCHout;
-    wire [(WORD_SIZE - 1):0] dmemOutput = WrMem ? {DBITS{1'bX}} : MDR;
+    wire [(WORD_SIZE - 1):0] dmemOutput = WrMem ? BUS_NOSIG : MDR;
     
   // Hook up MAR to MDR and update each clock
     always @(posedge clk) begin
@@ -138,16 +138,16 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             if (LdMAR)
                 MAR <= bus;
             if (LdIR)
-                IR <= iMemOut;
+                IR <= imemOutput;
         if (WrMem && !reset) begin
             if (MAR == ADDR_HEX)
-                HEX <= bus;
+                HEXout <= bus;
             else if (MAR == ADDR_LEDG)
                 LEDGout <= bus;
             else if (MAR == ADDR_LEDR)
                 LEDRout <= bus;
             else 
-                dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)] <= thebus;
+                dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)] <= bus;
             end if (MAR == ADDR_KEY)
                 MDR <= {28'b0, KEY};
             else if (MAR == ADDR_SWITCH)
