@@ -35,7 +35,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     // Control signals
     reg LdPC, DrPC, IncPC;
     reg WrMem, DrMem, LdMAR;
-    reg WeReg, DrReg;
+    reg WrReg, DrReg;
     reg LdIR;
     reg DrOff;
     reg LdA, LdB, DrALU;
@@ -126,7 +126,8 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     end
     
     // Hook up register file to bus
-    wire regOut [(WORD_SIZE - 1):0] = WrReg ? BUS_NOSIG : regFile[regSel];
+    wire [(WORD_SIZE - 1):0] regOut = WrReg ? BUS_NOSIG : regFile[regSel];
+    assign bus = DrReg ? regOut : BUS_NOSIG;
     
     // Instruction memory
     (* ram_init_file = INIT_MIF *)
