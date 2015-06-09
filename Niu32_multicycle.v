@@ -115,6 +115,19 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     // Hook up PC to bus
     assign bus = DrPC ? PC : BUS_NOSIG;
     
+    
+    // Register file
+    reg [(NUM_REGS - 1):0] regFile;
+    reg [(REG_BITS - 1):0] regSel; // Register selector
+    
+    always @(posedge clk) begin
+        if (WrReg && lock)
+            regFile[regSel] <= bus;
+    end
+    
+    // Hook up register file to bus
+    wire regOut [(WORD_SIZE - 1):0] = WrReg ? BUS_NOSIG : regFile[regSel];
+    
     // Instruction memory
     (* ram_init_file = INIT_MIF *)
     reg [(WORD_SIZE - 1):0] imem[(IMEM_WORDS - 1):0];
