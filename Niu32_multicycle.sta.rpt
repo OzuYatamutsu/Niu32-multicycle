@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for Niu32_multicycle
-Mon Jun 08 18:42:33 2015
+Mon Jun 08 22:39:25 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -87,7 +87,7 @@ applicable agreement for further details.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; Timing.sdc    ; OK     ; Mon Jun 08 18:42:32 2015 ;
+; Timing.sdc    ; OK     ; Mon Jun 08 22:39:25 2015 ;
 +---------------+--------+--------------------------+
 
 
@@ -223,7 +223,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Jun 08 18:42:26 2015
+    Info: Processing started: Mon Jun 08 22:39:24 2015
 Info: Command: quartus_sta Niu32_multicycle -c Niu32_multicycle
 Info: qsta_default_script.tcl version: #1
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
@@ -271,8 +271,8 @@ Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 11 warnings
     Info: Peak virtual memory: 422 megabytes
-    Info: Processing ended: Mon Jun 08 18:42:33 2015
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:06
+    Info: Processing ended: Mon Jun 08 22:39:25 2015
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
 
 
