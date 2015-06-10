@@ -13,6 +13,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter NUM_REGS = 32; // Number of registers.
     parameter REG_BITS = 5; // Number of selector bits for register file.
     parameter OP_BITS = 5; // Number of selector bits for the opcode.
+    parameter STATE_BITS = 5; // Number of bits for the state machine.
     
     // I/O memory locations
     parameter ADDR_HEX = 32'hFFFF0000; // Memory location of hex lights on board.
@@ -30,7 +31,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter PC_STARTLOC = 32'h0; // Starting value of PC.
 
     // Other
-    parameter BUS_NOSIG = {WORD_SIZE{1'bZ}}; // Default block signal on bus
+    parameter BUS_NOSIG = {WORD_SIZE {1'bZ}}; // Default block signal on bus
     
     // Control signals
     reg LdPC, DrPC, IncPC;
@@ -84,7 +85,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // Init clock signal, lock signal
     wire clk, lock;
-    Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked(lock));
+    Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked (lock)); // DEBUG: set to 50 MHz.
     wire reset = !lock;
     
     // Init seven-segment display - grab values from memory
@@ -92,6 +93,11 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     SevenSeg Hex1Out(.hexNumIn(ADDR_HEX[7:4]), .displayOut(HEX1));
     SevenSeg Hex2Out(.hexNumIn(ADDR_HEX[11:8]), .displayOut(HEX2));
     SevenSeg Hex3Out(.hexNumIn(ADDR_HEX[15:12]), .displayOut(HEX3));
+    
+    // Define I/O
+    reg [(WORD_SIZE - 1):0] HEXout, LEDRout, LEDGout, KEYout, SWITCHout;
+    assign LEDR = LEDRout;
+    assign LEDG = LEDGout;
     
     // Create bus
     tri [(WORD_SIZE - 1):0] bus;
@@ -115,7 +121,6 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     // Hook up PC to bus
     assign bus = DrPC ? PC : BUS_NOSIG;
     
-    
     // Register file
     reg [(NUM_REGS - 1):0] regFile;
     reg [(REG_BITS - 1):0] regSel; // Register selector
@@ -135,12 +140,18 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg [(WORD_SIZE - 1):0] IR; // Instruction register
     wire imemOutput = imem[PC[(MEM_ADDR_BITS - 1):MEM_WORD_OFFSET]];
     
+    // Push instruction memory to IR
+    always @(posedge clk) begin
+        if (LdIR)
+            IR <= imemOutput;
+            
+    end
+    
     // Data memory
     (* ram_init_file = INIT_MIF *)
     
     reg [(WORD_SIZE - 1):0] dmem[(DMEM_WORDS - 1):0];
     reg [(WORD_SIZE - 1):0] MAR, MDR;
-    reg [(WORD_SIZE - 1):0] HEXout, LEDRout, LEDGout, KEYout, SWITCHout;
     wire [(WORD_SIZE - 1):0] dmemOutput = WrMem ? BUS_NOSIG : MDR;
     
   // Hook up MAR to MDR and update each clock
@@ -157,9 +168,11 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             if (MAR == ADDR_HEX)
                 HEXout <= bus;
             else if (MAR == ADDR_LEDG)
-                LEDGout <= bus;
+                //LEDGout <= bus; DEBUG
+                HEXout <= bus;
             else if (MAR == ADDR_LEDR)
-                LEDRout <= bus;
+                //LEDRout <= bus; DEBUG
+                HEXout <= bus;
             else 
                 dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)] <= bus;
             end if (MAR == ADDR_KEY)
@@ -205,4 +218,66 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // Hook up ALU to bus
     assign bus = DrALU ? ALUout : BUS_NOSIG;
+    
+    // Instruction parsing
+    wire [(OP_BITS - 1):0] op1, op2;
+    wire [(REG_BITS - 1):0] rx, ry, rz;
+    wire [(IMM_SIZE - 1):0] imm;
+    
+    // Below is parameterized assuming 32-bit
+    assign op1 = IR[31:27];
+    assign rx = IR[26:22];
+    assign ry = IR[21:17];
+    assign rz = IR[16:12];
+    assign imm = IR[16:0];
+    assign op2 = IR[4:0];
+    
+    // State machine
+    reg [(STATE_BITS - 1):0] state, nextState;
+    
+    parameter [(STATE_BITS - 1):0] 
+        S_FETCH0 = {(STATE_BITS) {1'b0}},
+        S_FETCH1 = S_FETCH0 + 1'b1,
+        S_DECOD0 = S_FETCH1 + 1'b1,
+        S_ERROR0 = 5'b11111;
+        
+    always @(state or op1 or op2 or rx or ry or rz) begin
+        {LdPC, DrPC, IncPC} = {1'b0, 1'b0, 1'b0};
+        {WrMem, DrMem, LdMAR} = {1'b0, 1'b0, 1'b0};
+        {WrReg, DrReg, regSel} = {1'b0, 1'b0, {(REG_BITS) {1'b0}}};
+        LdIR = 1'b0;
+        DrOff = 1'b0;
+        {LdA, LdB, DrALU, ALUfunc} = {1'b0, 1'b0, 1'b0, {(OP_BITS) {1'b0}}};
+        nextState = (state + 1'b1);
+        
+        if (reset)
+            state <= S_FETCH0;
+        
+        // State machine does debug test for now
+        case (state)
+            S_FETCH0: begin
+                LEDGout <= 7'b11111111;
+                LEDRout <= 7'b00000000;
+                state <= nextState;
+            end
+            
+            S_FETCH1: begin
+                LEDGout <= 7'b00000000;
+                LEDRout <= 7'b11111111;
+                state <= nextState;
+            end
+            
+            S_DECOD0: begin
+                LEDGout <= 7'b11111111;
+                LEDRout <= 7'b11111111;
+                state <= nextState;
+            end
+            
+            S_ERROR0: begin
+                // Remain in error state
+                LEDGout <= 7'b00000000;
+                LEDRout <= 7'b00000000;
+            end
+        endcase
+    end
 endmodule
