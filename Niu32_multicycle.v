@@ -38,7 +38,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg WrMem, DrMem, LdMAR;
     reg WrReg, DrReg;
     reg LdIR;
-    reg DrOff;
+    reg DrImm;
     reg LdA, LdB, DrALU;
     
     /// Opcodes
@@ -112,15 +112,16 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // PC logic
     always @(posedge clk or posedge reset) begin
-    if (reset)
-        // If we're given the reset signal, reset the PC to the start.
-        PC <= PC_STARTLOC;
-    else if (LdPC)
-        // If LdPC, grab the PC value from the bus.
-        PC <= bus;
-    else if (IncPC)
-        // Otherwise, increment the PC to the next instruction.
-        PC <= PC + INSTR_SIZE;
+        if (reset) begin
+            // If we're given the reset signal, reset the PC to the start.
+            PC <= PC_STARTLOC;
+        end else if (LdPC) begin
+            // If LdPC, grab the PC value from the bus.
+            PC <= bus;
+        end else if (IncPC) begin
+            // Otherwise, increment the PC to the next instruction.
+            PC <= PC + INSTR_SIZE;
+        end
     end
     
     // Hook up PC to bus
@@ -131,8 +132,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg [(REG_BITS - 1):0] regSel; // Register selector
     
     always @(posedge clk) begin
-        if (WrReg && lock)
+        if (WrReg && lock) begin
             regFile[regSel] <= bus;
+        end
     end
     
     // Hook up register file to bus
@@ -147,9 +149,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // Push instruction memory to IR
     always @(posedge clk) begin
-        if (LdIR)
-            IR <= imemOutput;
-            
+        if (LdIR) begin
+            IR <= imemOutput; 
+        end 
     end
     
     // Data memory
@@ -164,26 +166,30 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         if (reset) begin
             MAR <= {WORD_SIZE{1'bX}};
             MDR <= {WORD_SIZE{1'bX}};
-        end else begin 
-            if (LdMAR)
-                MAR <= bus;
-            if (LdIR)
-                IR <= imemOutput;
+        end 
+        
+        if (LdMAR) begin
+            MAR <= bus;
+        end
+            
         if (WrMem && !reset) begin
-            if (MAR == ADDR_HEX)
+            if (MAR == ADDR_HEX) begin
                 HEXout <= bus;
-            else if (MAR == ADDR_LEDG)
+            end else if (MAR == ADDR_LEDG) begin
                 LEDGout <= bus;
-            else if (MAR == ADDR_LEDR)
+            end else if (MAR == ADDR_LEDR) begin
                 LEDRout <= bus;
-            else 
+            end else begin
                 dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)] <= bus;
-            end if (MAR == ADDR_KEY)
+            end
+            
+            if (MAR == ADDR_KEY) begin
                 MDR <= {28'b0, KEY};
-            else if (MAR == ADDR_SWITCH)
+            end else if (MAR == ADDR_SWITCH) begin
                 MDR <= {12'b0, SWITCH}; 
-            else
-                MDR <= dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)]; 
+            end else begin
+                MDR <= dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)];
+            end
         end
     end
 
@@ -193,10 +199,11 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // Actual ALU logic
     always @(posedge clk) begin
-        if (LdA)
+        if (LdA) begin
             A <= bus;
-        else if (LdB)
+        end else if (LdB) begin
             B <= bus;
+        end
         
         case (ALUfunc)
             OP2_SUB: ALUout <= (A - B);
@@ -235,30 +242,42 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     assign imm = IR[16:0];
     assign op2 = IR[4:0];
     
+    // TODO: imm sxt
+    
     // State machine
     reg [(STATE_BITS - 1):0] state, nextState;
     
     parameter [(STATE_BITS - 1):0] 
         S_FETCH = {(STATE_BITS) {1'b0}},
         S_DECODE = S_FETCH + 1'b1,
-        S_DECOD0 = S_FETCH1 + 1'b1,
-        S_ERROR0 = 5'b11111;
+        S_ALU0I = S_DECODE + 1'b1,
+        S_ALU0R = S_ALU0I + 1'b1,
+        S_ALU1 = S_ALU0R + 1'b1,
+        S_ALU2 = S_ALU1 + 1'b1,
+        S_ALU3 = S_ALU2 + 1'b1,
+        S_LOAD0 = S_ALU3 + 1'b1,
+        S_STOR0 = S_ERROR,
+        S_LUI0 = S_ERROR,
+        S_BRCH0 = S_ERROR,
+        S_JUMP0 = S_ERROR,
+        S_ERROR = 5'b11111;
     
     parameter ON = 1'b1;
     parameter OFF = 1'b1;
     // DEBUG: state machine powered by clk only
     //always @(state or op1 or op2 or rx or ry or rz) begin
     always @(posedge clk) begin
-        {LdPC, DrPC, IncPC} = {1'b0, 1'b0, 1'b0};
-        {WrMem, DrMem, LdMAR} = {1'b0, 1'b0, 1'b0};
-        {WrReg, DrReg, regSel} = {1'b0, 1'b0, {(REG_BITS) {1'b0}}};
-        LdIR = 1'b0;
-        DrOff = 1'b0;
-        {LdA, LdB, DrALU, ALUfunc} = {1'b0, 1'b0, 1'b0, {(OP_BITS) {1'b0}}};
+        {LdPC, DrPC, IncPC} = {OFF, OFF, OFF};
+        {WrMem, DrMem, LdMAR} = {OFF, OFF, OFF};
+        {WrReg, DrReg, regSel} = {OFF, OFF, {(REG_BITS) {1'b0}}};
+        LdIR = OFF;
+        DrImm = OFF;
+        {LdA, LdB, DrALU, ALUfunc} = {OFF, OFF, OFF, {(OP_BITS) {1'b0}}};
         state <= nextState;
         
-        if (reset)
+        if (reset) begin
             state <= S_FETCH;
+        end
         
         case (state)
             S_FETCH: begin
@@ -269,13 +288,13 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             S_DECODE: begin
                 case (op1)
                     OP1_ALUI: begin
-                        nextState <= S_ALUO3;
+                        nextState <= S_ALU0R;
                     end
                     
                     OP1_ADDI, OP1_MLTI, OP1_DIVI, 
                     OP1_ANDI, OP1_ORI, OP1_XORI, 
                     OP1_SULI, OP1_SSLI, OP1_SURI, OP1_SSRI: begin
-                        nextState <= S_ALUO0;
+                        nextState <= S_ALU0I;
                     end
                     
                     OP1_LW, OP1_LB: begin
@@ -300,10 +319,37 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
                 endcase
             end
 
-            S_ERROR0: begin
+            S_ALU0I: begin
+                // ALU op: Immediate version
+                {DrImm, LdB} = {ON, ON};
+                nextState <= S_ALU1;
+            end
+            
+            S_ALU0R: begin
+                // ALU op: register version
+                {regSel, DrReg, LdB} = {ry, ON, ON};
+                nextState <= S_ALU1;
+            end
+            
+            S_ALU1: begin
+                {regSel, DrReg, LdA} = {rx, ON, ON};
+                nextState <= S_ALU2;
+            end
+            
+            S_ALU2: begin
+                if (op1 == OP1_ALUI) begin
+                    {ALUfunc, regSel} = {op2, rz};
+                end else begin
+                    {ALUfunc, regSel} = {op1, ry};
+                end
+                
+                {regSel, DrALU, WrReg} = {rz, ON, ON};
+                nextState <= S_FETCH;
+            end
+            
+            S_ERROR: begin
                 // Remain in error state
-                LEDGout <= 7'b00000000;
-                LEDRout <= 7'b00000000;
+                nextState <= S_ERROR;
             end
         endcase
     end
