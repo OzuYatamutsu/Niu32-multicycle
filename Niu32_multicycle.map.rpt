@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Niu32_multicycle
-Wed Jun 10 18:35:30 2015
+Fri Jun 12 23:48:34 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,25 +14,24 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Inverted Register Statistics
- 12. Registers Packed Into Inferred Megafunctions
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Source assignments for altsyncram:LEDRout_rtl_0|altsyncram_5111:auto_generated
- 15. Parameter Settings for User Entity Instance: Top-level Entity: |Niu32_multicycle
- 16. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 17. Parameter Settings for Inferred Entity Instance: altsyncram:LEDRout_rtl_0
- 18. altsyncram Parameter Settings by Entity Instance
- 19. Port Connectivity Checks: "SevenSeg:Hex3Out"
- 20. Port Connectivity Checks: "SevenSeg:Hex2Out"
- 21. Port Connectivity Checks: "SevenSeg:Hex1Out"
- 22. Port Connectivity Checks: "SevenSeg:Hex0Out"
- 23. SignalTap II Logic Analyzer Settings
- 24. Elapsed Time Per Partition
- 25. Connections to In-System Debugging Instance "auto_signaltap_0"
- 26. Analysis & Synthesis Messages
- 27. Analysis & Synthesis Suppressed Messages
+  9. State Machine - |Niu32_multicycle|nextState
+ 10. State Machine - |Niu32_multicycle|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: Top-level Entity: |Niu32_multicycle
+ 17. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 18. Port Connectivity Checks: "SevenSeg:Hex3Out"
+ 19. Port Connectivity Checks: "SevenSeg:Hex2Out"
+ 20. Port Connectivity Checks: "SevenSeg:Hex1Out"
+ 21. Port Connectivity Checks: "SevenSeg:Hex0Out"
+ 22. SignalTap II Logic Analyzer Settings
+ 23. Elapsed Time Per Partition
+ 24. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 25. Analysis & Synthesis Messages
+ 26. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -58,18 +57,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 10 18:35:30 2015           ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 12 23:48:34 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Niu32_multicycle                                ;
 ; Top-level Entity Name              ; Niu32_multicycle                                ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 565                                             ;
-;     Total combinational functions  ; 354                                             ;
-;     Dedicated logic registers      ; 419                                             ;
-; Total registers                    ; 419                                             ;
+; Total logic elements               ; 567                                             ;
+;     Total combinational functions  ; 355                                             ;
+;     Dedicated logic registers      ; 416                                             ;
+; Total registers                    ; 416                                             ;
 ; Total pins                         ; 61                                              ;
 ; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 1,284                                           ;
+; Total memory bits                  ; 1,280                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
 ; Total PLLs                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
@@ -231,7 +230,6 @@ applicable agreement for further details.
 ; sld_rom_sr.vhd                                                                            ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_rom_sr.vhd               ;         ;
 ; sld_hub.vhd                                                                               ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_hub.vhd                  ;         ;
 ; sld_jtag_hub.vhd                                                                          ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_jtag_hub.vhd             ;         ;
-; db/altsyncram_5111.tdf                                                                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/altsyncram_5111.tdf           ;         ;
 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altpll.tdf        ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altpll.tdf                   ;         ;
 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratix_pll.inc   ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratix_pll.inc              ;         ;
 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratixii_pll.inc ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratixii_pll.inc            ;         ;
@@ -244,28 +242,28 @@ applicable agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimated Total logic elements              ; 565                      ;
+; Estimated Total logic elements              ; 567                      ;
 ;                                             ;                          ;
-; Total combinational functions               ; 354                      ;
+; Total combinational functions               ; 355                      ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 158                      ;
+;     -- 4 input functions                    ; 162                      ;
 ;     -- 3 input functions                    ; 89                       ;
-;     -- <=2 input functions                  ; 107                      ;
+;     -- <=2 input functions                  ; 104                      ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
-;     -- normal mode                          ; 312                      ;
+;     -- normal mode                          ; 313                      ;
 ;     -- arithmetic mode                      ; 42                       ;
 ;                                             ;                          ;
-; Total registers                             ; 419                      ;
-;     -- Dedicated logic registers            ; 419                      ;
+; Total registers                             ; 416                      ;
+;     -- Dedicated logic registers            ; 416                      ;
 ;     -- I/O registers                        ; 0                        ;
 ;                                             ;                          ;
 ; I/O pins                                    ; 61                       ;
-; Total memory bits                           ; 1284                     ;
+; Total memory bits                           ; 1280                     ;
 ; Embedded Multiplier 9-bit elements          ; 0                        ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 270                      ;
-; Total fan-out                               ; 2584                     ;
+; Total fan-out                               ; 2574                     ;
 ; Average fan-out                             ; 3.04                     ;
 +---------------------------------------------+--------------------------+
 
@@ -275,11 +273,9 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                              ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                   ; Library Name ;
 +---------------------------------------------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |Niu32_multicycle                                                                                       ; 354 (7)           ; 419 (3)      ; 1284        ; 0            ; 0       ; 0         ; 61   ; 0            ; |Niu32_multicycle                                                                                                                                                                                                                                                                                                                                     ; work         ;
-;    |altsyncram:LEDRout_rtl_0|                                                                           ; 0 (0)             ; 0 (0)        ; 4           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Niu32_multicycle|altsyncram:LEDRout_rtl_0                                                                                                                                                                                                                                                                                                            ; work         ;
-;       |altsyncram_5111:auto_generated|                                                                  ; 0 (0)             ; 0 (0)        ; 4           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Niu32_multicycle|altsyncram:LEDRout_rtl_0|altsyncram_5111:auto_generated                                                                                                                                                                                                                                                                             ; work         ;
-;    |sld_hub:auto_hub|                                                                                   ; 119 (1)           ; 86 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Niu32_multicycle|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                    ; work         ;
-;       |sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|                                                    ; 118 (80)          ; 86 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst                                                                                                                                                                                                                                                                       ; work         ;
+; |Niu32_multicycle                                                                                       ; 355 (1)           ; 416 (0)      ; 1280        ; 0            ; 0       ; 0         ; 61   ; 0            ; |Niu32_multicycle                                                                                                                                                                                                                                                                                                                                     ; work         ;
+;    |sld_hub:auto_hub|                                                                                   ; 126 (1)           ; 86 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Niu32_multicycle|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                    ; work         ;
+;       |sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|                                                    ; 125 (87)          ; 86 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst                                                                                                                                                                                                                                                                       ; work         ;
 ;          |sld_rom_sr:hub_info_reg|                                                                      ; 21 (21)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg                                                                                                                                                                                                                                               ; work         ;
 ;          |sld_shadow_jsm:shadow_jsm|                                                                    ; 17 (17)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_shadow_jsm:shadow_jsm                                                                                                                                                                                                                                             ; work         ;
 ;    |sld_signaltap:auto_signaltap_0|                                                                     ; 228 (1)           ; 330 (20)     ; 1280        ; 0            ; 0       ; 0         ; 1    ; 0            ; |Niu32_multicycle|sld_signaltap:auto_signaltap_0                                                                                                                                                                                                                                                                                                      ; work         ;
@@ -329,29 +325,171 @@ applicable agreement for further details.
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                                                                ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
-; Name                                                                                                                                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF                                        ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
-; altsyncram:LEDRout_rtl_0|altsyncram_5111:auto_generated|ALTSYNCRAM                                                                                                                                    ; AUTO ; ROM              ; 4            ; 1            ; --           ; --           ; 4    ; Niu32_multicycle.Niu32_multicycle0.rtl.mif ;
-; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_gp14:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 128          ; 10           ; 128          ; 10           ; 1280 ; None                                       ;
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                          ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_gp14:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 128          ; 10           ; 128          ; 10           ; 1280 ; None ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; LEDGout[7]                             ; Stuck at GND due to stuck port data_in ;
-; LEDRout[7..9]                          ; Stuck at GND due to stuck port data_in ;
-; state[2,3]                             ; Merged with state[4]                   ;
-; LEDGout[1..6]                          ; Merged with LEDGout[0]                 ;
-; LEDRout[1..6]                          ; Merged with LEDRout[0]                 ;
-; state[4]                               ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 19 ;                                        ;
-+----------------------------------------+----------------------------------------+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Niu32_multicycle|nextState                                                                                                                                       ;
++--------------------+-------------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+-------------------+
+; Name               ; nextState.S_LOAD0 ; nextState.S_ALU2 ; nextState.S_ALU1 ; nextState.S_ALU0R ; nextState.S_ALU0I ; nextState.S_DECODE ; nextState.S_FETCH ; nextState.S_STOR0 ;
++--------------------+-------------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+-------------------+
+; nextState.S_FETCH  ; 0                 ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 0                 ; 0                 ;
+; nextState.S_DECODE ; 0                 ; 0                ; 0                ; 0                 ; 0                 ; 1                  ; 1                 ; 0                 ;
+; nextState.S_ALU0I  ; 0                 ; 0                ; 0                ; 0                 ; 1                 ; 0                  ; 1                 ; 0                 ;
+; nextState.S_ALU0R  ; 0                 ; 0                ; 0                ; 1                 ; 0                 ; 0                  ; 1                 ; 0                 ;
+; nextState.S_ALU1   ; 0                 ; 0                ; 1                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
+; nextState.S_ALU2   ; 0                 ; 1                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
+; nextState.S_LOAD0  ; 1                 ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
+; nextState.S_STOR0  ; 0                 ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 1                 ;
++--------------------+-------------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Niu32_multicycle|state                                                                                                       ;
++----------------+---------------+--------------+--------------+---------------+---------------+----------------+---------------+---------------+
+; Name           ; state.S_LOAD0 ; state.S_ALU2 ; state.S_ALU1 ; state.S_ALU0R ; state.S_ALU0I ; state.S_DECODE ; state.S_FETCH ; state.S_ERROR ;
++----------------+---------------+--------------+--------------+---------------+---------------+----------------+---------------+---------------+
+; state.S_FETCH  ; 0             ; 0            ; 0            ; 0             ; 0             ; 0              ; 0             ; 0             ;
+; state.S_DECODE ; 0             ; 0            ; 0            ; 0             ; 0             ; 1              ; 1             ; 0             ;
+; state.S_ALU0I  ; 0             ; 0            ; 0            ; 0             ; 1             ; 0              ; 1             ; 0             ;
+; state.S_ALU0R  ; 0             ; 0            ; 0            ; 1             ; 0             ; 0              ; 1             ; 0             ;
+; state.S_ALU1   ; 0             ; 0            ; 1            ; 0             ; 0             ; 0              ; 1             ; 0             ;
+; state.S_ALU2   ; 0             ; 1            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
+; state.S_LOAD0  ; 1             ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
+; state.S_ERROR  ; 0             ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 1             ;
++----------------+---------------+--------------+--------------+---------------+---------------+----------------+---------------+---------------+
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++-----------------------------------------+---------------------------------------------+
+; Register name                           ; Reason for Removal                          ;
++-----------------------------------------+---------------------------------------------+
+; LdPC                                    ; Stuck at GND due to stuck port data_in      ;
+; DrPC                                    ; Stuck at GND due to stuck port data_in      ;
+; WrMem                                   ; Stuck at GND due to stuck port data_in      ;
+; DrMem                                   ; Stuck at GND due to stuck port data_in      ;
+; LdMAR                                   ; Stuck at GND due to stuck port data_in      ;
+; MAR[0..31]                              ; Stuck at GND due to stuck port clock_enable ;
+; PC[0,1]                                 ; Stuck at GND due to stuck port clock_enable ;
+; PC[2..31]                               ; Lost fanout                                 ;
+; A[0..12]                                ; Lost fanout                                 ;
+; B[1..12]                                ; Lost fanout                                 ;
+; ALUout[12]~en                           ; Lost fanout                                 ;
+; ALUout[11]~en                           ; Lost fanout                                 ;
+; ALUout[10]~en                           ; Lost fanout                                 ;
+; ALUout[9]~en                            ; Lost fanout                                 ;
+; ALUout[8]~en                            ; Lost fanout                                 ;
+; ALUout[7]~en                            ; Lost fanout                                 ;
+; ALUout[6]~en                            ; Lost fanout                                 ;
+; ALUout[5]~en                            ; Lost fanout                                 ;
+; ALUout[4]~en                            ; Lost fanout                                 ;
+; ALUout[3]~en                            ; Lost fanout                                 ;
+; ALUout[2]~en                            ; Lost fanout                                 ;
+; ALUout[1]~en                            ; Lost fanout                                 ;
+; ALUout[0]~en                            ; Lost fanout                                 ;
+; ALUout[0]                               ; Lost fanout                                 ;
+; IncPC                                   ; Lost fanout                                 ;
+; WrReg                                   ; Lost fanout                                 ;
+; DrReg                                   ; Lost fanout                                 ;
+; regSel[0..4]                            ; Lost fanout                                 ;
+; LdA                                     ; Lost fanout                                 ;
+; LdB                                     ; Lost fanout                                 ;
+; DrALU                                   ; Lost fanout                                 ;
+; ALUfunc[0..4]                           ; Lost fanout                                 ;
+; B[0]                                    ; Lost fanout                                 ;
+; ALUout[1..12]                           ; Lost fanout                                 ;
+; IR[0..4,12..26]                         ; Lost fanout                                 ;
+; MDR[0..31]                              ; Lost fanout                                 ;
+; regFile[0..31]                          ; Lost fanout                                 ;
+; IR[27..31]                              ; Stuck at GND due to stuck port data_in      ;
+; LdIR                                    ; Lost fanout                                 ;
+; LEDGout[7]                              ; Merged with LEDGout[1]                      ;
+; LEDRout[1,7]                            ; Merged with LEDGout[1]                      ;
+; LEDGout[2,6]                            ; Merged with LEDGout[1]                      ;
+; LEDRout[2,3]                            ; Merged with LEDGout[1]                      ;
+; LEDGout[0]                              ; Merged with LEDGout[1]                      ;
+; LEDRout[0,6]                            ; Merged with LEDGout[1]                      ;
+; LEDGout[3,5]                            ; Merged with LEDGout[1]                      ;
+; LEDRout[4,5,8,9]                        ; Merged with LEDGout[1]                      ;
+; LEDGout[4]                              ; Merged with LEDGout[1]                      ;
+; LEDGout[1]                              ; Stuck at GND due to stuck port data_in      ;
+; nextState~2                             ; Lost fanout                                 ;
+; nextState~3                             ; Lost fanout                                 ;
+; nextState~4                             ; Lost fanout                                 ;
+; nextState~6                             ; Lost fanout                                 ;
+; state~10                                ; Lost fanout                                 ;
+; state~11                                ; Lost fanout                                 ;
+; state~12                                ; Lost fanout                                 ;
+; state~14                                ; Lost fanout                                 ;
+; nextState.S_STOR0                       ; Lost fanout                                 ;
+; nextState.S_FETCH                       ; Lost fanout                                 ;
+; nextState.S_DECODE                      ; Lost fanout                                 ;
+; nextState.S_ALU0I                       ; Lost fanout                                 ;
+; nextState.S_ALU0R                       ; Lost fanout                                 ;
+; nextState.S_ALU1                        ; Lost fanout                                 ;
+; nextState.S_ALU2                        ; Lost fanout                                 ;
+; nextState.S_LOAD0                       ; Lost fanout                                 ;
+; state.S_ERROR                           ; Lost fanout                                 ;
+; state.S_FETCH                           ; Lost fanout                                 ;
+; state.S_DECODE                          ; Lost fanout                                 ;
+; state.S_ALU0I                           ; Lost fanout                                 ;
+; state.S_ALU0R                           ; Lost fanout                                 ;
+; state.S_ALU1                            ; Lost fanout                                 ;
+; state.S_ALU2                            ; Lost fanout                                 ;
+; state.S_LOAD0                           ; Lost fanout                                 ;
+; Total Number of Removed Registers = 269 ;                                             ;
++-----------------------------------------+---------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                           ;
++---------------+---------------------------+-----------------------------------------------------------------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                                    ;
++---------------+---------------------------+-----------------------------------------------------------------------------------------------------------+
+; LdPC          ; Stuck at GND              ; PC[1], PC[0], ALUout[12]~en, ALUout[11]~en, ALUout[10]~en, ALUout[9]~en, ALUout[8]~en,                    ;
+;               ; due to stuck port data_in ; ALUout[7]~en, ALUout[6]~en, ALUout[5]~en, ALUout[4]~en, ALUout[3]~en, ALUout[2]~en, IncPC,                ;
+;               ;                           ; WrReg, DrReg, DrALU, ALUout[12], ALUout[11], ALUout[10], ALUout[9], ALUout[8], ALUout[7],                 ;
+;               ;                           ; ALUout[6], ALUout[5], ALUout[4], ALUout[3], ALUout[2], MDR[2], MDR[3], MDR[4], MDR[5], MDR[6],            ;
+;               ;                           ; MDR[7], MDR[8], MDR[9], MDR[10], MDR[11], MDR[12], MDR[13], MDR[14], MDR[15], MDR[16], MDR[17],           ;
+;               ;                           ; MDR[18], MDR[19], MDR[20], MDR[21], MDR[22], MDR[23], MDR[24], MDR[25], MDR[26], MDR[27], MDR[28],        ;
+;               ;                           ; MDR[29], MDR[30], MDR[31]                                                                                 ;
+; DrPC          ; Stuck at GND              ; MAR[0], MAR[7], MAR[8], MAR[9], MAR[10], MAR[11], MAR[12], MAR[13], MAR[14], MAR[15], MAR[16], MAR[17],   ;
+;               ; due to stuck port data_in ; MAR[18], MAR[19], MAR[20], MAR[21], MAR[22], MAR[23], MAR[24], MAR[25], MAR[26], MAR[27], PC[27],         ;
+;               ;                           ; PC[26], PC[25], PC[24], PC[23], PC[22], PC[21], PC[20], PC[19], PC[18], PC[17], PC[16], PC[15], PC[14],   ;
+;               ;                           ; PC[13], PC[12], PC[11], PC[10], PC[6], PC[4], PC[3], PC[2], ALUout[0]~en, ALUout[0], LdB, MDR[0], MDR[1], ;
+;               ;                           ; regFile[27], regFile[28], regFile[29], regFile[30], regFile[31]                                           ;
+; LdMAR         ; Stuck at GND              ; MAR[1], MAR[2], MAR[3], MAR[4], MAR[5], MAR[6], MAR[29], MAR[30], MAR[31], PC[31], PC[30], PC[29],        ;
+;               ; due to stuck port data_in ; ALUout[1]~en, ALUout[1]                                                                                   ;
+; WrMem         ; Stuck at GND              ; MAR[28], PC[28], PC[9], PC[8], PC[7], PC[5], LEDGout[1]                                                   ;
+;               ; due to stuck port data_in ;                                                                                                           ;
+; nextState~2   ; Lost Fanouts              ; nextState.S_FETCH, nextState.S_ALU0I, nextState.S_ALU1, state.S_ALU0I, state.S_ALU0R,                     ;
+;               ;                           ; state.S_ALU2                                                                                              ;
+; nextState~3   ; Lost Fanouts              ; nextState.S_STOR0, nextState.S_ALU0R, nextState.S_LOAD0, state.S_ERROR, state.S_DECODE,                   ;
+;               ;                           ; state.S_LOAD0                                                                                             ;
+; regSel[4]     ; Lost Fanouts              ; IR[16], IR[21], IR[26]                                                                                    ;
+; regSel[3]     ; Lost Fanouts              ; IR[15], IR[20], IR[25]                                                                                    ;
+; regSel[2]     ; Lost Fanouts              ; IR[14], IR[19], IR[24]                                                                                    ;
+; regSel[1]     ; Lost Fanouts              ; IR[13], IR[18], IR[23]                                                                                    ;
+; regSel[0]     ; Lost Fanouts              ; IR[12], IR[17], IR[22]                                                                                    ;
+; nextState~4   ; Lost Fanouts              ; nextState.S_ALU2, state.S_ALU1                                                                            ;
+; A[12]         ; Lost Fanouts              ; LdA                                                                                                       ;
+; ALUfunc[4]    ; Lost Fanouts              ; IR[4]                                                                                                     ;
+; ALUfunc[3]    ; Lost Fanouts              ; IR[3]                                                                                                     ;
+; ALUfunc[2]    ; Lost Fanouts              ; IR[2]                                                                                                     ;
+; ALUfunc[1]    ; Lost Fanouts              ; IR[1]                                                                                                     ;
+; ALUfunc[0]    ; Lost Fanouts              ; IR[0]                                                                                                     ;
+; IR[27]        ; Stuck at GND              ; LdIR                                                                                                      ;
+;               ; due to stuck port data_in ;                                                                                                           ;
++---------------+---------------------------+-----------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -359,7 +497,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 419   ;
+; Total registers                              ; 416   ;
 ; Number of registers using Synchronous Clear  ; 12    ;
 ; Number of registers using Synchronous Load   ; 26    ;
 ; Number of registers using Asynchronous Clear ; 172   ;
@@ -390,15 +528,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------+
-; Registers Packed Into Inferred Megafunctions ;
-+---------------+---------------+--------------+
-; Register Name ; Megafunction  ; Type         ;
-+---------------+---------------+--------------+
-; LEDRout[0]    ; LEDRout_rtl_0 ; ROM          ;
-+---------------+---------------+--------------+
-
-
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
@@ -411,15 +540,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; 34:1               ; 4 bits    ; 88 LEs        ; 56 LEs               ; 32 LEs                 ; Yes        ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[3]                      ;
 ; 20:1               ; 4 bits    ; 52 LEs        ; 36 LEs               ; 16 LEs                 ; Yes        ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|WORD_SR[0]      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------+
-; Source assignments for altsyncram:LEDRout_rtl_0|altsyncram_5111:auto_generated ;
-+---------------------------------+--------------------+------+------------------+
-; Assignment                      ; Value              ; From ; To               ;
-+---------------------------------+--------------------+------+------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                ;
-+---------------------------------+--------------------+------+------------------+
 
 
 +----------------------------------------------------------------------------------+
@@ -439,7 +559,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; ADDR_LEDG       ; 11111111111111110000000001000000 ; Unsigned Binary             ;
 ; ADDR_KEY        ; 11111111111111110000000100000000 ; Unsigned Binary             ;
 ; ADDR_SWITCH     ; 11111111111111110000000100100000 ; Unsigned Binary             ;
-; INIT_MIF        ;                                  ; String                      ;
+; INIT_MIF        ; debugLightTest.mif               ; String                      ;
 ; IMEM_WORDS      ; 2048                             ; Signed Integer              ;
 ; DMEM_WORDS      ; 2048                             ; Signed Integer              ;
 ; MEM_ADDR_BITS   ; 13                               ; Signed Integer              ;
@@ -483,10 +603,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; OP2_NEQ         ; 10001                            ; Unsigned Binary             ;
 ; OP2_LT          ; 10010                            ; Unsigned Binary             ;
 ; OP2_LEQ         ; 10011                            ; Unsigned Binary             ;
-; S_FETCH0        ; 00000                            ; Unsigned Binary             ;
-; S_FETCH1        ; 00001                            ; Unsigned Binary             ;
-; S_DECOD0        ; 00010                            ; Unsigned Binary             ;
-; S_ERROR0        ; 00011                            ; Unsigned Binary             ;
+; S_FETCH         ; 00000                            ; Unsigned Binary             ;
+; S_DECODE        ; 00001                            ; Unsigned Binary             ;
+; S_ALU0I         ; 00010                            ; Unsigned Binary             ;
+; S_ALU0R         ; 00011                            ; Unsigned Binary             ;
+; S_ALU1          ; 00100                            ; Unsigned Binary             ;
+; S_ALU2          ; 00101                            ; Unsigned Binary             ;
+; S_ALU3          ; 00110                            ; Unsigned Binary             ;
+; S_LOAD0         ; 00111                            ; Unsigned Binary             ;
+; S_STOR0         ; 11111                            ; Unsigned Binary             ;
+; S_LUI0          ; 11111                            ; Unsigned Binary             ;
+; S_BRCH0         ; 11111                            ; Unsigned Binary             ;
+; S_JUMP0         ; 11111                            ; Unsigned Binary             ;
+; S_ERROR         ; 11111                            ; Unsigned Binary             ;
+; ON              ; 1                                ; Unsigned Binary             ;
+; OFF             ; 0                                ; Unsigned Binary             ;
 +-----------------+----------------------------------+-----------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -549,87 +680,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; SLD_STORAGE_QUALIFIER_PIPELINE                  ; 0                                                   ; Signed Integer ;
 +-------------------------------------------------+-----------------------------------------------------+----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+--------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: altsyncram:LEDRout_rtl_0                        ;
-+------------------------------------+--------------------------------------------+----------------+
-; Parameter Name                     ; Value                                      ; Type           ;
-+------------------------------------+--------------------------------------------+----------------+
-; BYTE_SIZE_BLOCK                    ; 8                                          ; Untyped        ;
-; AUTO_CARRY_CHAINS                  ; ON                                         ; AUTO_CARRY     ;
-; IGNORE_CARRY_BUFFERS               ; OFF                                        ; IGNORE_CARRY   ;
-; AUTO_CASCADE_CHAINS                ; ON                                         ; AUTO_CASCADE   ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                                        ; IGNORE_CASCADE ;
-; WIDTH_BYTEENA                      ; 1                                          ; Untyped        ;
-; OPERATION_MODE                     ; ROM                                        ; Untyped        ;
-; WIDTH_A                            ; 1                                          ; Untyped        ;
-; WIDTHAD_A                          ; 2                                          ; Untyped        ;
-; NUMWORDS_A                         ; 4                                          ; Untyped        ;
-; OUTDATA_REG_A                      ; UNREGISTERED                               ; Untyped        ;
-; ADDRESS_ACLR_A                     ; NONE                                       ; Untyped        ;
-; OUTDATA_ACLR_A                     ; NONE                                       ; Untyped        ;
-; WRCONTROL_ACLR_A                   ; NONE                                       ; Untyped        ;
-; INDATA_ACLR_A                      ; NONE                                       ; Untyped        ;
-; BYTEENA_ACLR_A                     ; NONE                                       ; Untyped        ;
-; WIDTH_B                            ; 1                                          ; Untyped        ;
-; WIDTHAD_B                          ; 1                                          ; Untyped        ;
-; NUMWORDS_B                         ; 1                                          ; Untyped        ;
-; INDATA_REG_B                       ; CLOCK1                                     ; Untyped        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                     ; Untyped        ;
-; RDCONTROL_REG_B                    ; CLOCK1                                     ; Untyped        ;
-; ADDRESS_REG_B                      ; CLOCK1                                     ; Untyped        ;
-; OUTDATA_REG_B                      ; UNREGISTERED                               ; Untyped        ;
-; BYTEENA_REG_B                      ; CLOCK1                                     ; Untyped        ;
-; INDATA_ACLR_B                      ; NONE                                       ; Untyped        ;
-; WRCONTROL_ACLR_B                   ; NONE                                       ; Untyped        ;
-; ADDRESS_ACLR_B                     ; NONE                                       ; Untyped        ;
-; OUTDATA_ACLR_B                     ; NONE                                       ; Untyped        ;
-; RDCONTROL_ACLR_B                   ; NONE                                       ; Untyped        ;
-; BYTEENA_ACLR_B                     ; NONE                                       ; Untyped        ;
-; WIDTH_BYTEENA_A                    ; 1                                          ; Untyped        ;
-; WIDTH_BYTEENA_B                    ; 1                                          ; Untyped        ;
-; RAM_BLOCK_TYPE                     ; AUTO                                       ; Untyped        ;
-; BYTE_SIZE                          ; 8                                          ; Untyped        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                  ; Untyped        ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                       ; Untyped        ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                       ; Untyped        ;
-; INIT_FILE                          ; Niu32_multicycle.Niu32_multicycle0.rtl.mif ; Untyped        ;
-; INIT_FILE_LAYOUT                   ; PORT_A                                     ; Untyped        ;
-; MAXIMUM_DEPTH                      ; 0                                          ; Untyped        ;
-; CLOCK_ENABLE_INPUT_A               ; NORMAL                                     ; Untyped        ;
-; CLOCK_ENABLE_INPUT_B               ; NORMAL                                     ; Untyped        ;
-; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                     ; Untyped        ;
-; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                     ; Untyped        ;
-; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                            ; Untyped        ;
-; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                            ; Untyped        ;
-; ENABLE_ECC                         ; FALSE                                      ; Untyped        ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                      ; Untyped        ;
-; WIDTH_ECCSTATUS                    ; 3                                          ; Untyped        ;
-; DEVICE_FAMILY                      ; Cyclone II                                 ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_5111                            ; Untyped        ;
-+------------------------------------+--------------------------------------------+----------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                     ;
-+-------------------------------------------+--------------------------+
-; Name                                      ; Value                    ;
-+-------------------------------------------+--------------------------+
-; Number of entity instances                ; 1                        ;
-; Entity Instance                           ; altsyncram:LEDRout_rtl_0 ;
-;     -- OPERATION_MODE                     ; ROM                      ;
-;     -- WIDTH_A                            ; 1                        ;
-;     -- NUMWORDS_A                         ; 4                        ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED             ;
-;     -- WIDTH_B                            ; 1                        ;
-;     -- NUMWORDS_B                         ; 1                        ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                   ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED             ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                     ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                ;
-+-------------------------------------------+--------------------------+
 
 
 +----------------------------------------------+
@@ -703,16 +753,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; nextState[3] ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
 ; nextState[4] ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
 ; nextState[4] ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
-; state[0]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; state[0]          ; N/A                                                                                                                                                            ;
-; state[0]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; state[0]          ; N/A                                                                                                                                                            ;
-; state[1]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; state[1]          ; N/A                                                                                                                                                            ;
-; state[1]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; state[1]          ; N/A                                                                                                                                                            ;
-; state[2]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; GND               ; N/A                                                                                                                                                            ;
-; state[2]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; GND               ; N/A                                                                                                                                                            ;
-; state[3]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; GND               ; N/A                                                                                                                                                            ;
-; state[3]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; GND               ; N/A                                                                                                                                                            ;
-; state[4]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; GND               ; N/A                                                                                                                                                            ;
-; state[4]     ; pre-synthesis ; connected ; Top            ; post-synthesis    ; GND               ; N/A                                                                                                                                                            ;
+; state[0]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[0]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[1]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[1]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[2]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[2]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[3]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[3]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[4]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; state[4]     ; pre-synthesis ; missing   ; Top            ; post-synthesis    ; GND               ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
 +--------------+---------------+-----------+----------------+-------------------+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -722,13 +772,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Jun 10 18:35:22 2015
+    Info: Processing started: Fri Jun 12 23:48:24 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
-Warning (10229): Verilog HDL Expression warning at Niu32_multicycle.v(265): truncated literal to match 7 bits
-Warning (10229): Verilog HDL Expression warning at Niu32_multicycle.v(272): truncated literal to match 7 bits
-Warning (10229): Verilog HDL Expression warning at Niu32_multicycle.v(277): truncated literal to match 7 bits
-Warning (10229): Verilog HDL Expression warning at Niu32_multicycle.v(278): truncated literal to match 7 bits
 Info (12021): Found 1 design units, including 1 entities, in source file niu32_multicycle.v
     Info (12023): Found entity 1: Niu32_multicycle
 Info (12021): Found 1 design units, including 1 entities, in source file pll.v
@@ -736,31 +782,24 @@ Info (12021): Found 1 design units, including 1 entities, in source file pll.v
 Info (12021): Found 1 design units, including 1 entities, in source file sevenseg.v
     Info (12023): Found entity 1: SevenSeg
 Info (12127): Elaborating entity "Niu32_multicycle" for the top level hierarchy
-Warning (10306): Invalid value "" for synthesis attribute "ram_init_file" at Niu32_multicycle.v(143)
-Warning (10306): Invalid value "" for synthesis attribute "ram_init_file" at Niu32_multicycle.v(156)
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(38): object "DrMem" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(41): object "DrOff" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(41): object "DrImm" assigned a value but never read
 Warning (10858): Verilog HDL warning at Niu32_multicycle.v(90): object lock used but never assigned
 Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(103): object "HEXout" assigned a value but never read
-Warning (10858): Verilog HDL warning at Niu32_multicycle.v(144): object imem used but never assigned
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(160): object "dmemOutput" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(228): object "op1" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(228): object "op2" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(229): object "rx" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(229): object "ry" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(229): object "rz" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(230): object "imm" assigned a value but never read
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(146): object imem used but never assigned
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(235): object "imm" assigned a value but never read
 Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(104): truncated value with size 32 to match size of target (10)
 Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(105): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(135): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(146): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(199): truncated value with size 32 to match size of target (13)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(201): truncated value with size 32 to match size of target (13)
-Warning (10764): Verilog HDL warning at Niu32_multicycle.v(212): converting signed shift amount to unsigned
-Warning (10764): Verilog HDL warning at Niu32_multicycle.v(213): converting signed shift amount to unsigned
-Warning (10764): Verilog HDL warning at Niu32_multicycle.v(214): converting signed shift amount to unsigned
-Warning (10764): Verilog HDL warning at Niu32_multicycle.v(215): converting signed shift amount to unsigned
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(220): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(136): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(148): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(203): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(205): truncated value with size 32 to match size of target (13)
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(217): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(218): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(219): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(220): converting signed shift amount to unsigned
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(225): truncated value with size 32 to match size of target (13)
+Info (10264): Verilog HDL Case Statement information at Niu32_multicycle.v(283): all case item expressions in this case statement are onehot
+Warning (10030): Net "lock" at Niu32_multicycle.v(90) has no driver or initial value, using a default initial value '0'
 Info (12128): Elaborating entity "SevenSeg" for hierarchy "SevenSeg:Hex0Out"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gp14.tdf
     Info (12023): Found entity 1: altsyncram_gp14
@@ -781,32 +820,35 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cntr
 Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_5cc.tdf
     Info (12023): Found entity 1: cmpr_5cc
 Info (12033): Analysis and Synthesis generated SignalTap II or debug node instance "auto_signaltap_0"
-Info (286031): Timing-Driven Synthesis is running on partition "Top"
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (276031): Inferred altsyncram megafunction from the following design logic: "LEDRout_rtl_0"
-        Info (286033): Parameter OPERATION_MODE set to ROM
-        Info (286033): Parameter WIDTH_A set to 1
-        Info (286033): Parameter WIDTHAD_A set to 2
-        Info (286033): Parameter NUMWORDS_A set to 4
-        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
-        Info (286033): Parameter RAM_BLOCK_TYPE set to AUTO
-        Info (286033): Parameter INIT_FILE set to Niu32_multicycle.Niu32_multicycle0.rtl.mif
-Info (12130): Elaborated megafunction instantiation "altsyncram:LEDRout_rtl_0"
-Info (12133): Instantiated megafunction "altsyncram:LEDRout_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "ROM"
-    Info (12134): Parameter "WIDTH_A" = "1"
-    Info (12134): Parameter "WIDTHAD_A" = "2"
-    Info (12134): Parameter "NUMWORDS_A" = "4"
-    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
-    Info (12134): Parameter "RAM_BLOCK_TYPE" = "AUTO"
-    Info (12134): Parameter "INIT_FILE" = "Niu32_multicycle.Niu32_multicycle0.rtl.mif"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_5111.tdf
-    Info (12023): Found entity 1: altsyncram_5111
 Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub"
+Warning (12069): Ignored assignment(s) for "nextState[0]" because "nextState" is not a bus or array
+Warning (12069): Ignored assignment(s) for "nextState[1]" because "nextState" is not a bus or array
+Warning (12069): Ignored assignment(s) for "nextState[2]" because "nextState" is not a bus or array
+Warning (12069): Ignored assignment(s) for "nextState[3]" because "nextState" is not a bus or array
+Warning (12069): Ignored assignment(s) for "nextState[4]" because "nextState" is not a bus or array
+Warning (12069): Ignored assignment(s) for "state[0]" because "state" is not a bus or array
+Warning (12069): Ignored assignment(s) for "state[1]" because "state" is not a bus or array
+Warning (12069): Ignored assignment(s) for "state[2]" because "state" is not a bus or array
+Warning (12069): Ignored assignment(s) for "state[3]" because "state" is not a bus or array
+Warning (12069): Ignored assignment(s) for "state[4]" because "state" is not a bus or array
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
     Warning (13410): Pin "LEDR[7]" is stuck at GND
     Warning (13410): Pin "LEDR[8]" is stuck at GND
     Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDG[0]" is stuck at GND
+    Warning (13410): Pin "LEDG[1]" is stuck at GND
+    Warning (13410): Pin "LEDG[2]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
     Warning (13410): Pin "LEDG[7]" is stuck at GND
     Warning (13410): Pin "HEX0[0]" is stuck at GND
     Warning (13410): Pin "HEX0[1]" is stuck at GND
@@ -836,15 +878,16 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[4]" is stuck at GND
     Warning (13410): Pin "HEX3[5]" is stuck at GND
     Warning (13410): Pin "HEX3[6]" is stuck at VCC
+Info (17049): 207 registers lost all their fanouts during netlist optimizations.
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "sld_hub:auto_hub|receive[0][0]" is stuck at GND
 Info (144001): Generated suppressed messages file C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.map.smsg
-Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 11 of its 21 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 10 missing sources or connections.
+Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 1 of its 21 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 20 missing sources or connections.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 12 input pin(s) that do not drive logic
+Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SWITCH[0]"
     Warning (15610): No output dependent on input pin "SWITCH[1]"
     Warning (15610): No output dependent on input pin "SWITCH[2]"
@@ -857,16 +900,18 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SWITCH[9]"
     Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "KEY[3]"
+    Warning (15610): No output dependent on input pin "KEY[0]"
+    Warning (15610): No output dependent on input pin "KEY[1]"
 Info (21057): Implemented 656 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 47 output pins
-    Info (21061): Implemented 579 logic cells
-    Info (21064): Implemented 11 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 78 warnings
-    Info: Peak virtual memory: 559 megabytes
-    Info: Processing ended: Wed Jun 10 18:35:30 2015
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:08
+    Info (21061): Implemented 580 logic cells
+    Info (21064): Implemented 10 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 92 warnings
+    Info: Peak virtual memory: 551 megabytes
+    Info: Processing ended: Fri Jun 12 23:48:34 2015
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +------------------------------------------+
