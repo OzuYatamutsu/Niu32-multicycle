@@ -162,6 +162,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             if (LdMAR) begin
                 MAR <= bus;
             end
+            
             // Push iMem instruction to IR on each clock
             if (LdIR) begin
                 IR <= imemOutput;
@@ -262,7 +263,8 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         S_ERROR = 5'b11111;
     
     parameter ON = 1'b1;
-    parameter OFF = 1'b1;
+    parameter OFF = 1'b0;
+    
     // DEBUG: state machine powered by clk only
     //always @(state or op1 or op2 or rx or ry or rz) begin
     always @(posedge clk) begin
