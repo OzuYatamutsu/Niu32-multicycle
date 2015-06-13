@@ -147,40 +147,36 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg [(WORD_SIZE - 1):0] IR; // Instruction register
     wire imemOutput = imem[PC[(MEM_ADDR_BITS - 1):MEM_WORD_OFFSET]];
     
-    // Push instruction memory to IR
-    always @(posedge clk) begin
-        if (LdIR) begin
-            IR <= imemOutput; 
-        end 
-    end
-    
     // Data memory
     (* ram_init_file = INIT_MIF *)
-    
     reg [(WORD_SIZE - 1):0] dmem[(DMEM_WORDS - 1):0];
     reg [(WORD_SIZE - 1):0] MAR, MDR;
     wire [(WORD_SIZE - 1):0] dmemOutput = WrMem ? BUS_NOSIG : MDR;
     
-  // Hook up MAR to MDR and update each clock
+    // Hook up MAR to MDR and update each clock
     always @(posedge clk) begin
         if (reset) begin
             MAR <= {WORD_SIZE{1'bX}};
             MDR <= {WORD_SIZE{1'bX}};
-        end 
-        
-        if (LdMAR) begin
-            MAR <= bus;
-        end
+        end else begin
+            if (LdMAR) begin
+                MAR <= bus;
+            end
+            // Push iMem instruction to IR on each clock
+            if (LdIR) begin
+                IR <= imemOutput;
+            end
             
-        if (WrMem && !reset) begin
-            if (MAR == ADDR_HEX) begin
-                HEXout <= bus;
-            end else if (MAR == ADDR_LEDG) begin
-                LEDGout <= bus;
-            end else if (MAR == ADDR_LEDR) begin
-                LEDRout <= bus;
-            end else begin
-                dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)] <= bus;
+            if (WrMem && !reset) begin
+                if (MAR == ADDR_HEX) begin
+                    HEXout <= bus;
+                end else if (MAR == ADDR_LEDG) begin
+                    LEDGout <= bus;
+                end else if (MAR == ADDR_LEDR) begin
+                    LEDRout <= bus;
+                end else begin
+                    dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)] <= bus;
+                end
             end
             
             if (MAR == ADDR_KEY) begin
@@ -192,6 +188,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             end
         end
     end
+    
+    // Hook up data memory to bus
+    assign bus = DrMem ? dmemOutput : BUS_NOSIG;
 
     // ALU
     reg signed [(MEM_ADDR_BITS - 1):0] A, B, ALUout;
