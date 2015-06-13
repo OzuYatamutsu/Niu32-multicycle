@@ -23,7 +23,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter ADDR_SWITCH = 32'hFFFF0120; // Memory location to access switch states on board.
     
     // Init
-    parameter INIT_MIF = ""; // IMPORTANT! Point this to assembled Niu32 MIF!
+    parameter INIT_MIF = "debugLightTest.mif"; // IMPORTANT! Point this to assembled Niu32 MIF!
     parameter IMEM_WORDS = 2048; // Max number of words in instruction memory.
     parameter DMEM_WORDS = 2048; // Max number of words in data memory.
     parameter MEM_ADDR_BITS = 13; // Number of bits used for indexing into memory.
@@ -173,11 +173,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             if (MAR == ADDR_HEX)
                 HEXout <= bus;
             else if (MAR == ADDR_LEDG)
-                //LEDGout <= bus; DEBUG
-                HEXout <= bus;
+                LEDGout <= bus;
             else if (MAR == ADDR_LEDR)
-                //LEDRout <= bus; DEBUG
-                HEXout <= bus;
+                LEDRout <= bus;
             else 
                 dmem[(MAR[(MEM_ADDR_BITS - 1):0] >> MEM_WORD_OFFSET)] <= bus;
             end if (MAR == ADDR_KEY)
@@ -241,11 +239,13 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg [(STATE_BITS - 1):0] state, nextState;
     
     parameter [(STATE_BITS - 1):0] 
-        S_FETCH0 = {(STATE_BITS) {1'b0}},
-        S_FETCH1 = S_FETCH0 + 1'b1,
+        S_FETCH = {(STATE_BITS) {1'b0}},
+        S_DECODE = S_FETCH + 1'b1,
         S_DECOD0 = S_FETCH1 + 1'b1,
-        S_ERROR0 = S_DECOD0 + 1'b1;
-        
+        S_ERROR0 = 5'b11111;
+    
+    parameter ON = 1'b1;
+    parameter OFF = 1'b1;
     // DEBUG: state machine powered by clk only
     //always @(state or op1 or op2 or rx or ry or rz) begin
     always @(posedge clk) begin
@@ -255,31 +255,51 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         LdIR = 1'b0;
         DrOff = 1'b0;
         {LdA, LdB, DrALU, ALUfunc} = {1'b0, 1'b0, 1'b0, {(OP_BITS) {1'b0}}};
-        nextState <= (state + 1'b1);
+        state <= nextState;
         
         if (reset)
-            state <= S_FETCH0;
+            state <= S_FETCH;
         
-        // State machine does debug test for now
         case (state)
-            S_FETCH0: begin
-                LEDGout <= 7'b11111111;
-                LEDRout <= 7'b00000000;
-                state <= nextState;
+            S_FETCH: begin
+                {LdIR, IncPC} = {ON, ON};
+                nextState <= S_DECODE;
             end
             
-            S_FETCH1: begin
-                LEDGout <= 7'b00000000;
-                LEDRout <= 7'b11111111;
-                state <= nextState;
+            S_DECODE: begin
+                case (op1)
+                    OP1_ALUI: begin
+                        nextState <= S_ALUO3;
+                    end
+                    
+                    OP1_ADDI, OP1_MLTI, OP1_DIVI, 
+                    OP1_ANDI, OP1_ORI, OP1_XORI, 
+                    OP1_SULI, OP1_SSLI, OP1_SURI, OP1_SSRI: begin
+                        nextState <= S_ALUO0;
+                    end
+                    
+                    OP1_LW, OP1_LB: begin
+                        nextState <= S_LOAD0;
+                    end
+                    
+                    OP1_SW, OP1_SB: begin
+                        nextState <= S_STOR0;
+                    end
+                    
+                    OP1_LUI: begin
+                        nextState <= S_LUI0;
+                    end
+                    
+                    OP1_BEQ, OP1_BNE, OP1_BLT, OP1_BLE: begin
+                        nextState <= S_BRCH0;
+                    end
+                    
+                    OP1_JAL: begin
+                        nextState <= S_JUMP0;
+                    end
+                endcase
             end
-            
-            S_DECOD0: begin
-                LEDGout <= 7'b11111111;
-                LEDRout <= 7'b11111111;
-                state <= nextState;
-            end
-            
+
             S_ERROR0: begin
                 // Remain in error state
                 LEDGout <= 7'b00000000;
