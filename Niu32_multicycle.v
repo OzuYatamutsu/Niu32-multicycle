@@ -226,7 +226,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             OP2_NEQ: ALUout <= (A != B);
             OP2_LT: ALUout <= (A < B);
             OP2_LEQ: ALUout <= (A <= B);
-            OP3_BITSEL: ALUout <= (A & (BYTE_SEL_MASK << B));
+            OP3_BITSEL: ALUout <= ((A & (BYTE_SEL_MASK << (24 - (B * 8)))) >> (24 - (B * 8)));
             default: ALUout <= BUS_NOSIG;
         endcase
     end
