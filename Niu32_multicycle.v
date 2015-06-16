@@ -32,6 +32,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
 
     // Other
     parameter BUS_NOSIG = {WORD_SIZE {1'bZ}}; // Default block signal on bus
+    parameter BYTE_SEL_MASK = {WORD_SIZE {1'b0}} + {(WORD_SIZE / 4) {1'b1}}; // Mask to select byte in SB/LB instr
     
     // Control signals
     reg LdPC, DrPC, IncPC;
@@ -82,6 +83,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter OP2_NEQ = 5'b10001;
     parameter OP2_LT = 5'b10010;
     parameter OP2_LEQ = 5'b10011;
+    
+    // Other signals
+    parameter OP3_BITSEL = 5'b11111;
     
     // Init clock signal, lock signal
     
@@ -222,6 +226,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             OP2_NEQ: ALUout <= (A != B);
             OP2_LT: ALUout <= (A < B);
             OP2_LEQ: ALUout <= (A <= B);
+            OP3_BITSEL: ALUout <= (A & (BYTE_SEL_MASK << B));
             default: ALUout <= BUS_NOSIG;
         endcase
     end
@@ -255,7 +260,14 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         S_ALU1 = S_ALU0R + 1'b1,
         S_ALU2 = S_ALU1 + 1'b1,
         S_ALU3 = S_ALU2 + 1'b1,
-        S_LOAD0 = S_ALU3 + 1'b1,
+        S_LW0 = S_ALU3 + 1'b1,
+        S_LW1 = S_LW0 + 1'b1,
+        S_LW2 = S_LW1 + 1'b1,
+        S_LW3 = S_LW2 + 1'b1,
+        S_LB0 = S_LW3 + 1'b1,
+        S_LB1 = S_LB0 + 1'b1,
+        S_LB2 = S_LB1 + 1'b1,
+        S_LB3 = S_LB2 + 1'b1,
         S_STOR0 = S_ERROR,
         S_LUI0 = S_ERROR,
         S_BRCH0 = S_ERROR,
@@ -369,6 +381,26 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             
             S_LW3: begin
                 {regSel, WrReg, DrMem} = {ry, ON, ON};
+                nextState <= S_FETCH;
+            end
+            
+            S_LB0: begin
+                {regSel, LdMAR, DrReg} = {rx, ON, ON};
+                nextState <= S_LB1;
+            end
+            
+            S_LB1: begin
+                {LdA, DrMem} = {ON, ON};
+                nextState <= S_LB2;
+            end
+            
+            S_LB2: begin
+                {LdB, DrImm} = {ON, ON};
+                nextState <= S_LB3;
+            end
+            
+            S_LB3: begin
+                {ALUfunc, regSel, DrALU, WrReg} = {OP3_BITSEL, ry, ON, ON};
                 nextState <= S_FETCH;
             end
             
