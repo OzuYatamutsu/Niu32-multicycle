@@ -298,8 +298,12 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
                         nextState <= S_ALU0I;
                     end
                     
-                    OP1_LW, OP1_LB: begin
-                        nextState <= S_LOAD0;
+                    OP1_LW: begin
+                        nextState <= S_LW0;
+                    end
+                    
+                    OP1_LB: begin
+                        nextState <= S_LB0;
                     end
                     
                     OP1_SW, OP1_SB: begin
@@ -345,6 +349,26 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
                 end
                 
                 {regSel, DrALU, WrReg} = {rz, ON, ON};
+                nextState <= S_FETCH;
+            end
+            
+            S_LW0: begin
+                {regSel, LdA, DrReg} = {rx, ON, ON};
+                nextState <= S_LW1;
+            end
+            
+            S_LW1: begin
+                {LdB, DrImm} = {ON, ON};
+                nextState <= S_LW2;
+            end
+            
+            S_LW2: begin
+                {ALUfunc, DrALU, LdMAR} = {OP2_ADD, ON, ON};
+                nextState <= S_LW3
+            end
+            
+            S_LW3: begin
+                {regSel, WrReg, DrMem} = {ry, ON, ON};
                 nextState <= S_FETCH;
             end
             
