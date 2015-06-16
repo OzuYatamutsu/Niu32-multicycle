@@ -1,5 +1,5 @@
 Assembler report for Niu32_multicycle
-Mon Jun 15 22:59:21 2015
+Mon Jun 15 23:27:28 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -39,7 +39,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Jun 15 22:59:21 2015 ;
+; Assembler Status      ; Successful - Mon Jun 15 23:27:28 2015 ;
 ; Revision Name         ; Niu32_multicycle                      ;
 ; Top-level Entity Name ; Niu32_multicycle                      ;
 ; Family                ; Cyclone II                            ;
@@ -106,7 +106,7 @@ applicable agreement for further details.
 +----------------+---------------------------------------------------------------------------------------------------+
 ; Device         ; EP2C20F484C7                                                                                      ;
 ; JTAG usercode  ; 0xFFFFFFFF                                                                                        ;
-; Checksum       ; 0x001EEC84                                                                                        ;
+; Checksum       ; 0x001EEC7F                                                                                        ;
 +----------------+---------------------------------------------------------------------------------------------------+
 
 
@@ -117,7 +117,7 @@ applicable agreement for further details.
 +--------------------+-----------------------------------------------------------------------------------------------+
 ; Device             ; EPCS16                                                                                        ;
 ; JTAG usercode      ; 0x00000000                                                                                    ;
-; Checksum           ; 0x1DD2F9CC                                                                                    ;
+; Checksum           ; 0x1DD2DBD1                                                                                    ;
 ; Compression Ratio  ; 3                                                                                             ;
 +--------------------+-----------------------------------------------------------------------------------------------+
 
@@ -128,14 +128,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Jun 15 22:59:19 2015
+    Info: Processing started: Mon Jun 15 23:27:26 2015
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 442 megabytes
-    Info: Processing ended: Mon Jun 15 22:59:21 2015
+    Info: Processing ended: Mon Jun 15 23:27:28 2015
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
 
 
