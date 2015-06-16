@@ -376,7 +376,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             
             S_LW2: begin
                 {ALUfunc, DrALU, LdMAR} = {OP2_ADD, ON, ON};
-                nextState <= S_LW3
+                nextState <= S_LW3;
             end
             
             S_LW3: begin

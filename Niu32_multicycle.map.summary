@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri Jun 12 23:48:34 2015
+Analysis & Synthesis Status : Successful - Mon Jun 15 22:59:04 2015
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : Niu32_multicycle
 Top-level Entity Name : Niu32_multicycle
 Family : Cyclone II
-Total logic elements : 567
-    Total combinational functions : 355
+Total logic elements : 564
+    Total combinational functions : 352
     Dedicated logic registers : 416
 Total registers : 416
 Total pins : 61
