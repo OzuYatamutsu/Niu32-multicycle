@@ -403,6 +403,56 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
                 {ALUfunc, regSel, DrALU, WrReg} = {OP3_BITSEL, ry, ON, ON};
                 nextState <= S_FETCH;
             end
+
+            S_SW0: begin
+                {regSel, LdA, DrReg} = {rx, ON, ON};
+                nextState <= S_SW1;
+            end
+
+            S_SW1: begin
+                {LdB, DrImm} = {ON, ON}
+                nextState <= S_SW2;
+            end
+
+            S_SW2: begin
+                {ALUfunc, DrALU, LdMAR} = {OP2_ADD, ON, ON};
+                nextState <= S_SW3;
+            end
+
+            S_SW3: begin
+                {regSel, WrMem, DrReg} = {ry, ON, ON};
+                nextState <= S_FETCH;
+            end
+
+            S_SB0: begin
+                {regSel, LdMAR, DrReg} = {rx, ON, ON};
+                nextState <= S_SB1;
+            end
+
+            S_SB1: begin
+                {LdA, DrMem} = {ON, ON};
+                nextState <= S_SB2;
+            end
+
+            S_SB2: begin
+                {LdB, DrImm} = {ON, ON};
+                nextState <= S_SB3;
+            end
+
+            S_SB3: begin
+                {ALUfunc, LdA, DrALU} = {OP3_BITUNSET, ON, ON};
+                nextState <= S_SB4;
+            end
+
+            S_SB4: begin
+                {regSel, LdB, DrReg} = {ry, ON, ON}
+                nextState <= S_SB5;
+            end
+
+            S_SB5: begin
+                {ALUfunc, WrMem, DrALU} = {OP3_BITPSET, ON, ON}
+                nextState <= S_FETCH; 
+            end
             
             S_ERROR: begin
                 // Remain in error state
