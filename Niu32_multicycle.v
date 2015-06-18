@@ -268,6 +268,16 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         S_LB1 = S_LB0 + 1'b1,
         S_LB2 = S_LB1 + 1'b1,
         S_LB3 = S_LB2 + 1'b1,
+        S_SW0 = S_LB3 + 1'b1,
+        S_SW1 = S_SW0 + 1'b1,
+        S_SW2 = S_SW1 + 1'b1,
+        S_SW3 = S_SW2 + 1'b1,
+        S_SB0 = S_SW3 + 1'b1,
+        S_SB1 = S_SB0 + 1'b1,
+        S_SB2 = S_SB1 + 1'b1,
+        S_SB3 = S_SB2 + 1'b1,
+        S_SB4 = S_SB3 + 1'b1,
+        S_SB5 = S_SB4 + 1'b1,
         S_STOR0 = S_ERROR,
         S_LUI0 = S_ERROR,
         S_BRCH0 = S_ERROR,
@@ -410,7 +420,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             end
 
             S_SW1: begin
-                {LdB, DrImm} = {ON, ON}
+                {LdB, DrImm} = {ON, ON};
                 nextState <= S_SW2;
             end
 
@@ -445,12 +455,12 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             end
 
             S_SB4: begin
-                {regSel, LdB, DrReg} = {ry, ON, ON}
+                {regSel, LdB, DrReg} = {ry, ON, ON};
                 nextState <= S_SB5;
             end
 
             S_SB5: begin
-                {ALUfunc, WrMem, DrALU} = {OP3_BITPSET, ON, ON}
+                {ALUfunc, WrMem, DrALU} = {OP3_BITPSET, ON, ON};
                 nextState <= S_FETCH; 
             end
             
