@@ -85,7 +85,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter OP2_LEQ = 5'b10011;
     
     // Other signals
-    parameter OP3_BITSEL = 5'b11111;
+    parameter OP3_BITSEL = 5'b11101;
+    parameter OP3_BITUNSET = 5'b11110;
+    parameter OP3_BITSET = 5'b11111;
     
     // Init clock signal, lock signal
     
@@ -200,6 +202,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     // ALU
     reg signed [(MEM_ADDR_BITS - 1):0] A, B, ALUout;
     reg [(OP_BITS - 1):0] ALUfunc;
+    reg [(INSTR_SIZE - 1):0] setReg; // For SB
     
     // Actual ALU logic
     always @(posedge clk) begin
@@ -227,6 +230,11 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             OP2_LT: ALUout <= (A < B);
             OP2_LEQ: ALUout <= (A <= B);
             OP3_BITSEL: ALUout <= ((A & (BYTE_SEL_MASK << (24 - (B * 8)))) >> (24 - (B * 8)));
+            OP3_BITUNSET: begin
+                setReg <= B;
+                ALUout <= (A & (~BYTE_SEL_MASK << (24 - (B * 8))));
+            end
+            OP3_BITSET: ALUout <= (A | setReg << (24 - (setReg * 8)));
             default: ALUout <= BUS_NOSIG;
         endcase
     end
@@ -460,7 +468,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             end
 
             S_SB5: begin
-                {ALUfunc, WrMem, DrALU} = {OP3_BITPSET, ON, ON};
+                {ALUfunc, WrMem, DrALU} = {OP3_BITSET, ON, ON};
                 nextState <= S_FETCH; 
             end
             
