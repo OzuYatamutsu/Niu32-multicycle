@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Niu32_multicycle
-Mon Jun 15 23:27:11 2015
+Sat Jun 20 15:36:00 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -20,18 +20,24 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  12. Removed Registers Triggering Further Register Optimizations
  13. General Register Statistics
  14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: Top-level Entity: |Niu32_multicycle
- 17. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 18. Port Connectivity Checks: "SevenSeg:Hex3Out"
- 19. Port Connectivity Checks: "SevenSeg:Hex2Out"
- 20. Port Connectivity Checks: "SevenSeg:Hex1Out"
- 21. Port Connectivity Checks: "SevenSeg:Hex0Out"
- 22. SignalTap II Logic Analyzer Settings
- 23. Elapsed Time Per Partition
- 24. Connections to In-System Debugging Instance "auto_signaltap_0"
- 25. Analysis & Synthesis Messages
- 26. Analysis & Synthesis Suppressed Messages
+ 15. Registers Packed Into Inferred Megafunctions
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated
+ 18. Source assignments for altsyncram:imem_rtl_0|altsyncram_j061:auto_generated
+ 19. Parameter Settings for User Entity Instance: Top-level Entity: |Niu32_multicycle
+ 20. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 21. Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0
+ 22. Parameter Settings for Inferred Entity Instance: altsyncram:imem_rtl_0
+ 23. altsyncram Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "SevenSeg:Hex3Out"
+ 25. Port Connectivity Checks: "SevenSeg:Hex2Out"
+ 26. Port Connectivity Checks: "SevenSeg:Hex1Out"
+ 27. Port Connectivity Checks: "SevenSeg:Hex0Out"
+ 28. SignalTap II Logic Analyzer Settings
+ 29. Elapsed Time Per Partition
+ 30. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -57,7 +63,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 15 23:27:11 2015           ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 20 15:36:00 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Niu32_multicycle                                ;
 ; Top-level Entity Name              ; Niu32_multicycle                                ;
@@ -176,65 +182,68 @@ applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                      ;
-+-------------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path                                                          ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                         ; Library ;
-+-------------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
-; Niu32_multicycle.v                                                                        ; yes             ; User Verilog HDL File        ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.v               ;         ;
-; SevenSeg.v                                                                                ; yes             ; User Verilog HDL File        ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SevenSeg.v                       ;         ;
-; sld_signaltap.vhd                                                                         ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_signaltap.vhd            ;         ;
-; sld_signaltap_impl.vhd                                                                    ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_signaltap_impl.vhd       ;         ;
-; sld_ela_control.vhd                                                                       ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_ela_control.vhd          ;         ;
-; lpm_shiftreg.tdf                                                                          ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_shiftreg.tdf             ;         ;
-; lpm_constant.inc                                                                          ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_constant.inc             ;         ;
-; dffeea.inc                                                                                ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/dffeea.inc                   ;         ;
-; aglobal130.inc                                                                            ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/aglobal130.inc               ;         ;
-; sld_mbpmg.vhd                                                                             ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_mbpmg.vhd                ;         ;
-; sld_ela_trigger_flow_mgr.vhd                                                              ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_ela_trigger_flow_mgr.vhd ;         ;
-; sld_buffer_manager.vhd                                                                    ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_buffer_manager.vhd       ;         ;
-; altsyncram.tdf                                                                            ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altsyncram.tdf               ;         ;
-; stratix_ram_block.inc                                                                     ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratix_ram_block.inc        ;         ;
-; lpm_mux.inc                                                                               ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_mux.inc                  ;         ;
-; lpm_decode.inc                                                                            ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_decode.inc               ;         ;
-; a_rdenreg.inc                                                                             ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/a_rdenreg.inc                ;         ;
-; altrom.inc                                                                                ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altrom.inc                   ;         ;
-; altram.inc                                                                                ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altram.inc                   ;         ;
-; altdpram.inc                                                                              ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altdpram.inc                 ;         ;
-; db/altsyncram_gp14.tdf                                                                    ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/altsyncram_gp14.tdf           ;         ;
-; altdpram.tdf                                                                              ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altdpram.tdf                 ;         ;
-; memmodes.inc                                                                              ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/others/maxplus2/memmodes.inc               ;         ;
-; a_hdffe.inc                                                                               ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/a_hdffe.inc                  ;         ;
-; alt_le_rden_reg.inc                                                                       ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/alt_le_rden_reg.inc          ;         ;
-; altsyncram.inc                                                                            ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altsyncram.inc               ;         ;
-; lpm_mux.tdf                                                                               ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_mux.tdf                  ;         ;
-; muxlut.inc                                                                                ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/muxlut.inc                   ;         ;
-; bypassff.inc                                                                              ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/bypassff.inc                 ;         ;
-; altshift.inc                                                                              ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altshift.inc                 ;         ;
-; db/mux_aoc.tdf                                                                            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/mux_aoc.tdf                   ;         ;
-; lpm_decode.tdf                                                                            ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_decode.tdf               ;         ;
-; declut.inc                                                                                ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/declut.inc                   ;         ;
-; lpm_compare.inc                                                                           ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_compare.inc              ;         ;
-; db/decode_rqf.tdf                                                                         ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/decode_rqf.tdf                ;         ;
-; lpm_counter.tdf                                                                           ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_counter.tdf              ;         ;
-; lpm_add_sub.inc                                                                           ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_add_sub.inc              ;         ;
-; cmpconst.inc                                                                              ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/cmpconst.inc                 ;         ;
-; lpm_counter.inc                                                                           ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_counter.inc              ;         ;
-; alt_counter_stratix.inc                                                                   ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/alt_counter_stratix.inc      ;         ;
-; db/cntr_nbi.tdf                                                                           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cntr_nbi.tdf                  ;         ;
-; db/cmpr_8cc.tdf                                                                           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cmpr_8cc.tdf                  ;         ;
-; db/cntr_02j.tdf                                                                           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cntr_02j.tdf                  ;         ;
-; db/cntr_sbi.tdf                                                                           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cntr_sbi.tdf                  ;         ;
-; db/cntr_gui.tdf                                                                           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cntr_gui.tdf                  ;         ;
-; db/cmpr_5cc.tdf                                                                           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cmpr_5cc.tdf                  ;         ;
-; sld_rom_sr.vhd                                                                            ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_rom_sr.vhd               ;         ;
-; sld_hub.vhd                                                                               ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_hub.vhd                  ;         ;
-; sld_jtag_hub.vhd                                                                          ; yes             ; Encrypted Megafunction       ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_jtag_hub.vhd             ;         ;
-; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altpll.tdf        ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altpll.tdf                   ;         ;
-; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratix_pll.inc   ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratix_pll.inc              ;         ;
-; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratixii_pll.inc ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratixii_pll.inc            ;         ;
-; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/cycloneii_pll.inc ; yes             ; Megafunction                 ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/cycloneii_pll.inc            ;         ;
-+-------------------------------------------------------------------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                          ;
++-------------------------------------------------------------------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                                                          ; Used in Netlist ; File Type                        ; File Name with Absolute Path                                                                         ; Library ;
++-------------------------------------------------------------------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------------------------+---------+
+; debugLightTest.mif                                                                        ; yes             ; User Memory Initialization File  ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/debugLightTest.mif               ;         ;
+; Niu32_multicycle.v                                                                        ; yes             ; User Verilog HDL File            ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.v               ;         ;
+; SevenSeg.v                                                                                ; yes             ; User Verilog HDL File            ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SevenSeg.v                       ;         ;
+; sld_signaltap.vhd                                                                         ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_signaltap.vhd            ;         ;
+; sld_signaltap_impl.vhd                                                                    ; yes             ; Encrypted Megafunction           ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_signaltap_impl.vhd       ;         ;
+; sld_ela_control.vhd                                                                       ; yes             ; Encrypted Megafunction           ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_ela_control.vhd          ;         ;
+; lpm_shiftreg.tdf                                                                          ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_shiftreg.tdf             ;         ;
+; lpm_constant.inc                                                                          ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_constant.inc             ;         ;
+; dffeea.inc                                                                                ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/dffeea.inc                   ;         ;
+; aglobal130.inc                                                                            ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/aglobal130.inc               ;         ;
+; sld_mbpmg.vhd                                                                             ; yes             ; Encrypted Megafunction           ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_mbpmg.vhd                ;         ;
+; sld_ela_trigger_flow_mgr.vhd                                                              ; yes             ; Encrypted Megafunction           ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_ela_trigger_flow_mgr.vhd ;         ;
+; sld_buffer_manager.vhd                                                                    ; yes             ; Encrypted Megafunction           ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_buffer_manager.vhd       ;         ;
+; altsyncram.tdf                                                                            ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altsyncram.tdf               ;         ;
+; stratix_ram_block.inc                                                                     ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratix_ram_block.inc        ;         ;
+; lpm_mux.inc                                                                               ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_mux.inc                  ;         ;
+; lpm_decode.inc                                                                            ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_decode.inc               ;         ;
+; a_rdenreg.inc                                                                             ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/a_rdenreg.inc                ;         ;
+; altrom.inc                                                                                ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altrom.inc                   ;         ;
+; altram.inc                                                                                ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altram.inc                   ;         ;
+; altdpram.inc                                                                              ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altdpram.inc                 ;         ;
+; db/altsyncram_gp14.tdf                                                                    ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/altsyncram_gp14.tdf           ;         ;
+; altdpram.tdf                                                                              ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altdpram.tdf                 ;         ;
+; memmodes.inc                                                                              ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/others/maxplus2/memmodes.inc               ;         ;
+; a_hdffe.inc                                                                               ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/a_hdffe.inc                  ;         ;
+; alt_le_rden_reg.inc                                                                       ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/alt_le_rden_reg.inc          ;         ;
+; altsyncram.inc                                                                            ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altsyncram.inc               ;         ;
+; lpm_mux.tdf                                                                               ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_mux.tdf                  ;         ;
+; muxlut.inc                                                                                ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/muxlut.inc                   ;         ;
+; bypassff.inc                                                                              ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/bypassff.inc                 ;         ;
+; altshift.inc                                                                              ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altshift.inc                 ;         ;
+; db/mux_aoc.tdf                                                                            ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/mux_aoc.tdf                   ;         ;
+; lpm_decode.tdf                                                                            ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_decode.tdf               ;         ;
+; declut.inc                                                                                ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/declut.inc                   ;         ;
+; lpm_compare.inc                                                                           ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_compare.inc              ;         ;
+; db/decode_rqf.tdf                                                                         ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/decode_rqf.tdf                ;         ;
+; lpm_counter.tdf                                                                           ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_counter.tdf              ;         ;
+; lpm_add_sub.inc                                                                           ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_add_sub.inc              ;         ;
+; cmpconst.inc                                                                              ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/cmpconst.inc                 ;         ;
+; lpm_counter.inc                                                                           ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/lpm_counter.inc              ;         ;
+; alt_counter_stratix.inc                                                                   ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/alt_counter_stratix.inc      ;         ;
+; db/cntr_nbi.tdf                                                                           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cntr_nbi.tdf                  ;         ;
+; db/cmpr_8cc.tdf                                                                           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cmpr_8cc.tdf                  ;         ;
+; db/cntr_02j.tdf                                                                           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cntr_02j.tdf                  ;         ;
+; db/cntr_sbi.tdf                                                                           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cntr_sbi.tdf                  ;         ;
+; db/cntr_gui.tdf                                                                           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cntr_gui.tdf                  ;         ;
+; db/cmpr_5cc.tdf                                                                           ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/cmpr_5cc.tdf                  ;         ;
+; sld_rom_sr.vhd                                                                            ; yes             ; Encrypted Megafunction           ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_rom_sr.vhd               ;         ;
+; sld_hub.vhd                                                                               ; yes             ; Encrypted Megafunction           ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_hub.vhd                  ;         ;
+; sld_jtag_hub.vhd                                                                          ; yes             ; Encrypted Megafunction           ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/sld_jtag_hub.vhd             ;         ;
+; db/altsyncram_gok1.tdf                                                                    ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/altsyncram_gok1.tdf           ;         ;
+; db/altsyncram_j061.tdf                                                                    ; yes             ; Auto-Generated Megafunction      ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/db/altsyncram_j061.tdf           ;         ;
+; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altpll.tdf        ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/altpll.tdf                   ;         ;
+; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratix_pll.inc   ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratix_pll.inc              ;         ;
+; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratixii_pll.inc ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/stratixii_pll.inc            ;         ;
+; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/cycloneii_pll.inc ; yes             ; Megafunction                     ; c:/program files/quartus ii web edition/quartus/libraries/megafunctions/cycloneii_pll.inc            ;         ;
++-------------------------------------------------------------------------------------------+-----------------+----------------------------------+------------------------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------------------+
@@ -246,9 +255,9 @@ applicable agreement for further details.
 ;                                             ;                          ;
 ; Total combinational functions               ; 351                      ;
 ; Logic element usage by number of LUT inputs ;                          ;
-;     -- 4 input functions                    ; 162                      ;
-;     -- 3 input functions                    ; 86                       ;
-;     -- <=2 input functions                  ; 103                      ;
+;     -- 4 input functions                    ; 158                      ;
+;     -- 3 input functions                    ; 88                       ;
+;     -- <=2 input functions                  ; 105                      ;
 ;                                             ;                          ;
 ; Logic elements by mode                      ;                          ;
 ;     -- normal mode                          ; 309                      ;
@@ -263,8 +272,8 @@ applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0                        ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 270                      ;
-; Total fan-out                               ; 2563                     ;
-; Average fan-out                             ; 3.04                     ;
+; Total fan-out                               ; 2557                     ;
+; Average fan-out                             ; 3.03                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -335,51 +344,69 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |Niu32_multicycle|nextState                                                                                                                                                                                                                                                                   ;
-+--------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+-------------------+
-; Name               ; nextState.S_LB3 ; nextState.S_LB2 ; nextState.S_LB1 ; nextState.S_LB0 ; nextState.S_LW3 ; nextState.S_LW2 ; nextState.S_LW1 ; nextState.S_LW0 ; nextState.S_ALU2 ; nextState.S_ALU1 ; nextState.S_ALU0R ; nextState.S_ALU0I ; nextState.S_DECODE ; nextState.S_FETCH ; nextState.S_STOR0 ;
-+--------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+-------------------+
-; nextState.S_FETCH  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 0                 ; 0                 ;
-; nextState.S_DECODE ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 1                  ; 1                 ; 0                 ;
-; nextState.S_ALU0I  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 1                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_ALU0R  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 1                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_ALU1   ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 1                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_ALU2   ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_LW0    ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_LW1    ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_LW2    ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_LW3    ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_LB0    ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_LB1    ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_LB2    ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_LB3    ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 0                 ;
-; nextState.S_STOR0  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ; 1                 ;
-+--------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+-------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Niu32_multicycle|nextState                                                                                                                                                                                                                                                                                                                                                                                                                   ;
++--------------------+-------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+
+; Name               ; nextState.S_STOR0 ; nextState.S_SB5 ; nextState.S_SB4 ; nextState.S_SB3 ; nextState.S_SB2 ; nextState.S_SB1 ; nextState.S_SW3 ; nextState.S_SW2 ; nextState.S_SW1 ; nextState.S_LB3 ; nextState.S_LB2 ; nextState.S_LB1 ; nextState.S_LB0 ; nextState.S_LW3 ; nextState.S_LW2 ; nextState.S_LW1 ; nextState.S_LW0 ; nextState.S_ALU2 ; nextState.S_ALU1 ; nextState.S_ALU0R ; nextState.S_ALU0I ; nextState.S_DECODE ; nextState.S_FETCH ;
++--------------------+-------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+
+; nextState.S_FETCH  ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 0                 ;
+; nextState.S_DECODE ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 1                  ; 1                 ;
+; nextState.S_ALU0I  ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 1                 ; 0                  ; 1                 ;
+; nextState.S_ALU0R  ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 1                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_ALU1   ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 1                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_ALU2   ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_LW0    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_LW1    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_LW2    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_LW3    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_LB0    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_LB1    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_LB2    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_LB3    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_SW1    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_SW2    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_SW3    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_SB1    ; 0                 ; 0               ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_SB2    ; 0                 ; 0               ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_SB3    ; 0                 ; 0               ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_SB4    ; 0                 ; 0               ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_SB5    ; 0                 ; 1               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
+; nextState.S_STOR0  ; 1                 ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0               ; 0                ; 0                ; 0                 ; 0                 ; 0                  ; 1                 ;
++--------------------+-------------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+------------------+------------------+-------------------+-------------------+--------------------+-------------------+
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |Niu32_multicycle|state                                                                                                                                                                                                       ;
-+----------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+----------------+---------------+---------------+
-; Name           ; state.S_LB3 ; state.S_LB2 ; state.S_LB1 ; state.S_LB0 ; state.S_LW3 ; state.S_LW2 ; state.S_LW1 ; state.S_LW0 ; state.S_ALU2 ; state.S_ALU1 ; state.S_ALU0R ; state.S_ALU0I ; state.S_DECODE ; state.S_FETCH ; state.S_ERROR ;
-+----------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+----------------+---------------+---------------+
-; state.S_FETCH  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 0             ; 0             ;
-; state.S_DECODE ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 1              ; 1             ; 0             ;
-; state.S_ALU0I  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 1             ; 0              ; 1             ; 0             ;
-; state.S_ALU0R  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 1             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_ALU1   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 1            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_ALU2   ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_LW0    ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_LW1    ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_LW2    ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_LW3    ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_LB0    ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_LB1    ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_LB2    ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_LB3    ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 0             ;
-; state.S_ERROR  ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ; 1             ;
-+----------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+----------------+---------------+---------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Niu32_multicycle|state                                                                                                                                                                                                                                                                                                                                                   ;
++----------------+---------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+----------------+---------------+
+; Name           ; state.S_ERROR ; state.S_SB5 ; state.S_SB4 ; state.S_SB3 ; state.S_SB2 ; state.S_SB1 ; state.S_SB0 ; state.S_SW3 ; state.S_SW2 ; state.S_SW1 ; state.S_SW0 ; state.S_LB3 ; state.S_LB2 ; state.S_LB1 ; state.S_LB0 ; state.S_LW3 ; state.S_LW2 ; state.S_LW1 ; state.S_LW0 ; state.S_ALU2 ; state.S_ALU1 ; state.S_ALU0R ; state.S_ALU0I ; state.S_DECODE ; state.S_FETCH ;
++----------------+---------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+----------------+---------------+
+; state.S_FETCH  ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 0             ;
+; state.S_DECODE ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 1              ; 1             ;
+; state.S_ALU0I  ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 1             ; 0              ; 1             ;
+; state.S_ALU0R  ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 1             ; 0             ; 0              ; 1             ;
+; state.S_ALU1   ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 1            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_ALU2   ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_LW0    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_LW1    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_LW2    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_LW3    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_LB0    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_LB1    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_LB2    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_LB3    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SW0    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SW1    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SW2    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SW3    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SB0    ; 0             ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SB1    ; 0             ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SB2    ; 0             ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SB3    ; 0             ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SB4    ; 0             ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_SB5    ; 0             ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
+; state.S_ERROR  ; 1             ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0            ; 0            ; 0             ; 0             ; 0              ; 1             ;
++----------------+---------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+--------------+--------------+---------------+---------------+----------------+---------------+
 
 
 +---------------------------------------------------------------------------------------+
@@ -389,133 +416,192 @@ Encoding Type:  One-Hot
 +-----------------------------------------+---------------------------------------------+
 ; LdPC                                    ; Stuck at GND due to stuck port data_in      ;
 ; DrPC                                    ; Stuck at GND due to stuck port data_in      ;
-; WrMem                                   ; Stuck at GND due to stuck port data_in      ;
 ; PC[0,1]                                 ; Stuck at GND due to stuck port clock_enable ;
-; PC[2..31]                               ; Lost fanout                                 ;
-; A[0..12]                                ; Lost fanout                                 ;
-; B[1..12]                                ; Lost fanout                                 ;
-; ALUout[12]~en                           ; Lost fanout                                 ;
-; ALUout[11]~en                           ; Lost fanout                                 ;
-; ALUout[10]~en                           ; Lost fanout                                 ;
-; ALUout[9]~en                            ; Lost fanout                                 ;
-; ALUout[8]~en                            ; Lost fanout                                 ;
-; ALUout[7]~en                            ; Lost fanout                                 ;
-; ALUout[6]~en                            ; Lost fanout                                 ;
-; ALUout[5]~en                            ; Lost fanout                                 ;
-; ALUout[4]~en                            ; Lost fanout                                 ;
-; ALUout[3]~en                            ; Lost fanout                                 ;
-; ALUout[2]~en                            ; Lost fanout                                 ;
-; ALUout[1]~en                            ; Lost fanout                                 ;
-; ALUout[0]~en                            ; Lost fanout                                 ;
-; ALUout[0]                               ; Lost fanout                                 ;
-; IncPC                                   ; Lost fanout                                 ;
-; DrMem                                   ; Lost fanout                                 ;
-; LdMAR                                   ; Lost fanout                                 ;
-; WrReg                                   ; Lost fanout                                 ;
-; DrReg                                   ; Lost fanout                                 ;
-; regSel[0..4]                            ; Lost fanout                                 ;
-; LdA                                     ; Lost fanout                                 ;
-; LdB                                     ; Lost fanout                                 ;
-; DrALU                                   ; Lost fanout                                 ;
-; ALUfunc[0..4]                           ; Lost fanout                                 ;
-; B[0]                                    ; Lost fanout                                 ;
-; ALUout[1..12]                           ; Lost fanout                                 ;
-; IR[0..4,12..26]                         ; Lost fanout                                 ;
-; MDR[0..31]                              ; Lost fanout                                 ;
-; MAR[0..31]                              ; Lost fanout                                 ;
-; regFile[0..31]                          ; Lost fanout                                 ;
-; IR[27..31]                              ; Stuck at GND due to stuck port data_in      ;
-; LdIR                                    ; Lost fanout                                 ;
-; LEDGout[0,7]                            ; Merged with LEDRout[7]                      ;
-; LEDRout[3]                              ; Merged with LEDRout[7]                      ;
-; LEDGout[2,6]                            ; Merged with LEDRout[7]                      ;
-; LEDRout[6,8,9]                          ; Merged with LEDRout[7]                      ;
-; LEDGout[1]                              ; Merged with LEDRout[7]                      ;
-; LEDRout[2]                              ; Merged with LEDRout[7]                      ;
-; LEDGout[3,5]                            ; Merged with LEDRout[7]                      ;
-; LEDRout[0,1,4,5]                        ; Merged with LEDRout[7]                      ;
-; LEDGout[4]                              ; Merged with LEDRout[7]                      ;
-; LEDRout[7]                              ; Stuck at GND due to stuck port data_in      ;
+; IR[1..4,12..31]                         ; Stuck at GND due to stuck port data_in      ;
+; regSel[0..4]                            ; Stuck at GND due to stuck port data_in      ;
+; regFile[1..31]                          ; Lost fanout                                 ;
+; LdIR                                    ; Merged with IncPC                           ;
+; ALUfunc[2,3]                            ; Merged with ALUfunc[4]                      ;
+; regFile[0]                              ; Stuck at GND due to stuck port data_in      ;
+; state.S_SW0                             ; Lost fanout                                 ;
+; state.S_SB0                             ; Lost fanout                                 ;
 ; nextState~2                             ; Lost fanout                                 ;
 ; nextState~3                             ; Lost fanout                                 ;
 ; nextState~4                             ; Lost fanout                                 ;
 ; nextState~5                             ; Lost fanout                                 ;
-; state~17                                ; Lost fanout                                 ;
-; state~18                                ; Lost fanout                                 ;
-; state~19                                ; Lost fanout                                 ;
-; state~20                                ; Lost fanout                                 ;
+; nextState~6                             ; Lost fanout                                 ;
+; state~25                                ; Lost fanout                                 ;
+; state~26                                ; Lost fanout                                 ;
+; state~27                                ; Lost fanout                                 ;
+; state~28                                ; Lost fanout                                 ;
+; state~29                                ; Lost fanout                                 ;
 ; nextState.S_ALU0I                       ; Stuck at GND due to stuck port data_in      ;
 ; nextState.S_LW0                         ; Stuck at GND due to stuck port data_in      ;
 ; nextState.S_LB0                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_SW1                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_SB1                         ; Stuck at GND due to stuck port data_in      ;
 ; nextState.S_STOR0                       ; Lost fanout                                 ;
-; nextState.S_FETCH                       ; Lost fanout                                 ;
-; nextState.S_DECODE                      ; Lost fanout                                 ;
-; nextState.S_ALU0R                       ; Lost fanout                                 ;
-; nextState.S_ALU1                        ; Lost fanout                                 ;
-; nextState.S_ALU2                        ; Lost fanout                                 ;
-; nextState.S_LW1                         ; Lost fanout                                 ;
-; nextState.S_LW2                         ; Lost fanout                                 ;
-; nextState.S_LW3                         ; Lost fanout                                 ;
-; nextState.S_LB1                         ; Lost fanout                                 ;
-; nextState.S_LB2                         ; Lost fanout                                 ;
-; nextState.S_LB3                         ; Lost fanout                                 ;
 ; state.S_ERROR                           ; Lost fanout                                 ;
+; state.S_ALU0I                           ; Stuck at GND due to stuck port data_in      ;
+; state.S_LW0                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_LB0                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_SW1                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_SB1                             ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_LW1                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_LB1                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_SW2                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_SB2                         ; Stuck at GND due to stuck port data_in      ;
+; state.S_LW1                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_LB1                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_SW2                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_SB2                             ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_LW2                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_LB2                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_SW3                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_SB3                         ; Stuck at GND due to stuck port data_in      ;
+; state.S_LW2                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_LB2                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_SW3                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_SB3                             ; Stuck at GND due to stuck port data_in      ;
+; LdMAR                                   ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_LW3                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_LB3                         ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_SB4                         ; Stuck at GND due to stuck port data_in      ;
+; MAR[0..31]                              ; Stuck at GND due to stuck port clock_enable ;
+; state.S_LW3                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_LB3                             ; Stuck at GND due to stuck port data_in      ;
+; state.S_SB4                             ; Stuck at GND due to stuck port data_in      ;
+; LEDRout[0..9]                           ; Stuck at GND due to stuck port clock_enable ;
+; LEDGout[0..7]                           ; Stuck at GND due to stuck port clock_enable ;
+; DrMem                                   ; Stuck at GND due to stuck port data_in      ;
+; nextState.S_SB5                         ; Stuck at GND due to stuck port data_in      ;
+; state.S_SB5                             ; Stuck at GND due to stuck port data_in      ;
+; WrMem                                   ; Stuck at GND due to stuck port data_in      ;
+; ALUfunc[1,4]                            ; Stuck at GND due to stuck port data_in      ;
+; setReg[0..3]                            ; Stuck at GND due to stuck port clock_enable ;
+; nextState.S_DECODE                      ; Merged with IncPC                           ;
+; WrReg                                   ; Merged with DrALU                           ;
+; nextState.S_ALU1                        ; Merged with LdB                             ;
+; nextState.S_ALU2                        ; Merged with LdA                             ;
+; nextState.S_FETCH                       ; Merged with DrALU                           ;
+; PC[2]                                   ; Lost fanout                                 ;
+; IncPC                                   ; Lost fanout                                 ;
 ; state.S_FETCH                           ; Lost fanout                                 ;
-; state.S_DECODE                          ; Lost fanout                                 ;
-; state.S_ALU0I                           ; Lost fanout                                 ;
+; DrReg                                   ; Lost fanout                                 ;
+; DrALU                                   ; Lost fanout                                 ;
 ; state.S_ALU0R                           ; Lost fanout                                 ;
 ; state.S_ALU1                            ; Lost fanout                                 ;
+; MDR[0]                                  ; Lost fanout                                 ;
+; ALUout[0]~en                            ; Lost fanout                                 ;
 ; state.S_ALU2                            ; Lost fanout                                 ;
-; state.S_LW0                             ; Lost fanout                                 ;
-; state.S_LW1                             ; Lost fanout                                 ;
-; state.S_LW2                             ; Lost fanout                                 ;
-; state.S_LW3                             ; Lost fanout                                 ;
-; state.S_LB0                             ; Lost fanout                                 ;
-; state.S_LB1                             ; Lost fanout                                 ;
-; state.S_LB2                             ; Lost fanout                                 ;
-; state.S_LB3                             ; Lost fanout                                 ;
-; Total Number of Removed Registers = 283 ;                                             ;
+; MDR[1]                                  ; Lost fanout                                 ;
+; ALUout[1]~en                            ; Lost fanout                                 ;
+; MDR[2]                                  ; Lost fanout                                 ;
+; ALUout[2]~en                            ; Lost fanout                                 ;
+; MDR[3]                                  ; Lost fanout                                 ;
+; ALUout[3]~en                            ; Lost fanout                                 ;
+; MDR[4]                                  ; Lost fanout                                 ;
+; ALUout[4]~en                            ; Lost fanout                                 ;
+; MDR[5]                                  ; Lost fanout                                 ;
+; ALUout[5]~en                            ; Lost fanout                                 ;
+; MDR[6]                                  ; Lost fanout                                 ;
+; ALUout[6]~en                            ; Lost fanout                                 ;
+; MDR[7]                                  ; Lost fanout                                 ;
+; ALUout[7]~en                            ; Lost fanout                                 ;
+; MDR[8]                                  ; Lost fanout                                 ;
+; ALUout[8]~en                            ; Lost fanout                                 ;
+; MDR[9]                                  ; Lost fanout                                 ;
+; ALUout[9]~en                            ; Lost fanout                                 ;
+; MDR[10]                                 ; Lost fanout                                 ;
+; ALUout[10]~en                           ; Lost fanout                                 ;
+; MDR[11]                                 ; Lost fanout                                 ;
+; ALUout[11]~en                           ; Lost fanout                                 ;
+; MDR[12]                                 ; Lost fanout                                 ;
+; ALUout[12]~en                           ; Lost fanout                                 ;
+; MDR[13..31]                             ; Lost fanout                                 ;
+; nextState.S_ALU0R                       ; Lost fanout                                 ;
+; LdB                                     ; Lost fanout                                 ;
+; ALUfunc[0]                              ; Lost fanout                                 ;
+; B[0]                                    ; Lost fanout                                 ;
+; A[0]                                    ; Lost fanout                                 ;
+; LdA                                     ; Lost fanout                                 ;
+; B[1]                                    ; Lost fanout                                 ;
+; A[1]                                    ; Lost fanout                                 ;
+; B[2]                                    ; Lost fanout                                 ;
+; A[2]                                    ; Lost fanout                                 ;
+; B[3]                                    ; Lost fanout                                 ;
+; A[3]                                    ; Lost fanout                                 ;
+; B[4]                                    ; Lost fanout                                 ;
+; A[4]                                    ; Lost fanout                                 ;
+; B[5]                                    ; Lost fanout                                 ;
+; A[5]                                    ; Lost fanout                                 ;
+; B[6]                                    ; Lost fanout                                 ;
+; A[6]                                    ; Lost fanout                                 ;
+; B[7]                                    ; Lost fanout                                 ;
+; A[7]                                    ; Lost fanout                                 ;
+; B[8]                                    ; Lost fanout                                 ;
+; A[8]                                    ; Lost fanout                                 ;
+; B[9]                                    ; Lost fanout                                 ;
+; A[9]                                    ; Lost fanout                                 ;
+; B[10]                                   ; Lost fanout                                 ;
+; A[10]                                   ; Lost fanout                                 ;
+; B[11]                                   ; Lost fanout                                 ;
+; A[11]                                   ; Lost fanout                                 ;
+; B[12]                                   ; Lost fanout                                 ;
+; A[12]                                   ; Lost fanout                                 ;
+; state.S_DECODE                          ; Lost fanout                                 ;
+; PC[3..31]                               ; Lost fanout                                 ;
+; ALUout[0..12]                           ; Lost fanout                                 ;
+; Total Number of Removed Registers = 306 ;                                             ;
 +-----------------------------------------+---------------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                    ;
-+---------------+---------------------------+----------------------------------------------------------------------------------------------------+
-; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                             ;
-+---------------+---------------------------+----------------------------------------------------------------------------------------------------+
-; LdPC          ; Stuck at GND              ; PC[1], PC[0], ALUout[12]~en, ALUout[11]~en, ALUout[10]~en, ALUout[9]~en, ALUout[8]~en,             ;
-;               ; due to stuck port data_in ; ALUout[7]~en, ALUout[6]~en, ALUout[5]~en, ALUout[4]~en, ALUout[3]~en, ALUout[2]~en,                ;
-;               ;                           ; ALUout[1]~en, IncPC, DrMem, WrReg, DrReg, DrALU, ALUout[12], ALUout[11], ALUout[10], ALUout[9],    ;
-;               ;                           ; ALUout[8], ALUout[7], ALUout[6], ALUout[5], ALUout[4], ALUout[3], ALUout[2], ALUout[1], MDR[0],    ;
-;               ;                           ; MDR[1], MDR[2], MDR[3], MDR[4], MDR[5], MDR[6], MDR[7], MDR[8], MDR[9], MDR[10], MDR[11], MDR[12], ;
-;               ;                           ; MDR[13], MDR[14], MDR[15], MDR[16], MDR[17], MDR[18], MDR[19], MDR[20], MDR[21], MDR[22], MDR[23], ;
-;               ;                           ; MDR[24], MDR[25], MDR[26], MDR[27], MDR[28], MDR[29], MDR[30], MDR[31], regFile[27]                ;
-; DrPC          ; Stuck at GND              ; PC[6], PC[4], PC[3], PC[2], ALUout[0]~en, ALUout[0], LdB, MAR[28], MAR[29], MAR[30], MAR[31],      ;
-;               ; due to stuck port data_in ; regFile[28], regFile[29], regFile[30], regFile[31], LEDRout[7]                                     ;
-; nextState~2   ; Lost Fanouts              ; state.S_ALU0I, state.S_LW0, state.S_LW2, state.S_LB0, state.S_LB2                                  ;
-; state~17      ; Lost Fanouts              ; nextState.S_ALU1, nextState.S_LW1, nextState.S_LW3, nextState.S_LB1, nextState.S_LB3               ;
-; WrMem         ; Stuck at GND              ; PC[9], PC[8], PC[7], PC[5]                                                                         ;
-;               ; due to stuck port data_in ;                                                                                                    ;
-; regSel[4]     ; Lost Fanouts              ; IR[16], IR[21], IR[26]                                                                             ;
-; regSel[3]     ; Lost Fanouts              ; IR[15], IR[20], IR[25]                                                                             ;
-; regSel[2]     ; Lost Fanouts              ; IR[14], IR[19], IR[24]                                                                             ;
-; regSel[1]     ; Lost Fanouts              ; IR[13], IR[18], IR[23]                                                                             ;
-; regSel[0]     ; Lost Fanouts              ; IR[12], IR[17], IR[22]                                                                             ;
-; nextState~3   ; Lost Fanouts              ; state.S_ERROR, state.S_DECODE                                                                      ;
-; nextState~4   ; Lost Fanouts              ; state.S_ALU1, state.S_LB1                                                                          ;
-; nextState~5   ; Lost Fanouts              ; state.S_FETCH, state.S_ALU0R                                                                       ;
-; state~20      ; Lost Fanouts              ; nextState.S_ALU0R, nextState.S_ALU2                                                                ;
-; A[12]         ; Lost Fanouts              ; LdA                                                                                                ;
-; ALUfunc[4]    ; Lost Fanouts              ; IR[4]                                                                                              ;
-; ALUfunc[3]    ; Lost Fanouts              ; IR[3]                                                                                              ;
-; ALUfunc[2]    ; Lost Fanouts              ; IR[2]                                                                                              ;
-; ALUfunc[1]    ; Lost Fanouts              ; IR[1]                                                                                              ;
-; ALUfunc[0]    ; Lost Fanouts              ; IR[0]                                                                                              ;
-; IR[27]        ; Stuck at GND              ; LdIR                                                                                               ;
-;               ; due to stuck port data_in ;                                                                                                    ;
-; state~18      ; Lost Fanouts              ; nextState.S_STOR0                                                                                  ;
-; state~19      ; Lost Fanouts              ; nextState.S_LB2                                                                                    ;
-+---------------+---------------------------+----------------------------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                             ;
++-------------------+---------------------------+---------------------------------------------------------------------------------------------------------+
+; Register name     ; Reason for Removal        ; Registers Removed due to This Register                                                                  ;
++-------------------+---------------------------+---------------------------------------------------------------------------------------------------------+
+; LdPC              ; Stuck at GND              ; PC[1], PC[0], regFile[27], IncPC, state.S_FETCH, DrReg, DrALU, MDR[0], MDR[1], ALUout[1]~en, MDR[2],    ;
+;                   ; due to stuck port data_in ; ALUout[2]~en, MDR[3], ALUout[3]~en, MDR[4], ALUout[4]~en, MDR[5], ALUout[5]~en, MDR[6],                 ;
+;                   ;                           ; ALUout[6]~en, MDR[7], ALUout[7]~en, MDR[8], ALUout[8]~en, MDR[9], ALUout[9]~en, MDR[10],                ;
+;                   ;                           ; ALUout[10]~en, MDR[11], ALUout[11]~en, MDR[12], ALUout[12]~en, MDR[13], MDR[14], MDR[15],               ;
+;                   ;                           ; MDR[16], MDR[17], MDR[18], MDR[19], MDR[20], MDR[21], MDR[22], MDR[23], MDR[24], MDR[25], MDR[26],      ;
+;                   ;                           ; MDR[27], MDR[28], MDR[29], MDR[30], MDR[31], ALUout[1], ALUout[2], ALUout[3], ALUout[4], ALUout[5],     ;
+;                   ;                           ; ALUout[6], ALUout[7], ALUout[8], ALUout[9], ALUout[10], ALUout[11], ALUout[12]                          ;
+; DrPC              ; Stuck at GND              ; regFile[28], regFile[29], regFile[30], regFile[31], MAR[0], MAR[7], MAR[8], MAR[9], MAR[10],            ;
+;                   ; due to stuck port data_in ; MAR[11], MAR[12], MAR[13], MAR[14], MAR[15], MAR[16], MAR[17], MAR[18], MAR[19], MAR[20], MAR[21],      ;
+;                   ;                           ; MAR[22], MAR[23], MAR[24], MAR[25], MAR[26], MAR[27], LEDRout[0], LEDRout[7], LEDRout[8],               ;
+;                   ;                           ; LEDRout[9], LEDGout[0], LEDGout[7], PC[2], ALUout[0]~en, LdB, PC[3], PC[4], PC[6], PC[9], PC[10],       ;
+;                   ;                           ; PC[11], PC[12], PC[13], PC[14], PC[15], PC[16], PC[17], PC[18], PC[19], PC[20], PC[21], PC[22], PC[23], ;
+;                   ;                           ; PC[24], PC[25], PC[26], PC[27], ALUout[0]                                                               ;
+; IR[1]             ; Stuck at GND              ; ALUfunc[1], setReg[0], setReg[3], setReg[2], setReg[1], ALUfunc[0], B[0], A[0], B[1], A[1], B[2], A[2], ;
+;                   ; due to stuck port data_in ; B[3], A[3], A[4], A[5], A[6], A[7], A[8], A[9], A[10], A[11], A[12]                                     ;
+; nextState.S_LB0   ; Stuck at GND              ; state.S_LB0, nextState.S_LB1, state.S_LB1, nextState.S_LB2, state.S_LB2, LdMAR,                         ;
+;                   ; due to stuck port data_in ; nextState.S_LB3, MAR[5], MAR[6], MAR[28], MAR[29], MAR[30], MAR[31], state.S_LB3, PC[28], PC[29],       ;
+;                   ;                           ; PC[30], PC[31]                                                                                          ;
+; nextState.S_SW1   ; Stuck at GND              ; state.S_SW1, nextState.S_SW2, state.S_SW2, nextState.S_SW3, state.S_SW3, WrMem, state.S_ALU2,           ;
+;                   ; due to stuck port data_in ; LdA, PC[5], PC[7], PC[8]                                                                                ;
+; nextState.S_SB1   ; Stuck at GND              ; state.S_SB1, nextState.S_SB2, state.S_SB2, nextState.S_SB3, state.S_SB3, nextState.S_SB4,               ;
+;                   ; due to stuck port data_in ; state.S_SB4, DrMem, nextState.S_SB5, state.S_SB5                                                        ;
+; nextState.S_LW0   ; Stuck at GND              ; state.S_LW0, nextState.S_LW1, state.S_LW1, nextState.S_LW2, state.S_LW2, nextState.S_LW3,               ;
+;                   ; due to stuck port data_in ; state.S_LW3, state.S_ALU1                                                                               ;
+; IR[16]            ; Stuck at GND              ; regSel[4], regFile[23], regFile[24], regFile[25], regFile[26]                                           ;
+;                   ; due to stuck port data_in ;                                                                                                         ;
+; nextState.S_ALU0I ; Stuck at GND              ; state.S_ALU0I, state.S_ALU0R, nextState.S_ALU0R, state.S_DECODE                                         ;
+;                   ; due to stuck port data_in ;                                                                                                         ;
+; IR[4]             ; Stuck at GND              ; ALUfunc[4]                                                                                              ;
+;                   ; due to stuck port data_in ;                                                                                                         ;
+; IR[12]            ; Stuck at GND              ; regSel[0]                                                                                               ;
+;                   ; due to stuck port data_in ;                                                                                                         ;
+; IR[13]            ; Stuck at GND              ; regSel[1]                                                                                               ;
+;                   ; due to stuck port data_in ;                                                                                                         ;
+; IR[14]            ; Stuck at GND              ; regSel[2]                                                                                               ;
+;                   ; due to stuck port data_in ;                                                                                                         ;
+; IR[15]            ; Stuck at GND              ; regSel[3]                                                                                               ;
+;                   ; due to stuck port data_in ;                                                                                                         ;
+; nextState~2       ; Lost Fanouts              ; state.S_ERROR                                                                                           ;
+; state~26          ; Lost Fanouts              ; nextState.S_STOR0                                                                                       ;
++-------------------+---------------------------+---------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -554,11 +640,29 @@ Encoding Type:  One-Hot
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
++----------------------------------------------+
+; Registers Packed Into Inferred Megafunctions ;
++---------------+--------------+---------------+
+; Register Name ; Megafunction ; Type          ;
++---------------+--------------+---------------+
+; IR[0]         ; imem_rtl_0   ; RAM           ;
++---------------+--------------+---------------+
+
+
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 22 bits   ; 44 LEs        ; 22 LEs               ; 22 LEs                 ; Yes        ; |Niu32_multicycle|MDR[21]                                                                                               ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |Niu32_multicycle|MDR[9]                                                                                                ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Niu32_multicycle|MDR[1]                                                                                                ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |Niu32_multicycle|ALUout[7]                                                                                             ;
+; 10:1               ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |Niu32_multicycle|ALUout[8]                                                                                             ;
+; 10:1               ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |Niu32_multicycle|ALUout[0]                                                                                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Niu32_multicycle|ShiftLeft1                                                                                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |Niu32_multicycle|ShiftLeft3                                                                                            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |Niu32_multicycle|ShiftLeft3                                                                                            ;
 ; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg[0]                    ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg[4]                       ;
 ; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|word_counter[0] ;
@@ -566,6 +670,24 @@ Encoding Type:  One-Hot
 ; 34:1               ; 4 bits    ; 88 LEs        ; 56 LEs               ; 32 LEs                 ; Yes        ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[3]                      ;
 ; 20:1               ; 4 bits    ; 52 LEs        ; 36 LEs               ; 16 LEs                 ; Yes        ; |Niu32_multicycle|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|WORD_SR[0]      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Source assignments for altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated ;
++---------------------------------+--------------------+------+---------------+
+; Assignment                      ; Value              ; From ; To            ;
++---------------------------------+--------------------+------+---------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -             ;
++---------------------------------+--------------------+------+---------------+
+
+
++-----------------------------------------------------------------------------+
+; Source assignments for altsyncram:imem_rtl_0|altsyncram_j061:auto_generated ;
++---------------------------------+--------------------+------+---------------+
+; Assignment                      ; Value              ; From ; To            ;
++---------------------------------+--------------------+------+---------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -             ;
++---------------------------------+--------------------+------+---------------+
 
 
 +----------------------------------------------------------------------------------+
@@ -630,7 +752,9 @@ Encoding Type:  One-Hot
 ; OP2_NEQ         ; 10001                            ; Unsigned Binary             ;
 ; OP2_LT          ; 10010                            ; Unsigned Binary             ;
 ; OP2_LEQ         ; 10011                            ; Unsigned Binary             ;
-; OP3_BITSEL      ; 11111                            ; Unsigned Binary             ;
+; OP3_BITSEL      ; 11101                            ; Unsigned Binary             ;
+; OP3_BITUNSET    ; 11110                            ; Unsigned Binary             ;
+; OP3_BITSET      ; 11111                            ; Unsigned Binary             ;
 ; S_FETCH         ; 00000                            ; Unsigned Binary             ;
 ; S_DECODE        ; 00001                            ; Unsigned Binary             ;
 ; S_ALU0I         ; 00010                            ; Unsigned Binary             ;
@@ -646,6 +770,16 @@ Encoding Type:  One-Hot
 ; S_LB1           ; 01100                            ; Unsigned Binary             ;
 ; S_LB2           ; 01101                            ; Unsigned Binary             ;
 ; S_LB3           ; 01110                            ; Unsigned Binary             ;
+; S_SW0           ; 01111                            ; Unsigned Binary             ;
+; S_SW1           ; 10000                            ; Unsigned Binary             ;
+; S_SW2           ; 10001                            ; Unsigned Binary             ;
+; S_SW3           ; 10010                            ; Unsigned Binary             ;
+; S_SB0           ; 10011                            ; Unsigned Binary             ;
+; S_SB1           ; 10100                            ; Unsigned Binary             ;
+; S_SB2           ; 10101                            ; Unsigned Binary             ;
+; S_SB3           ; 10110                            ; Unsigned Binary             ;
+; S_SB4           ; 10111                            ; Unsigned Binary             ;
+; S_SB5           ; 11000                            ; Unsigned Binary             ;
 ; S_STOR0         ; 11111                            ; Unsigned Binary             ;
 ; S_LUI0          ; 11111                            ; Unsigned Binary             ;
 ; S_BRCH0         ; 11111                            ; Unsigned Binary             ;
@@ -717,6 +851,159 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:dmem_rtl_0     ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped        ;
+; WIDTH_A                            ; 32                   ; Untyped        ;
+; WIDTHAD_A                          ; 11                   ; Untyped        ;
+; NUMWORDS_A                         ; 2048                 ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 32                   ; Untyped        ;
+; WIDTHAD_B                          ; 11                   ; Untyped        ;
+; NUMWORDS_B                         ; 2048                 ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA             ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; debugLightTest.mif   ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_gok1      ; Untyped        ;
++------------------------------------+----------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: altsyncram:imem_rtl_0     ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; ROM                  ; Untyped        ;
+; WIDTH_A                            ; 32                   ; Untyped        ;
+; WIDTHAD_A                          ; 11                   ; Untyped        ;
+; NUMWORDS_A                         ; 2048                 ; Untyped        ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 1                    ; Untyped        ;
+; WIDTHAD_B                          ; 1                    ; Untyped        ;
+; NUMWORDS_B                         ; 1                    ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped        ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped        ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; debugLightTest.mif   ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped        ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped        ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_j061      ; Untyped        ;
++------------------------------------+----------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                  ;
++-------------------------------------------+-----------------------+
+; Name                                      ; Value                 ;
++-------------------------------------------+-----------------------+
+; Number of entity instances                ; 2                     ;
+; Entity Instance                           ; altsyncram:dmem_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT             ;
+;     -- WIDTH_A                            ; 32                    ;
+;     -- NUMWORDS_A                         ; 2048                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED          ;
+;     -- WIDTH_B                            ; 32                    ;
+;     -- NUMWORDS_B                         ; 2048                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA              ;
+; Entity Instance                           ; altsyncram:imem_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                   ;
+;     -- WIDTH_A                            ; 32                    ;
+;     -- NUMWORDS_A                         ; 2048                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED          ;
+;     -- WIDTH_B                            ; 1                     ;
+;     -- NUMWORDS_B                         ; 1                     ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED          ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                  ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE             ;
++-------------------------------------------+-----------------------+
+
+
 +----------------------------------------------+
 ; Port Connectivity Checks: "SevenSeg:Hex3Out" ;
 +----------+-------+----------+----------------+
@@ -768,7 +1055,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Partition Name   ; Elapsed Time ;
 +------------------+--------------+
 ; sld_hub:auto_hub ; 00:00:00     ;
-; Top              ; 00:00:00     ;
+; Top              ; 00:00:01     ;
 +------------------+--------------+
 
 
@@ -807,7 +1094,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Jun 15 23:27:03 2015
+    Info: Processing started: Sat Jun 20 15:35:50 2015
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
 Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file niu32_multicycle.v
@@ -818,24 +1105,27 @@ Info (12021): Found 1 design units, including 1 entities, in source file sevense
     Info (12023): Found entity 1: SevenSeg
 Info (12127): Elaborating entity "Niu32_multicycle" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(42): object "DrImm" assigned a value but never read
-Warning (10858): Verilog HDL warning at Niu32_multicycle.v(94): object lock used but never assigned
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(107): object "HEXout" assigned a value but never read
-Warning (10858): Verilog HDL warning at Niu32_multicycle.v(150): object imem used but never assigned
-Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(240): object "imm" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(108): truncated value with size 32 to match size of target (10)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(109): truncated value with size 32 to match size of target (8)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(140): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(152): truncated value with size 32 to match size of target (1)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(207): truncated value with size 32 to match size of target (13)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(209): truncated value with size 32 to match size of target (13)
-Warning (10764): Verilog HDL warning at Niu32_multicycle.v(221): converting signed shift amount to unsigned
-Warning (10764): Verilog HDL warning at Niu32_multicycle.v(222): converting signed shift amount to unsigned
-Warning (10764): Verilog HDL warning at Niu32_multicycle.v(223): converting signed shift amount to unsigned
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(96): object lock used but never assigned
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(109): object "HEXout" assigned a value but never read
+Warning (10858): Verilog HDL warning at Niu32_multicycle.v(152): object imem used but never assigned
+Warning (10036): Verilog HDL or VHDL warning at Niu32_multicycle.v(248): object "imm" assigned a value but never read
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(110): truncated value with size 32 to match size of target (10)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(111): truncated value with size 32 to match size of target (8)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(142): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(154): truncated value with size 32 to match size of target (1)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(210): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(212): truncated value with size 32 to match size of target (13)
 Warning (10764): Verilog HDL warning at Niu32_multicycle.v(224): converting signed shift amount to unsigned
-Warning (10764): Verilog HDL warning at Niu32_multicycle.v(229): converting signed shift amount to unsigned
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(229): truncated value with size 32 to match size of target (13)
-Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(230): truncated value with size 32 to match size of target (13)
-Warning (10030): Net "lock" at Niu32_multicycle.v(94) has no driver or initial value, using a default initial value '0'
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(225): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(226): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(227): converting signed shift amount to unsigned
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(232): converting signed shift amount to unsigned
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(232): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(234): truncated value with size 13 to match size of target (4)
+Warning (10764): Verilog HDL warning at Niu32_multicycle.v(235): converting signed shift amount to unsigned
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(235): truncated value with size 32 to match size of target (13)
+Warning (10230): Verilog HDL assignment warning at Niu32_multicycle.v(238): truncated value with size 32 to match size of target (13)
+Warning (10030): Net "lock" at Niu32_multicycle.v(96) has no driver or initial value, using a default initial value '0'
 Info (12128): Elaborating entity "SevenSeg" for hierarchy "SevenSeg:Hex0Out"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gp14.tdf
     Info (12023): Found entity 1: altsyncram_gp14
@@ -856,6 +1146,141 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/cntr
 Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_5cc.tdf
     Info (12023): Found entity 1: cmpr_5cc
 Info (12033): Analysis and Synthesis generated SignalTap II or debug node instance "auto_signaltap_0"
+Info (276024): Pass-through logic not created for RAM node "dmem_rtl_0"
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "dmem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 11
+        Info (286033): Parameter NUMWORDS_A set to 2048
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 11
+        Info (286033): Parameter NUMWORDS_B set to 2048
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to debugLightTest.mif
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "imem_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 11
+        Info (286033): Parameter NUMWORDS_A set to 2048
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to debugLightTest.mif
+Info (12130): Elaborated megafunction instantiation "altsyncram:dmem_rtl_0"
+Info (12133): Instantiated megafunction "altsyncram:dmem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "11"
+    Info (12134): Parameter "NUMWORDS_A" = "2048"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "11"
+    Info (12134): Parameter "NUMWORDS_B" = "2048"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "debugLightTest.mif"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_gok1.tdf
+    Info (12023): Found entity 1: altsyncram_gok1
+Warning (113028): 2040 out of 2048 addresses are uninitialized. The Quartus II software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported.
+    Warning (113027): Addresses ranging from 8 to 2047 are not initialized
+Info (12130): Elaborated megafunction instantiation "altsyncram:imem_rtl_0"
+Info (12133): Instantiated megafunction "altsyncram:imem_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "11"
+    Info (12134): Parameter "NUMWORDS_A" = "2048"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "debugLightTest.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_j061.tdf
+    Info (12023): Found entity 1: altsyncram_j061
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a0"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a0"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a1"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a2"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a3"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a4"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a5"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a6"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a7"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a8"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a9"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a10"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a11"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a12"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a13"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a14"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a15"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a16"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a17"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a18"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a19"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a20"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a21"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a22"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a23"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a24"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a25"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a26"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a27"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a28"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a29"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a30"
+        Warning (14320): Synthesized away node "altsyncram:dmem_rtl_0|altsyncram_gok1:auto_generated|ram_block1a31"
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a1"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a2"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a3"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a4"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a5"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a6"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a7"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a8"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a9"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a10"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a11"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a12"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a13"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a14"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a15"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a16"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a17"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a18"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a19"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a20"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a21"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a22"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a23"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a24"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a25"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a26"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a27"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a28"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a29"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a30"
+        Warning (14320): Synthesized away node "altsyncram:imem_rtl_0|altsyncram_j061:auto_generated|ram_block1a31"
 Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub"
 Warning (12069): Ignored assignment(s) for "nextState[0]" because "nextState" is not a bus or array
 Warning (12069): Ignored assignment(s) for "nextState[1]" because "nextState" is not a bus or array
@@ -914,7 +1339,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX3[4]" is stuck at GND
     Warning (13410): Pin "HEX3[5]" is stuck at GND
     Warning (13410): Pin "HEX3[6]" is stuck at VCC
-Info (17049): 252 registers lost all their fanouts during netlist optimizations.
+Info (17049): 171 registers lost all their fanouts during netlist optimizations.
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
 Warning (13024): Output pins are stuck at VCC or GND
@@ -926,7 +1351,9 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
 Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SWITCH[0]"
     Warning (15610): No output dependent on input pin "SWITCH[1]"
+    Warning (15610): No output dependent on input pin "KEY[2]"
     Warning (15610): No output dependent on input pin "SWITCH[2]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
     Warning (15610): No output dependent on input pin "SWITCH[3]"
     Warning (15610): No output dependent on input pin "SWITCH[4]"
     Warning (15610): No output dependent on input pin "SWITCH[5]"
@@ -934,8 +1361,6 @@ Warning (21074): Design contains 14 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SWITCH[7]"
     Warning (15610): No output dependent on input pin "SWITCH[8]"
     Warning (15610): No output dependent on input pin "SWITCH[9]"
-    Warning (15610): No output dependent on input pin "KEY[2]"
-    Warning (15610): No output dependent on input pin "KEY[3]"
     Warning (15610): No output dependent on input pin "KEY[0]"
     Warning (15610): No output dependent on input pin "KEY[1]"
 Info (21057): Implemented 652 device resources after synthesis - the final resource count might be different
@@ -943,11 +1368,11 @@ Info (21057): Implemented 652 device resources after synthesis - the final resou
     Info (21059): Implemented 47 output pins
     Info (21061): Implemented 576 logic cells
     Info (21064): Implemented 10 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 94 warnings
-    Info: Peak virtual memory: 551 megabytes
-    Info: Processing ended: Mon Jun 15 23:27:11 2015
-    Info: Elapsed time: 00:00:08
-    Info: Total CPU time (on all processors): 00:00:08
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 167 warnings
+    Info: Peak virtual memory: 555 megabytes
+    Info: Processing ended: Sat Jun 20 15:36:00 2015
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:09
 
 
 +------------------------------------------+
