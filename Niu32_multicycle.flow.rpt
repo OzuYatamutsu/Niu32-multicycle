@@ -1,5 +1,5 @@
 Flow report for Niu32_multicycle
-Sat Jun 20 15:36:20 2015
+Tue Jun 23 20:42:58 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,15 +40,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Sat Jun 20 15:36:17 2015           ;
+; Flow Status                        ; Successful - Tue Jun 23 20:42:55 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Niu32_multicycle                                ;
 ; Top-level Entity Name              ; Niu32_multicycle                                ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 555 / 18,752 ( 3 % )                            ;
-;     Total combinational functions  ; 368 / 18,752 ( 2 % )                            ;
+; Total logic elements               ; 562 / 18,752 ( 3 % )                            ;
+;     Total combinational functions  ; 369 / 18,752 ( 2 % )                            ;
 ;     Dedicated logic registers      ; 425 / 18,752 ( 2 % )                            ;
 ; Total registers                    ; 425                                             ;
 ; Total pins                         ; 61 / 315 ( 19 % )                               ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/20/2015 15:35:51 ;
+; Start date & time ; 06/23/2015 20:42:29 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Niu32_multicycle    ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ applicable agreement for further details.
 ; ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION                ; On                                                                                         ; Off           ; --          ; --               ;
 ; ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION                ; On                                                                                         ; Off           ; --          ; --               ;
 ; AUTO_RAM_TO_LCELL_CONVERSION                      ; On                                                                                         ; Off           ; --          ; --               ;
-; COMPILER_SIGNATURE_ID                             ; 220964047305497.143483255007464                                                            ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID                             ; 220964047305497.143511014900100                                                            ; --            ; --          ; --               ;
 ; CYCLONEII_OPTIMIZATION_TECHNIQUE                  ; Speed                                                                                      ; Balanced      ; --          ; --               ;
 ; ENABLE_SIGNALTAP                                  ; On                                                                                         ; --            ; --          ; --               ;
 ; FITTER_EFFORT                                     ; Standard Fit                                                                               ; Auto Fit      ; --          ; --               ;
@@ -140,11 +140,11 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 555 MB              ; 00:00:08                           ;
-; Fitter                    ; 00:00:12     ; 1.3                     ; 787 MB              ; 00:00:14                           ;
+; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 559 MB              ; 00:00:08                           ;
+; Fitter                    ; 00:00:11     ; 1.3                     ; 795 MB              ; 00:00:14                           ;
 ; Assembler                 ; 00:00:02     ; 1.0                     ; 434 MB              ; 00:00:02                           ;
 ; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 465 MB              ; 00:00:02                           ;
-; Total                     ; 00:00:25     ; --                      ; --                  ; 00:00:26                           ;
+; Total                     ; 00:00:24     ; --                      ; --                  ; 00:00:26                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
