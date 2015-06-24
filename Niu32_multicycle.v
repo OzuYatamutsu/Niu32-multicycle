@@ -291,7 +291,13 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         S_LUI0 = S_SB5 + 1'b1,
         S_LUI1 = S_LUI0 + 1'b1,
         S_LUI2 = S_LUI1 + 1'b1,
-        S_BRCH0 = S_ERROR,
+        S_BRCH0 = S_LUI2 + 1'b1,
+        S_BRCH1 = S_BRCH0 + 1'b1,
+        S_BRCH2 = S_BRCH1 + 1'b1,
+        S_BRCH3 = S_BRCH2 + 1'b1,
+        S_BRCH4 = S_BRCH3 + 1'b1,
+        S_BRCH5 = S_BRCH4 + 1'b1,
+        S_BRCH6 = S_BRCH5 + 1'b1,
         S_JUMP0 = S_ERROR,
         S_ERROR = 5'b11111;
     
