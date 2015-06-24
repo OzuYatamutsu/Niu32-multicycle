@@ -39,7 +39,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     reg WrMem, DrMem, LdMAR;
     reg WrReg, DrReg;
     reg LdIR;
-    reg DrImm;
+    reg DrImm, ShImm; // ShImm = DrImm with Imm * INSTR_SIZE
     reg LdA, LdB, DrALU;
     
     /// Opcodes
@@ -288,7 +288,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         S_SB3 = S_SB2 + 1'b1,
         S_SB4 = S_SB3 + 1'b1,
         S_SB5 = S_SB4 + 1'b1,
-        S_LUI0 = S_ERROR,
+        S_LUI0 = S_SB5 + 1'b1,
+        S_LUI1 = S_LUI0 + 1'b1,
+        S_LUI2 = S_LUI1 + 1'b1,
         S_BRCH0 = S_ERROR,
         S_JUMP0 = S_ERROR,
         S_ERROR = 5'b11111;
@@ -489,6 +491,54 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             
             S_LUI2: begin
                 {ALUfunc, regSel, WrReg} = {OP3_LUI, rz, ON};
+                nextState <= S_FETCH;
+            end
+            
+            S_BRCH0: begin
+                {regSel, LdA, DrReg} = {rx, ON, ON};
+                nextState <= S_BRCH1;
+            end
+            
+            S_BRCH1: begin
+                {regSel, LdB, DrReg} = {ry, ON, ON};
+                nextState <= S_BRCH2;
+            end
+            
+            S_BRCH2: begin
+                case (op1)
+                    OP1_BEQ: ALUfunc = OP2_EQ;
+                    OP1_BNE: ALUfunc = OP2_NEQ;
+                    OP1_BLT: ALUfunc = OP2_LT;
+                    OP1_BLE: ALUfunc = OP2_LEQ;
+                    default: ALUfunc = OP2_EQ;
+                endcase
+                
+                if (ALUout) begin
+                    // Take the branch!
+                    nextState <= S_BRCH3;
+                end else begin
+                    // Don't take the branch
+                    nextState <= S_FETCH;
+                end
+            end
+            
+            S_BRCH3: begin
+                IncPC = ON;
+                nextState <= S_BRCH4;
+            end
+            
+            S_BRCH4: begin
+                {LdA, DrPC} = {ON, ON};
+                nextState <= S_BRCH5;
+            end
+            
+            S_BRCH5: begin
+                {LdB, ShImm} = {ON, ON};
+                nextState <= S_BRCH6;
+            end
+            
+            S_BRCH6: begin
+                {ALUfunc, LdPC, DrALU} = {OP2_ADD, ON, ON};
                 nextState <= S_FETCH;
             end
             
