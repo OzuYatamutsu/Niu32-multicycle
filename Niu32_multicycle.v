@@ -286,7 +286,6 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         S_SB3 = S_SB2 + 1'b1,
         S_SB4 = S_SB3 + 1'b1,
         S_SB5 = S_SB4 + 1'b1,
-        S_STOR0 = S_ERROR,
         S_LUI0 = S_ERROR,
         S_BRCH0 = S_ERROR,
         S_JUMP0 = S_ERROR,
@@ -336,8 +335,12 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
                         nextState <= S_LB0;
                     end
                     
-                    OP1_SW, OP1_SB: begin
-                        nextState <= S_STOR0;
+                    OP1_SW: begin
+                        nextState <= S_SW0;
+                    end
+                    
+                    OP1_SB: begin
+                        nextState <= S_SB0;
                     end
                     
                     OP1_LUI: begin
