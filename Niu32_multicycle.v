@@ -491,7 +491,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             end
             
             S_LUI1: begin
-                {LdB, DrImm} = {ON, ON}
+                {LdB, DrImm} = {ON, ON};
                 nextState <= S_LUI2;
             end
             
