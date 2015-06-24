@@ -85,6 +85,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter OP2_LEQ = 5'b10011;
     
     // Other signals
+    parameter OP3_LUI = 5'b11100;
     parameter OP3_BITSEL = 5'b11101;
     parameter OP3_BITUNSET = 5'b11110;
     parameter OP3_BITSET = 5'b11111;
@@ -229,6 +230,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             OP2_NEQ: ALUout <= (A != B);
             OP2_LT: ALUout <= (A < B);
             OP2_LEQ: ALUout <= (A <= B);
+            OP3_LUI: ALUout <= (A & (B << 23));
             OP3_BITSEL: ALUout <= ((A & (BYTE_SEL_MASK << (24 - (B * 8)))) >> (24 - (B * 8)));
             OP3_BITUNSET: begin
                 setReg <= B;
@@ -473,6 +475,21 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             S_SB5: begin
                 {ALUfunc, WrMem, DrALU} = {OP3_BITSET, ON, ON};
                 nextState <= S_FETCH; 
+            end
+            
+            S_LUI0: begin
+                {regSel, LdA, DrReg} = {ry, ON, ON};
+                nextState <= S_LUI1;
+            end
+            
+            S_LUI1: begin
+                {LdB, DrImm} = {ON, ON}
+                nextState <= S_LUI2;
+            end
+            
+            S_LUI2: begin
+                {ALUfunc, regSel, WrReg} = {OP3_LUI, rz, ON};
+                nextState <= S_FETCH;
             end
             
             S_ERROR: begin
