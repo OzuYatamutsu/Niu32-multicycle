@@ -297,7 +297,6 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         S_BRCH3 = S_BRCH2 + 1'b1,
         S_BRCH4 = S_BRCH3 + 1'b1,
         S_BRCH5 = S_BRCH4 + 1'b1,
-        S_BRCH6 = S_BRCH5 + 1'b1,
         S_JUMP0 = S_ERROR,
         S_ERROR = 5'b11111;
     
@@ -529,21 +528,16 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             end
             
             S_BRCH3: begin
-                IncPC = ON;
+                {LdA, DrPC} = {ON, ON};
                 nextState <= S_BRCH4;
             end
             
             S_BRCH4: begin
-                {LdA, DrPC} = {ON, ON};
+                {LdB, ShImm} = {ON, ON};
                 nextState <= S_BRCH5;
             end
             
             S_BRCH5: begin
-                {LdB, ShImm} = {ON, ON};
-                nextState <= S_BRCH6;
-            end
-            
-            S_BRCH6: begin
                 {ALUfunc, LdPC, DrALU} = {OP2_ADD, ON, ON};
                 nextState <= S_FETCH;
             end
