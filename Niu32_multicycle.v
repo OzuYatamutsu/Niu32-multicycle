@@ -93,12 +93,11 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     // Init clock signal, lock signal
     
     // DEBUG: clk signal set to KEY[0], reset set to KEY[1]
-    //wire clk, lock;
-    wire lock;
-    //Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked (lock)); // DEBUG: set to 50 MHz.
-    wire clk = !KEY[0];
-    //wire reset = !lock;
-    wire reset = KEY[1];
+    wire clk, lock;
+    Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked (lock)); // DEBUG: set to 50 MHz.
+    //wire clk = !KEY[0];
+    wire reset = !lock;
+    //wire reset = KEY[1];
     
     // Init seven-segment display - grab values from memory
     SevenSeg Hex0Out(.hexNumIn(ADDR_HEX[3:0]), .displayOut(HEX0));
@@ -305,15 +304,15 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter OFF = 1'b0;
     
     // DEBUG: state machine powered by clk only
-    //always @(state or op1 or op2 or rx or ry or rz) begin
-    always @(posedge clk) begin
+    always @(state or op1 or op2 or rx or ry or rz) begin
+    //always @(posedge clk) begin
         {LdPC, DrPC, IncPC} = {OFF, OFF, OFF};
         {WrMem, DrMem, LdMAR} = {OFF, OFF, OFF};
         {WrReg, DrReg, regSel} = {OFF, OFF, {(REG_BITS) {1'b0}}};
         LdIR = OFF;
         DrImm = OFF;
         {LdA, LdB, DrALU, ALUfunc} = {OFF, OFF, OFF, {(OP_BITS) {1'b0}}};
-        state <= nextState;
+        state = nextState;
         
         if (reset) begin
             state <= S_FETCH;
@@ -559,4 +558,6 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             end
         endcase
     end
+    
+    
 endmodule
