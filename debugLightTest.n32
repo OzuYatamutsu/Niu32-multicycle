@@ -1,0 +1,10 @@
+! Test memory access
+.NAME LEDGLOC 0xffff0040
+.NAME LEDRLOC 0xffff0020
+
+LV $s0, LEDGLOC             ! s0 <- LEDGLOC pointer
+LV $s1, LEDRLOC             ! s1 <- LEDRLOC pointer
+ADDI $t0, $zero, 0b11111111 ! t0 <- Store 8'b11111111
+ADDI $t1, $zero, 0b10101010 ! t1 <- Store 8'b10101010
+SW $t0, $s0, 0              ! Turn on all LEDG lights
+SW $t1, $s1, 0              ! Turn on alternating LEDR lights
