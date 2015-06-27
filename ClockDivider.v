@@ -1,4 +1,4 @@
-module ClockDivider(input clkIn, output clkout);
+module ClockDivider(input clkIn, output clkOut);
     parameter divider = 25000000; // 25000000 w/CLOCK_50 = 1 Hz (posedge, negedge)
     parameter counterSize = 32; // Must be at least ceil(log^2(divider))
     
