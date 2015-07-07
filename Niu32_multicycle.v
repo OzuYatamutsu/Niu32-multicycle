@@ -92,14 +92,28 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // Init clock signal, lock signal
     
-    // DEBUG: clk signal set to KEY[0], reset set to KEY[1]
+    // DEBUG: clk signal set to flipping reg
     wire clk, lock;
-    ClockDivider(.clkIn(CLOCK_50), .clkOut(clk)); // Opposite of a PLL?
+    reg clkReg, numEdges;
+    initial begin
+        clkReg = 0;
+        numEdges = 0;
+    end
+    
+    always begin
+        clkReg = ~clkReg;
+        numEdges = numEdges + 1;
+    end
+    
+    assign clk = clkReg;
+    
+    //ClockDivider clkdiv(.clkIn(CLOCK_50), .clkOut(clk)); // Opposite of a PLL?
     //Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked (lock));
     //wire clk = !KEY[0];
     //wire reset = !lock;
     //wire reset = KEY[1];
-    wire reset = !KEY[0]; // Reset key
+    //wire reset = !KEY[0]; // Reset key
+    wire reset = (numEdges == 0);
     
     // Init seven-segment display - grab values from memory
     SevenSeg Hex0Out(.hexNumIn(ADDR_HEX[3:0]), .displayOut(HEX0));
@@ -306,7 +320,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter OFF = 1'b0;
     
     // DEBUG: state machine powered by clk only
-    always @(state or op1 or op2 or rx or ry or rz or reset) begin
+    always @(*) begin
     //always @(posedge clk) begin
         {LdPC, DrPC, IncPC} = {OFF, OFF, OFF};
         {WrMem, DrMem, LdMAR} = {OFF, OFF, OFF};
