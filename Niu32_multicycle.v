@@ -94,8 +94,10 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // DEBUG: clk signal set to flipping reg
     wire clk, lock;
-    reg clkReg, numEdges;
-    initial begin
+    reg clkReg, numEdges, resetReg;
+    assign clk = CLOCK_50;
+    
+    /*initial begin
         clkReg = 0;
         numEdges = 0;
     end
@@ -103,9 +105,16 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     always begin
         clkReg = ~clkReg;
         numEdges = numEdges + 1;
+    end */
+    
+    always @(posedge clk) begin
+        if (resetReg)
+            resetReg <= 0;
     end
     
-    assign clk = clkReg;
+    initial begin
+        resetReg <= 1;
+    end
     
     //ClockDivider clkdiv(.clkIn(CLOCK_50), .clkOut(clk)); // Opposite of a PLL?
     //Pll pll(.inclk0(CLOCK_50), .c0 (clk), .locked (lock));
@@ -113,7 +122,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     //wire reset = !lock;
     //wire reset = KEY[1];
     //wire reset = !KEY[0]; // Reset key
-    wire reset = (numEdges == 0);
+    wire reset = resetReg;
     
     // Init seven-segment display - grab values from memory
     SevenSeg Hex0Out(.hexNumIn(ADDR_HEX[3:0]), .displayOut(HEX0));
