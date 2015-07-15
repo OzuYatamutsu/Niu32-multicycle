@@ -92,28 +92,17 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // Init clock signal, lock signal
     
-    // DEBUG: clk signal set to flipping reg
     wire clk, lock;
     reg clkReg, numEdges, resetReg;
     assign clk = CLOCK_50;
     
-    /*initial begin
-        clkReg = 0;
-        numEdges = 0;
-    end
-    
-    always begin
-        clkReg = ~clkReg;
-        numEdges = numEdges + 1;
-    end */
-    
     always @(posedge clk) begin
         if (resetReg)
-            resetReg <= 0;
+            resetReg = 0;
     end
     
     initial begin
-        resetReg <= 1;
+        resetReg = 1;
     end
     
     //ClockDivider clkdiv(.clkIn(CLOCK_50), .clkOut(clk)); // Opposite of a PLL?
@@ -176,6 +165,10 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     (* ram_init_file = INIT_MIF *)
     reg [(WORD_SIZE - 1):0] imem[(IMEM_WORDS - 1):0];
     reg [(WORD_SIZE - 1):0] IR; // Instruction register
+    wire debugPCIdex;
+    assign debugPCIdex = PC[12:2];
+    wire debugImem0;
+    assign debugImem0 = imem[0][31:0];
     wire imemOutput = imem[PC[(MEM_ADDR_BITS - 1):MEM_WORD_OFFSET]];
     
     // Data memory
@@ -328,9 +321,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter ON = 1'b1;
     parameter OFF = 1'b0;
     
-    // DEBUG: state machine powered by clk only
     always @(*) begin
-    //always @(posedge clk) begin
         {LdPC, DrPC, IncPC} = {OFF, OFF, OFF};
         {WrMem, DrMem, LdMAR} = {OFF, OFF, OFF};
         {WrReg, DrReg, regSel} = {OFF, OFF, {(REG_BITS) {1'b0}}};
