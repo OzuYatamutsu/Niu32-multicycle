@@ -317,7 +317,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter ON = 1'b1;
     parameter OFF = 1'b0;
     
-    always @(*) begin
+    always @(posedge clk) begin
         {LdPC, DrPC, IncPC} = {OFF, OFF, OFF};
         {WrMem, DrMem, LdMAR} = {OFF, OFF, OFF};
         {WrReg, DrReg, regSel} = {OFF, OFF, {(REG_BITS) {1'b0}}};
