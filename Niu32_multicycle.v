@@ -333,47 +333,47 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         case (state)
             S_FETCH: begin
                 {LdIR, IncPC} = {ON, ON};
-                nextState <= S_DECODE;
+                nextState = S_DECODE;
             end
             
             S_DECODE: begin
                 case (op1)
                     OP1_ALUI: begin
-                        nextState <= S_ALU0R;
+                        nextState = S_ALU0R;
                     end
                     
                     OP1_ADDI, OP1_MLTI, OP1_DIVI, 
                     OP1_ANDI, OP1_ORI, OP1_XORI, 
                     OP1_SULI, OP1_SSLI, OP1_SURI, OP1_SSRI: begin
-                        nextState <= S_ALU0I;
+                        nextState = S_ALU0I;
                     end
                     
                     OP1_LW: begin
-                        nextState <= S_LW0;
+                        nextState = S_LW0;
                     end
                     
                     OP1_LB: begin
-                        nextState <= S_LB0;
+                        nextState = S_LB0;
                     end
                     
                     OP1_SW: begin
-                        nextState <= S_SW0;
+                        nextState = S_SW0;
                     end
                     
                     OP1_SB: begin
-                        nextState <= S_SB0;
+                        nextState = S_SB0;
                     end
                     
                     OP1_LUI: begin
-                        nextState <= S_LUI0;
+                        nextState = S_LUI0;
                     end
                     
                     OP1_BEQ, OP1_BNE, OP1_BLT, OP1_BLE: begin
-                        nextState <= S_BRCH0;
+                        nextState = S_BRCH0;
                     end
                     
                     OP1_JAL: begin
-                        nextState <= S_JUMP0;
+                        nextState = S_JUMP0;
                     end
                 endcase
             end
@@ -381,18 +381,18 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             S_ALU0I: begin
                 // ALU op: Immediate version
                 {DrImm, LdB} = {ON, ON};
-                nextState <= S_ALU1;
+                nextState = S_ALU1;
             end
             
             S_ALU0R: begin
                 // ALU op: register version
                 {regSel, DrReg, LdB} = {ry, ON, ON};
-                nextState <= S_ALU1;
+                nextState = S_ALU1;
             end
             
             S_ALU1: begin
                 {regSel, DrReg, LdA} = {rx, ON, ON};
-                nextState <= S_ALU2;
+                nextState = S_ALU2;
             end
             
             S_ALU2: begin
@@ -403,122 +403,122 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
                 end
                 
                 {regSel, DrALU, WrReg} = {rz, ON, ON};
-                nextState <= S_FETCH;
+                nextState = S_FETCH;
             end
             
             S_LW0: begin
                 {regSel, LdA, DrReg} = {rx, ON, ON};
-                nextState <= S_LW1;
+                nextState = S_LW1;
             end
             
             S_LW1: begin
                 {LdB, DrImm} = {ON, ON};
-                nextState <= S_LW2;
+                nextState = S_LW2;
             end
             
             S_LW2: begin
                 {ALUfunc, DrALU, LdMAR} = {OP2_ADD, ON, ON};
-                nextState <= S_LW3;
+                nextState = S_LW3;
             end
             
             S_LW3: begin
                 {regSel, WrReg, DrMem} = {ry, ON, ON};
-                nextState <= S_FETCH;
+                nextState = S_FETCH;
             end
             
             S_LB0: begin
                 {regSel, LdMAR, DrReg} = {rx, ON, ON};
-                nextState <= S_LB1;
+                nextState = S_LB1;
             end
             
             S_LB1: begin
                 {LdA, DrMem} = {ON, ON};
-                nextState <= S_LB2;
+                nextState = S_LB2;
             end
             
             S_LB2: begin
                 {LdB, DrImm} = {ON, ON};
-                nextState <= S_LB3;
+                nextState = S_LB3;
             end
             
             S_LB3: begin
                 {ALUfunc, regSel, DrALU, WrReg} = {OP3_BITSEL, ry, ON, ON};
-                nextState <= S_FETCH;
+                nextState = S_FETCH;
             end
 
             S_SW0: begin
                 {regSel, LdA, DrReg} = {rx, ON, ON};
-                nextState <= S_SW1;
+                nextState = S_SW1;
             end
 
             S_SW1: begin
                 {LdB, DrImm} = {ON, ON};
-                nextState <= S_SW2;
+                nextState = S_SW2;
             end
 
             S_SW2: begin
                 {ALUfunc, DrALU, LdMAR} = {OP2_ADD, ON, ON};
-                nextState <= S_SW3;
+                nextState = S_SW3;
             end
 
             S_SW3: begin
                 {regSel, WrMem, DrReg} = {ry, ON, ON};
-                nextState <= S_FETCH;
+                nextState = S_FETCH;
             end
 
             S_SB0: begin
                 {regSel, LdMAR, DrReg} = {rx, ON, ON};
-                nextState <= S_SB1;
+                nextState = S_SB1;
             end
 
             S_SB1: begin
                 {LdA, DrMem} = {ON, ON};
-                nextState <= S_SB2;
+                nextState = S_SB2;
             end
 
             S_SB2: begin
                 {LdB, DrImm} = {ON, ON};
-                nextState <= S_SB3;
+                nextState = S_SB3;
             end
 
             S_SB3: begin
                 {ALUfunc, LdA, DrALU} = {OP3_BITUNSET, ON, ON};
-                nextState <= S_SB4;
+                nextState = S_SB4;
             end
 
             S_SB4: begin
                 {regSel, LdB, DrReg} = {ry, ON, ON};
-                nextState <= S_SB5;
+                nextState = S_SB5;
             end
 
             S_SB5: begin
                 {ALUfunc, WrMem, DrALU} = {OP3_BITSET, ON, ON};
-                nextState <= S_FETCH; 
+                nextState = S_FETCH; 
             end
             
             S_LUI0: begin
                 {regSel, LdA, DrReg} = {ry, ON, ON};
-                nextState <= S_LUI1;
+                nextState = S_LUI1;
             end
             
             S_LUI1: begin
                 {LdB, DrImm} = {ON, ON};
-                nextState <= S_LUI2;
+                nextState = S_LUI2;
             end
             
             S_LUI2: begin
                 {ALUfunc, regSel, WrReg} = {OP3_LUI, rz, ON};
-                nextState <= S_FETCH;
+                nextState = S_FETCH;
             end
             
             S_BRCH0: begin
                 {regSel, LdA, DrReg} = {rx, ON, ON};
-                nextState <= S_BRCH1;
+                nextState = S_BRCH1;
             end
             
             S_BRCH1: begin
                 {regSel, LdB, DrReg} = {ry, ON, ON};
-                nextState <= S_BRCH2;
+                nextState = S_BRCH2;
             end
             
             S_BRCH2: begin
@@ -532,41 +532,41 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
                 
                 if (ALUout) begin
                     // Take the branch!
-                    nextState <= S_BRCH3;
+                    nextState = S_BRCH3;
                 end else begin
                     // Don't take the branch
-                    nextState <= S_FETCH;
+                    nextState = S_FETCH;
                 end
             end
             
             S_BRCH3: begin
                 {LdA, DrPC} = {ON, ON};
-                nextState <= S_BRCH4;
+                nextState = S_BRCH4;
             end
             
             S_BRCH4: begin
                 {LdB, ShImm} = {ON, ON};
-                nextState <= S_BRCH5;
+                nextState = S_BRCH5;
             end
             
             S_BRCH5: begin
                 {ALUfunc, LdPC, DrALU} = {OP2_ADD, ON, ON};
-                nextState <= S_FETCH;
+                nextState = S_FETCH;
             end
             
             S_JUMP0: begin
                 {regSel, WrReg, DrPC} = {ry, ON, ON};
-                nextState <= S_JUMP1;
+                nextState = S_JUMP1;
             end
             
             S_JUMP1: begin
                 {regSel, LdPC, DrReg} = {rx, ON, ON};
-                nextState <= S_FETCH;
+                nextState = S_FETCH;
             end
             
             S_ERROR: begin
                 // Remain in error state
-                nextState <= S_ERROR;
+                nextState = S_ERROR;
             end
         endcase
     end
