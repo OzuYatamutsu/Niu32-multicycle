@@ -185,7 +185,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
             
             // Push iMem instruction to IR on each clock
             if (LdIR) begin
-                IR <= imemOutput;
+                IR = imemOutput;
             end
             
             if (WrMem && !reset) begin
