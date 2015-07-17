@@ -273,9 +273,8 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     wire [(WORD_SIZE - 1):0] immOut;
 	 SXT ExtendImmTo32(.IN(imm), .OUT(immOut));
 	 // If(DrImm) drive val onto bus; else if(ShImm) drive val*instrsize onto bus
-	 assign bus = DrImm ? immOut : 
-		ShImm ? (immOut * INSTR_SIZE) : BUS_NOSIG;
-    
+	 assign bus = DrImm ? immOut : (ShImm ? (immOut * INSTR_SIZE) : BUS_NOSIG);
+	 
     // State machine
     reg [(STATE_BITS - 1):0] state, nextState;
     
@@ -326,7 +325,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         {WrMem, DrMem, LdMAR} = {OFF, OFF, OFF};
         {WrReg, DrReg, regSel} = {OFF, OFF, {(REG_BITS) {1'b0}}};
         LdIR = OFF;
-        DrImm = OFF;
+        {DrImm, ShImm} = OFF;
         {LdA, LdB, DrALU, ALUfunc} = {OFF, OFF, OFF, {(OP_BITS) {1'b0}}};
         state = nextState;
         
