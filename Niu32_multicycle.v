@@ -316,7 +316,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         S_BRCH5 = S_BRCH4 + 1'b1,
         S_JUMP0 = S_BRCH5 + 1'b1,
         S_JUMP1 = S_JUMP0 + 1'b1,
-        S_ERROR = 5'b11111;
+        S_ERROR = 6'b111111;
     
     parameter ON = 1'b1;
     parameter OFF = 1'b0;
