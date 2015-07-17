@@ -215,9 +215,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     assign bus = DrMem ? dmemOutput : BUS_NOSIG;
 
     // ALU
-    reg [(INSTR_SIZE - 1):0] A, B, ALUout;
+    reg [(WORD_SIZE - 1):0] A, B, ALUout;
     reg [(OP_BITS - 1):0] ALUfunc;
-    reg [(INSTR_SIZE - 1):0] setReg; // For SB
+    reg [(WORD_SIZE - 1):0] setReg; // For SB
     
     // Actual ALU logic
     always @(posedge clk) begin
