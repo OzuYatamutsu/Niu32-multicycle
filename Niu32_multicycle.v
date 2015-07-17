@@ -113,17 +113,17 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     //wire reset = !KEY[0]; // Reset key
     wire reset = resetReg;
     
-    // Init seven-segment display - grab values from memory
-    SevenSeg Hex0Out(.hexNumIn(ADDR_HEX[3:0]), .displayOut(HEX0));
-    SevenSeg Hex1Out(.hexNumIn(ADDR_HEX[7:4]), .displayOut(HEX1));
-    SevenSeg Hex2Out(.hexNumIn(ADDR_HEX[11:8]), .displayOut(HEX2));
-    SevenSeg Hex3Out(.hexNumIn(ADDR_HEX[15:12]), .displayOut(HEX3));
-    
     // Define I/O
     reg [(WORD_SIZE - 1):0] HEXout, LEDRout, LEDGout, KEYout, SWITCHout;
     assign LEDR = LEDRout;
     assign LEDG = LEDGout;
     
+    // Init seven-segment display
+    SevenSeg Hex0Out(.hexNumIn(HEXout[3:0]), .displayOut(HEX0));
+    SevenSeg Hex1Out(.hexNumIn(HEXout[7:4]), .displayOut(HEX1));
+    SevenSeg Hex2Out(.hexNumIn(HEXout[11:8]), .displayOut(HEX2));
+    SevenSeg Hex3Out(.hexNumIn(HEXout[15:12]), .displayOut(HEX3));
+	 
     // Create bus
     tri [(WORD_SIZE - 1):0] bus;
     
@@ -214,7 +214,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     assign bus = DrMem ? dmemOutput : BUS_NOSIG;
 
     // ALU
-    reg signed [(MEM_ADDR_BITS - 1):0] A, B, ALUout;
+    reg [(MEM_ADDR_BITS - 1):0] A, B, ALUout;
     reg [(OP_BITS - 1):0] ALUfunc;
     reg [(INSTR_SIZE - 1):0] setReg; // For SB
     
