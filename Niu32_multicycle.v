@@ -115,8 +115,8 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     
     // Define I/O
     reg [(WORD_SIZE - 1):0] HEXout, LEDRout, LEDGout, KEYout, SWITCHout;
-    assign LEDR = LEDRout;
-    assign LEDG = LEDGout;
+    assign LEDR = LEDRout[9:0];
+    assign LEDG = LEDGout[7:0];
     
     // Init seven-segment display
     SevenSeg Hex0Out(.hexNumIn(HEXout[3:0]), .displayOut(HEX0));
@@ -147,8 +147,9 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     // Hook up PC to bus
     assign bus = DrPC ? PC : BUS_NOSIG;
     
+	 // TODO: FOR NOW, THIS IS A MEMORY!!
     // Register file
-    reg [(NUM_REGS - 1):0] regFile;
+    reg [(WORD_SIZE - 1):0] regFile [(NUM_REGS - 1):0];
     reg [(REG_BITS - 1):0] regSel; // Register selector
     
     always @(posedge clk) begin
