@@ -13,7 +13,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter NUM_REGS = 32; // Number of registers.
     parameter REG_BITS = 5; // Number of selector bits for register file.
     parameter OP_BITS = 5; // Number of selector bits for the opcode.
-    parameter STATE_BITS = 5; // Number of bits for the state machine.
+    parameter STATE_BITS = 6; // Number of bits for the state machine.
     
     // I/O memory locations
     parameter ADDR_HEX = 32'hFFFF0000; // Memory location of hex lights on board.
