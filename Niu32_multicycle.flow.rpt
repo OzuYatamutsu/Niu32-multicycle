@@ -1,5 +1,5 @@
 Flow report for Niu32_multicycle
-Wed Jul 15 22:13:23 2015
+Fri Jul 17 10:35:43 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Wed Jul 15 22:13:23 2015           ;
+; Flow Status                        ; Successful - Fri Jul 17 10:35:43 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Niu32_multicycle                                ;
 ; Top-level Entity Name              ; Niu32_multicycle                                ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/15/2015 22:13:11 ;
+; Start date & time ; 07/17/2015 10:35:32 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Niu32_multicycle    ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ applicable agreement for further details.
 ; ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION                ; On                                                                                                                                                                                                                                                                                                                ; Off           ; --          ; --               ;
 ; ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION                ; On                                                                                                                                                                                                                                                                                                                ; Off           ; --          ; --               ;
 ; AUTO_RAM_TO_LCELL_CONVERSION                      ; On                                                                                                                                                                                                                                                                                                                ; Off           ; --          ; --               ;
-; COMPILER_SIGNATURE_ID                             ; 220964047305497.143701639106064                                                                                                                                                                                                                                                                                   ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID                             ; 207896008059.143714373204900                                                                                                                                                                                                                                                                                      ; --            ; --          ; --               ;
 ; CYCLONEII_OPTIMIZATION_TECHNIQUE                  ; Speed                                                                                                                                                                                                                                                                                                             ; Balanced      ; --          ; --               ;
 ; EDA_OUTPUT_DATA_FORMAT                            ; Verilog Hdl                                                                                                                                                                                                                                                                                                       ; --            ; --          ; eda_simulation   ;
 ; EDA_RUN_TOOL_AUTOMATICALLY                        ; Off                                                                                                                                                                                                                                                                                                               ; --            ; --          ; eda_simulation   ;
@@ -107,7 +107,7 @@ applicable agreement for further details.
 ; REMOVE_REDUNDANT_LOGIC_CELLS                      ; On                                                                                                                                                                                                                                                                                                                ; Off           ; --          ; --               ;
 ; ROUTER_EFFORT_MULTIPLIER                          ; 10                                                                                                                                                                                                                                                                                                                ; 1.0           ; --          ; --               ;
 ; ROUTER_TIMING_OPTIMIZATION_LEVEL                  ; MAXIMUM                                                                                                                                                                                                                                                                                                           ; Normal        ; --          ; --               ;
-; SLD_FILE                                          ; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/stp1_auto_stripped.stp                                                                                                                                                                                                                        ; --            ; --          ; --               ;
+; SLD_FILE                                          ; C:/Users/jinhai/dev/Niu32-multicycle/stp1_auto_stripped.stp                                                                                                                                                                                                                                                       ; --            ; --          ; --               ;
 ; SLD_NODE_CREATOR_ID                               ; 110                                                                                                                                                                                                                                                                                                               ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_ENTITY_NAME                              ; sld_signaltap                                                                                                                                                                                                                                                                                                     ; --            ; --          ; auto_signaltap_0 ;
 ; SLD_NODE_PARAMETER_ASSIGNMENT                     ; SLD_NODE_INFO=805334528                                                                                                                                                                                                                                                                                           ; --            ; --          ; auto_signaltap_0 ;
@@ -146,8 +146,8 @@ applicable agreement for further details.
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:13     ; 1.0                     ; 546 MB              ; 00:00:11                           ;
-; Total                  ; 00:00:13     ; --                      ; --                  ; 00:00:11                           ;
+; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 546 MB              ; 00:00:11                           ;
+; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:11                           ;
 +------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -156,7 +156,7 @@ applicable agreement for further details.
 +------------------------+------------------+-----------+------------+----------------+
 ; Module Name            ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +------------------------+------------------+-----------+------------+----------------+
-; Analysis & Elaboration ; CirnoPC          ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Elaboration ; SEANCOWIN        ; Windows 7 ; 6.2        ; x86_64         ;
 +------------------------+------------------+-----------+------------+----------------+
 
 
