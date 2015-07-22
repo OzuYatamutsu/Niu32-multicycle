@@ -1,5 +1,5 @@
 Flow report for Niu32_multicycle
-Fri Jul 17 10:35:43 2015
+Wed Jul 22 14:01:59 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,22 +40,22 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Fri Jul 17 10:35:43 2015           ;
+; Flow Status                        ; Successful - Wed Jul 22 14:01:59 2015           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; Niu32_multicycle                                ;
 ; Top-level Entity Name              ; Niu32_multicycle                                ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C20F484C7                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; N/A until Partition Merge                       ;
-;     Total combinational functions  ; N/A until Partition Merge                       ;
-;     Dedicated logic registers      ; N/A until Partition Merge                       ;
-; Total registers                    ; N/A until Partition Merge                       ;
-; Total pins                         ; N/A until Partition Merge                       ;
-; Total virtual pins                 ; N/A until Partition Merge                       ;
-; Total memory bits                  ; N/A until Partition Merge                       ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
-; Total PLLs                         ; N/A until Partition Merge                       ;
+; Total logic elements               ; 3,926 / 18,752 ( 21 % )                         ;
+;     Total combinational functions  ; 3,087 / 18,752 ( 16 % )                         ;
+;     Dedicated logic registers      ; 1,790 / 18,752 ( 10 % )                         ;
+; Total registers                    ; 1790                                            ;
+; Total pins                         ; 61 / 315 ( 19 % )                               ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 74,112 / 239,616 ( 31 % )                       ;
+; Embedded Multiplier 9-bit elements ; 6 / 52 ( 12 % )                                 ;
+; Total PLLs                         ; 0 / 4 ( 0 % )                                   ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 07/17/2015 10:35:32 ;
+; Start date & time ; 07/22/2015 13:57:34 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Niu32_multicycle    ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ applicable agreement for further details.
 ; ALLOW_ANY_RAM_SIZE_FOR_RECOGNITION                ; On                                                                                                                                                                                                                                                                                                                ; Off           ; --          ; --               ;
 ; ALLOW_ANY_ROM_SIZE_FOR_RECOGNITION                ; On                                                                                                                                                                                                                                                                                                                ; Off           ; --          ; --               ;
 ; AUTO_RAM_TO_LCELL_CONVERSION                      ; On                                                                                                                                                                                                                                                                                                                ; Off           ; --          ; --               ;
-; COMPILER_SIGNATURE_ID                             ; 207896008059.143714373204900                                                                                                                                                                                                                                                                                      ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID                             ; 2546691972437.143758785405500                                                                                                                                                                                                                                                                                     ; --            ; --          ; --               ;
 ; CYCLONEII_OPTIMIZATION_TECHNIQUE                  ; Speed                                                                                                                                                                                                                                                                                                             ; Balanced      ; --          ; --               ;
 ; EDA_OUTPUT_DATA_FORMAT                            ; Verilog Hdl                                                                                                                                                                                                                                                                                                       ; --            ; --          ; eda_simulation   ;
 ; EDA_RUN_TOOL_AUTOMATICALLY                        ; Off                                                                                                                                                                                                                                                                                                               ; --            ; --          ; eda_simulation   ;
@@ -141,29 +141,41 @@ applicable agreement for further details.
 +---------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                          ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name            ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Elaboration ; 00:00:12     ; 1.0                     ; 546 MB              ; 00:00:11                           ;
-; Total                  ; 00:00:12     ; --                      ; --                  ; 00:00:11                           ;
-+------------------------+--------------+-------------------------+---------------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:41     ; 1.0                     ; 604 MB              ; 00:00:37                           ;
+; Fitter                    ; 00:03:09     ; 1.4                     ; 818 MB              ; 00:03:58                           ;
+; Assembler                 ; 00:00:05     ; 1.0                     ; 452 MB              ; 00:00:04                           ;
+; TimeQuest Timing Analyzer ; 00:00:10     ; 1.0                     ; 521 MB              ; 00:00:09                           ;
+; EDA Netlist Writer        ; 00:00:07     ; 1.0                     ; 450 MB              ; 00:00:06                           ;
+; Total                     ; 00:04:12     ; --                      ; --                  ; 00:04:54                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                     ;
-+------------------------+------------------+-----------+------------+----------------+
-; Module Name            ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
-+------------------------+------------------+-----------+------------+----------------+
-; Analysis & Elaboration ; SEANCOWIN        ; Windows 7 ; 6.2        ; x86_64         ;
-+------------------------+------------------+-----------+------------+----------------+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; SEANCOWIN        ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; SEANCOWIN        ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; SEANCOWIN        ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; SEANCOWIN        ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; SEANCOWIN        ; Windows 7 ; 6.2        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
-quartus_map --read_settings_files=on --write_settings_files=off Niu32_multicycle -c Niu32_multicycle --analysis_and_elaboration
+quartus_map --read_settings_files=on --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
+quartus_fit --read_settings_files=off --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
+quartus_asm --read_settings_files=off --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
+quartus_sta Niu32_multicycle -c Niu32_multicycle
+quartus_eda --read_settings_files=off --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
 
 
 

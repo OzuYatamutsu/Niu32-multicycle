@@ -3,11 +3,14 @@
 	<PROJECT NAME="Niu32_multicycle">
 		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux" CBX_FILE_NAME="mux_aoc.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:\adv_point_3_and_more:advance_pointer_counter" CBX_FILE_NAME="cntr_6ci.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:read_pointer_counter" CBX_FILE_NAME="cntr_02j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_vfm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|lpm_mult:Mult0" CBX_FILE_NAME="mult_l8t.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder" CBX_FILE_NAME="decode_rqf.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram" CBX_FILE_NAME="altsyncram_8q14.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:status_advance_pointer_counter" CBX_FILE_NAME="cntr_sbi.tdf"/>
 		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:status_read_pointer_counter" CBX_FILE_NAME="cntr_gui.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|altsyncram:dmem_rtl_0" CBX_FILE_NAME="altsyncram_cdl1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Niu32_multicycle|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|LPM_COUNTER:read_pointer_counter" CBX_FILE_NAME="cntr_02j.tdf"/>
 	</PROJECT>
 	<PROJECT NAME="Project2">
 	</PROJECT>
