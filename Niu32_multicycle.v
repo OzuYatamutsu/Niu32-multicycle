@@ -228,30 +228,30 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
         end
         
         case (ALUfunc)
-            OP2_SUB: ALUout <= (A - B);
-            OP2_ADD: ALUout <= (A + B);
-            OP2_MLT: ALUout <= (A * B);
-            OP2_DIV: ALUout <= (A / B);
-            OP2_NOT: ALUout <= ~A;
-            OP2_AND: ALUout <= (A & B);
-            OP2_OR: ALUout <= (A | B);
-            OP2_XOR: ALUout <= (A ^ B);
-            OP2_SUL: ALUout <= (A << B);
-            OP2_SSL: ALUout <= (A <<< B);
-            OP2_SUR: ALUout <= (A >> B);
-            OP2_SSR: ALUout <= (A >>> B);
-            OP2_EQ: ALUout <= (A == B);
-            OP2_NEQ: ALUout <= (A != B);
-            OP2_LT: ALUout <= (A < B);
-            OP2_LEQ: ALUout <= (A <= B);
-            OP3_LUI: ALUout <= (A & (B << 23));
-            OP3_BITSEL: ALUout <= ((A & (BYTE_SEL_MASK << (24 - (B * 8)))) >> (24 - (B * 8)));
+            OP2_SUB: ALUout = (A - B);
+            OP2_ADD: ALUout = (A + B);
+            OP2_MLT: ALUout = (A * B);
+            OP2_DIV: ALUout = (A / B);
+            OP2_NOT: ALUout = ~A;
+            OP2_AND: ALUout = (A & B);
+            OP2_OR: ALUout = (A | B);
+            OP2_XOR: ALUout = (A ^ B);
+            OP2_SUL: ALUout = (A << B);
+            OP2_SSL: ALUout = (A <<< B);
+            OP2_SUR: ALUout = (A >> B);
+            OP2_SSR: ALUout = (A >>> B);
+            OP2_EQ: ALUout = (A == B);
+            OP2_NEQ: ALUout = (A != B);
+            OP2_LT: ALUout = (A < B);
+            OP2_LEQ: ALUout = (A <= B);
+            OP3_LUI: ALUout = (A & (B << 23));
+            OP3_BITSEL: ALUout = ((A & (BYTE_SEL_MASK << (24 - (B * 8)))) >> (24 - (B * 8)));
             OP3_BITUNSET: begin
                 setReg <= B;
-                ALUout <= (A & (~BYTE_SEL_MASK << (24 - (B * 8))));
+                ALUout = (A & (~BYTE_SEL_MASK << (24 - (B * 8))));
             end
-            OP3_BITSET: ALUout <= (A | setReg << (24 - (setReg * 8)));
-            default: ALUout <= BUS_NOSIG;
+            OP3_BITSET: ALUout = (A | setReg << (24 - (setReg * 8)));
+            default: ALUout = BUS_NOSIG;
         endcase
     end
     
