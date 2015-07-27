@@ -23,7 +23,7 @@ module Niu32_multicycle(SWITCH, KEY, LEDR, LEDG, HEX0, HEX1, HEX2, HEX3, CLOCK_5
     parameter ADDR_SWITCH = 32'hFFFF0120; // Memory location to access switch states on board.
     
     // Init
-    parameter INIT_MIF = "debugLightTest.mif"; // IMPORTANT! Point this to assembled Niu32 MIF!
+    parameter INIT_MIF = "test1.mif"; // IMPORTANT! Point this to assembled Niu32 MIF!
     parameter IMEM_WORDS = 2048; // Max number of words in instruction memory.
     parameter DMEM_WORDS = 2048; // Max number of words in data memory.
     parameter MEM_ADDR_BITS = 13; // Number of bits used for indexing into memory.
