@@ -1,0 +1,26 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\jinhai\dev\Niu32-multicycle\simulation\modelsim
+vNiu32_multicycle
+!i10b 1
+!s100 b:XGBXlIda6f`J=D0]I:^1
+IacgIe_R3S``gjmJ>VG0zD1
+VZAh^^jI1flEfUADNJoDf41
+Z1 dC:\Users\jinhai\dev\Niu32-multicycle\simulation\modelsim
+w1437596274
+8C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v
+FC:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v
+L0 1
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1437958017.721000
+!s107 C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/jinhai/dev/Niu32-multicycle|C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+C:/Users/jinhai/dev/Niu32-multicycle -O0
+n@niu32_multicycle

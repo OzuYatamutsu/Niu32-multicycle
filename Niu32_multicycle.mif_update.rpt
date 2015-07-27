@@ -1,0 +1,73 @@
+MIF/HEX Update report for Niu32_multicycle
+Fri Jul 17 10:20:34 2015
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. MIF/HEX Update Summary
+  3. MIF/HEX Update Processed Files
+  4. MIF/HEX Update Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------+
+; MIF/HEX Update Summary                                        ;
++-----------------------+---------------------------------------+
+; MIF/HEX Update Status ; Successful - Fri Jul 17 10:20:34 2015 ;
+; Revision Name         ; Niu32_multicycle                      ;
+; Top-level Entity Name ; Niu32_multicycle                      ;
+; Family                ; Cyclone II                            ;
+; Device                ; EP2C20F484C7                          ;
++-----------------------+---------------------------------------+
+
+
++---------------------------------------------------------+
+; MIF/HEX Update Processed Files                          ;
++---------------------------------------------------------+
+; File Name                                               ;
++---------------------------------------------------------+
+; C:/Users/jinhai/dev/Niu32-multicycle/debugLightTest.mif ;
++---------------------------------------------------------+
+
+
++-------------------------+
+; MIF/HEX Update Messages ;
++-------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit MIF/HEX Update
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Jul 17 10:20:31 2015
+Info: Command: quartus_cdb Niu32_multicycle -c Niu32_multicycle --update_mif
+Warning (113028): 2040 out of 2048 addresses are uninitialized. The Quartus II software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported.
+    Warning (113027): Addresses ranging from 8 to 2047 are not initialized
+Info (39024): Processed the following Memory Initialization File(s)
+    Info (39025): Processed Memory Initialization File C:/Users/jinhai/dev/Niu32-multicycle/debugLightTest.mif
+Info: Quartus II 64-Bit MIF/HEX Update was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 489 megabytes
+    Info: Processing ended: Fri Jul 17 10:20:34 2015
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
+
+

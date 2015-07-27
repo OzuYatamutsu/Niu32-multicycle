@@ -1,0 +1,5 @@
+set tool_name "ModelSim-Altera (Verilog)"
+set corner_file_list {
+	{{"Slow Model"} {Niu32_multicycle.vo Niu32_multicycle_v.sdo}}
+	{{"Fast Model"} {Niu32_multicycle_fast.vo Niu32_multicycle_v_fast.sdo}}
+}
