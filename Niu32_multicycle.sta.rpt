@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for Niu32_multicycle
-Fri Jul 24 14:06:36 2015
+Sun Jul 26 20:12:58 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -85,15 +85,16 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 2           ;
+; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ; < 0.1%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -102,7 +103,7 @@ applicable agreement for further details.
 +---------------+--------+--------------------------+
 ; SDC File Path ; Status ; Read at                  ;
 +---------------+--------+--------------------------+
-; Timing.sdc    ; OK     ; Fri Jul 24 14:06:30 2015 ;
+; Timing.sdc    ; OK     ; Sun Jul 26 20:12:41 2015 ;
 +---------------+--------+--------------------------+
 
 
@@ -1142,10 +1143,10 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jul 24 14:06:27 2015
+    Info: Processing started: Sun Jul 26 20:12:34 2015
 Info: Command: quartus_sta Niu32_multicycle -c Niu32_multicycle
 Info: qsta_default_script.tcl version: #1
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (11104): Parallel Compilation has detected 4 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 2 of the 2 physical processors detected instead.
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Info (332164): Evaluating HDL-embedded SDC commands
@@ -3423,9 +3424,9 @@ Info (332113): Path #1: slack is 97.778
 Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 537 megabytes
-    Info: Processing ended: Fri Jul 24 14:06:36 2015
-    Info: Elapsed time: 00:00:09
-    Info: Total CPU time (on all processors): 00:00:08
+    Info: Peak virtual memory: 541 megabytes
+    Info: Processing ended: Sun Jul 26 20:12:56 2015
+    Info: Elapsed time: 00:00:22
+    Info: Total CPU time (on all processors): 00:00:21
 
 

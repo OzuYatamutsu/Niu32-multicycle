@@ -1,5 +1,5 @@
 Assembler report for Niu32_multicycle
-Fri Jul 24 14:06:25 2015
+Sun Jul 26 20:12:31 2015
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -11,8 +11,8 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.sof
-  7. Assembler Device Options: C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.pof
+  6. Assembler Device Options: C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.sof
+  7. Assembler Device Options: C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.pof
   8. Assembler Messages
 
 
@@ -39,7 +39,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Fri Jul 24 14:06:25 2015 ;
+; Assembler Status      ; Successful - Sun Jul 26 20:12:31 2015 ;
 ; Revision Name         ; Niu32_multicycle                      ;
 ; Top-level Entity Name ; Niu32_multicycle                      ;
 ; Family                ; Cyclone II                            ;
@@ -89,37 +89,37 @@ applicable agreement for further details.
 +--------+------------------------+--------------+
 
 
-+-----------------------------------------------------------+
-; Assembler Generated Files                                 ;
-+-----------------------------------------------------------+
-; File Name                                                 ;
-+-----------------------------------------------------------+
-; C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.sof ;
-; C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.pof ;
-+-----------------------------------------------------------+
++------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                ;
++------------------------------------------------------------------------------------------+
+; File Name                                                                                ;
++------------------------------------------------------------------------------------------+
+; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.sof ;
+; C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.pof ;
++------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.sof ;
-+----------------+--------------------------------------------------------------------+
-; Option         ; Setting                                                            ;
-+----------------+--------------------------------------------------------------------+
-; Device         ; EP2C20F484C7                                                       ;
-; JTAG usercode  ; 0xFFFFFFFF                                                         ;
-; Checksum       ; 0x003FFA36                                                         ;
-+----------------+--------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.sof ;
++----------------+---------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                           ;
++----------------+---------------------------------------------------------------------------------------------------+
+; Device         ; EP2C20F484C7                                                                                      ;
+; JTAG usercode  ; 0xFFFFFFFF                                                                                        ;
+; Checksum       ; 0x003FFA36                                                                                        ;
++----------------+---------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.pof ;
-+--------------------+----------------------------------------------------------------+
-; Option             ; Setting                                                        ;
-+--------------------+----------------------------------------------------------------+
-; Device             ; EPCS16                                                         ;
-; JTAG usercode      ; 0x00000000                                                     ;
-; Checksum           ; 0x1D9B01D5                                                     ;
-; Compression Ratio  ; 2                                                              ;
-+--------------------+----------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.pof ;
++--------------------+-----------------------------------------------------------------------------------------------+
+; Option             ; Setting                                                                                       ;
++--------------------+-----------------------------------------------------------------------------------------------+
+; Device             ; EPCS16                                                                                        ;
+; JTAG usercode      ; 0x00000000                                                                                    ;
+; Checksum           ; 0x1D9B01D5                                                                                    ;
+; Compression Ratio  ; 2                                                                                             ;
++--------------------+-----------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -128,14 +128,14 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jul 24 14:06:20 2015
+    Info: Processing started: Sun Jul 26 20:12:21 2015
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Niu32_multicycle -c Niu32_multicycle
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 450 megabytes
-    Info: Processing ended: Fri Jul 24 14:06:25 2015
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:04
+    Info: Peak virtual memory: 460 megabytes
+    Info: Processing ended: Sun Jul 26 20:12:31 2015
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:10
 
 

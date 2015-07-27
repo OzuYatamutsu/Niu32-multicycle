@@ -10,9 +10,105 @@
 # ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/jinhai/dev/Niu32-multicycle {C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Jinhai\ Steakhouse/OneDrive/Misc.\ Projects/Niu32-multicycle {C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module Niu32_multicycle
 # 
 # Top level modules:
 # 	Niu32_multicycle
+# vlog -vlog01compat -work work +incdir+C:/Users/Jinhai\ Steakhouse/OneDrive/Misc.\ Projects/Niu32-multicycle {C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SevenSeg.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module SevenSeg
+# 
+# Top level modules:
+# 	SevenSeg
+# vlog -vlog01compat -work work +incdir+C:/Users/Jinhai\ Steakhouse/OneDrive/Misc.\ Projects/Niu32-multicycle {C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SXT.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module SXT
+# 
+# Top level modules:
+# 	SXT
+# 
+wave create -pattern none -portmode input -language vlog -range 9 0 /Niu32_multicycle/SWITCH
+# Niu32_multicycle
+wave create -pattern none -portmode input -language vlog -range 3 0 /Niu32_multicycle/KEY
+# Niu32_multicycle
+wave create -pattern none -portmode output -language vlog -range 9 0 /Niu32_multicycle/LEDR
+# Niu32_multicycle
+wave create -pattern none -portmode output -language vlog -range 7 0 /Niu32_multicycle/LEDG
+# Niu32_multicycle
+wave create -pattern none -portmode output -language vlog -range 6 0 /Niu32_multicycle/HEX0
+# Niu32_multicycle
+wave create -pattern none -portmode output -language vlog -range 6 0 /Niu32_multicycle/HEX1
+# Niu32_multicycle
+wave create -pattern none -portmode output -language vlog -range 6 0 /Niu32_multicycle/HEX2
+# Niu32_multicycle
+wave create -pattern none -portmode output -language vlog -range 6 0 /Niu32_multicycle/HEX3
+# Niu32_multicycle
+wave create -pattern none -portmode input -language vlog /Niu32_multicycle/CLOCK_50
+# Niu32_multicycle
+wave modify -driver freeze -pattern clock -initialvalue (no value) -period 100ns -dutycycle 50 -starttime 0ns -endtime 5000ns NewSig:/Niu32_multicycle/CLOCK_50
+# Niu32_multicycle
+vsim -novopt work.Niu32_multicycle
+# vsim -novopt work.Niu32_multicycle 
+# Loading work.Niu32_multicycle
+# Loading work.SevenSeg
+# Loading work.SXT
+add wave -position insertpoint  \
+sim:/Niu32_multicycle/CLOCK_50
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: jinhai  Hostname: SEANCOWIN  ProcessID: 6248
+# 
+#           Attempting to use alternate WLF file "./wlftswctvx".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftswctvx
+# 
+add wave -position insertpoint  \
+sim:/Niu32_multicycle/LdPC \
+sim:/Niu32_multicycle/DrPC \
+sim:/Niu32_multicycle/IncPC \
+sim:/Niu32_multicycle/WrMem \
+sim:/Niu32_multicycle/DrMem \
+sim:/Niu32_multicycle/LdMAR \
+sim:/Niu32_multicycle/WrReg \
+sim:/Niu32_multicycle/DrReg \
+sim:/Niu32_multicycle/LdIR \
+sim:/Niu32_multicycle/DrImm \
+sim:/Niu32_multicycle/ShImm \
+sim:/Niu32_multicycle/LdA \
+sim:/Niu32_multicycle/LdB \
+sim:/Niu32_multicycle/DrALU \
+sim:/Niu32_multicycle/clk \
+sim:/Niu32_multicycle/lock \
+sim:/Niu32_multicycle/clkReg \
+sim:/Niu32_multicycle/numEdges \
+sim:/Niu32_multicycle/resetReg \
+sim:/Niu32_multicycle/reset
+add wave -position insertpoint  \
+sim:/Niu32_multicycle/bus \
+sim:/Niu32_multicycle/PC \
+sim:/Niu32_multicycle/regSel \
+sim:/Niu32_multicycle/regOut \
+sim:/Niu32_multicycle/IR \
+sim:/Niu32_multicycle/imemOutput \
+sim:/Niu32_multicycle/MAR \
+sim:/Niu32_multicycle/MDR \
+sim:/Niu32_multicycle/A \
+sim:/Niu32_multicycle/B \
+sim:/Niu32_multicycle/ALUout \
+sim:/Niu32_multicycle/ALUfunc \
+sim:/Niu32_multicycle/setReg
+add wave -position insertpoint  \
+sim:/Niu32_multicycle/op1 \
+sim:/Niu32_multicycle/op2 \
+sim:/Niu32_multicycle/rx \
+sim:/Niu32_multicycle/ry \
+sim:/Niu32_multicycle/rz \
+sim:/Niu32_multicycle/imm \
+sim:/Niu32_multicycle/immOut \
+sim:/Niu32_multicycle/state
+mem load -infile test1.hex -format hex -truncate imem
+step 9000
+step 9000

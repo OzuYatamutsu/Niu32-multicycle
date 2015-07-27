@@ -2,25 +2,67 @@ m255
 K3
 13
 cModel Technology
-Z0 dC:\Users\jinhai\dev\Niu32-multicycle\simulation\modelsim
+Z0 dC:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\Niu32-multicycle\simulation\modelsim
 vNiu32_multicycle
-!i10b 1
-!s100 b:XGBXlIda6f`J=D0]I:^1
-IacgIe_R3S``gjmJ>VG0zD1
+IzDPejQ]k`bBoC5D;5zooo3
 VZAh^^jI1flEfUADNJoDf41
-Z1 dC:\Users\jinhai\dev\Niu32-multicycle\simulation\modelsim
-w1437596274
-8C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v
-FC:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v
+Z1 dC:\Users\Jinhai Steakhouse\OneDrive\Misc. Projects\Niu32-multicycle\simulation\modelsim
+w1437958910
+8C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.v
+FC:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.v
 L0 1
-OV;L;10.1d;51
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+n@niu32_multicycle
+Z4 !s92 -vlog01compat -work work {+incdir+C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle} -O0
+!i10b 1
+!s100 dl5_cID9noAB`6E5ejbbk3
+!s85 0
+!s108 1437959977.199000
+!s107 C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle|C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/Niu32_multicycle.v|
+!s101 -O0
+vSevenSeg
+I5Ih^P8_Gkz6ViEOiZc1@01
+V99c3L=@?ES?4<7VMU:Sf^1
+R1
+w1433301452
+8C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SevenSeg.v
+FC:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SevenSeg.v
+L0 1
+R2
+r1
+31
+R3
+R4
+n@seven@seg
+!i10b 1
+!s100 e_E@FS5AFc3d:6YfN574J1
+!s85 0
+!s108 1437959977.635000
+!s107 C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SevenSeg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle|C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SevenSeg.v|
+!s101 -O0
+vSXT
+!i10b 1
+!s100 <B:PRh;ePgOVh3PPf0RLQ3
+Ie2UB[<d_[XQd5PlT36[Z33
+V8bJoIbPd_Dhz5@@e;?2m>1
+R1
+w1435281216
+8C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SXT.v
+FC:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SXT.v
+L0 1
+R2
 r1
 !s85 0
 31
-!s108 1437958017.721000
-!s107 C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/jinhai/dev/Niu32-multicycle|C:/Users/jinhai/dev/Niu32-multicycle/Niu32_multicycle.v|
+!s108 1437959978.061000
+!s107 C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SXT.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle|C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/SXT.v|
 !s101 -O0
-o-vlog01compat -work work -O0
-!s92 -vlog01compat -work work +incdir+C:/Users/jinhai/dev/Niu32-multicycle -O0
-n@niu32_multicycle
+R3
+R4
+n@s@x@t

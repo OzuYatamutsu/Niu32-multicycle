@@ -673,19 +673,10 @@ set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[64] -t
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[65] -to state -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=66" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=66" -section_id auto_signaltap_0
-set_global_assignment -name VERILOG_FILE ClockDivider.v
-set_global_assignment -name MIF_FILE debugLightTest.mif
-set_global_assignment -name VERILOG_FILE Niu32_multicycle.v
-set_global_assignment -name SDC_FILE Timing.sdc
-set_global_assignment -name QIP_FILE Pll.qip
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
-set_global_assignment -name VERILOG_FILE SevenSeg.v
-set_global_assignment -name VERILOG_FILE SXT.v
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
 set_global_assignment -name EDA_RUN_TOOL_AUTOMATICALLY OFF -section_id eda_simulation
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name HEX_FILE debugLightTest.hex
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to CLOCK_50 -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=14419" -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_storage_qualifier_in[0] -to IR[0] -section_id auto_signaltap_0
@@ -761,5 +752,16 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_GAP_RECORD=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_MODE=TRANSITIONAL" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=13148" -section_id auto_signaltap_0
+set_global_assignment -name MIF_FILE test1.mif
+set_global_assignment -name VERILOG_FILE ClockDivider.v
+set_global_assignment -name MIF_FILE debugLightTest.mif
+set_global_assignment -name VERILOG_FILE Niu32_multicycle.v
+set_global_assignment -name SDC_FILE Timing.sdc
+set_global_assignment -name QIP_FILE Pll.qip
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name VERILOG_FILE SevenSeg.v
+set_global_assignment -name VERILOG_FILE SXT.v
+set_global_assignment -name HEX_FILE debugLightTest.hex
+set_global_assignment -name HEX_FILE test1.hex
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name SLD_FILE "C:/Users/jinhai/dev/Niu32-multicycle/stp1_auto_stripped.stp"
+set_global_assignment -name SLD_FILE "C:/Users/Jinhai Steakhouse/OneDrive/Misc. Projects/Niu32-multicycle/stp1_auto_stripped.stp"
